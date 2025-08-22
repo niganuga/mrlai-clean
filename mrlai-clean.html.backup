@@ -1,0 +1,3737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MR. LAI'S BRUTALIST DETAILING</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        /* BRUTALIST RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        .brutal-container,
+        .brutal-nav-container,
+        .brutal-hero-content {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+        
+        @font-face {
+            font-family: 'Gasoek One';
+            src: url('/Users/makko/cursor-dev/dev-app/claude-code-agi/mrlais-mobile-car-wash-and-detailing-service/fonts/GasoekOne-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Monsie';
+            src: url('/Users/makko/cursor-dev/dev-app/claude-code-agi/mrlais-mobile-car-wash-and-detailing-service/fonts/monsie-regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Mansalva';
+            src: url('./fonts/Mansalva-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            /* REFINED BRUTALIST COLORS */
+            --black: #000000;
+            --off-white: #FAFAFA;
+            --gold: #FFD700;
+            --pastel-pink: #F8BBD9;
+            --mint-green: #A8E6CF;
+            --dark-gray: #2C2C2C;
+            --light-gray: #E5E5E5;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--off-white);
+            color: var(--black);
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
+        
+        /* BRUTALIST TYPOGRAPHY */
+        .brutal-title {
+            font-family: 'Gasoek One', 'Impact', Arial Black, sans-serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 400;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            text-shadow: 6px 6px 0 var(--gold);
+            margin: 0;
+            line-height: 0.9;
+            -webkit-text-stroke: 2px var(--black);
+            text-stroke: 2px var(--black);
+        }
+        
+        .brutal-subtitle {
+            font-family: 'Gasoek One', 'Arial Black', Arial, sans-serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 2rem 0;
+        }
+        
+        .brutal-text {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* BRUTAL LAYOUT */
+        .brutal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .brutal-section {
+            padding: 4rem 0;
+            border-bottom: 8px solid var(--black);
+        }
+        
+        .brutal-section:last-child {
+            border-bottom: none;
+        }
+        
+        /* BRUTAL BUTTONS */
+        .brutal-button {
+            background: var(--black);
+            color: var(--off-white);
+            border: 6px solid var(--gold);
+            padding: 1.5rem 3rem;
+            font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 8px 8px 0 var(--gold);
+            margin: 1rem 1rem 1rem 0;
+            min-height: 70px;
+        }
+        
+        .brutal-button:hover {
+            background: var(--off-white);
+            color: var(--black);
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0 var(--gold);
+        }
+        
+        .brutal-button:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0 0 0 var(--gold);
+        }
+        
+        .brutal-button--pink {
+            background: var(--pastel-pink);
+            color: var(--black);
+            border: 6px solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+        }
+        
+        .brutal-button--pink:hover {
+            background: var(--black);
+            color: var(--pastel-pink);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        .brutal-button--mint {
+            background: var(--mint-green);
+            color: var(--black);
+            border: 6px solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+        }
+        
+        .brutal-button--mint:hover {
+            background: var(--black);
+            color: var(--mint-green);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        /* BRUTAL CARDS */
+        .brutal-card {
+            background: var(--off-white);
+            color: var(--black);
+            border: 6px solid var(--black);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 12px 12px 0 var(--pastel-pink);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brutal-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 16px 16px 0 var(--pastel-pink);
+        }
+        
+        .brutal-card--featured {
+            background: 
+                linear-gradient(45deg, transparent 0%, transparent 20%, #FFE55C 20%, #FFE55C 35%, transparent 35%, transparent 100%),
+                linear-gradient(45deg, transparent 60%, transparent 65%, #FFE55C 65%, #FFE55C 72%, transparent 72%, transparent 100%),
+                linear-gradient(45deg, transparent 80%, transparent 82%, #FFE55C 82%, #FFE55C 87%, transparent 87%, transparent 100%),
+                var(--gold);
+            color: var(--black);
+            box-shadow: 12px 12px 0 var(--mint-green);
+            position: relative;
+        }
+        
+        .brutal-card--featured:hover {
+            box-shadow: 16px 16px 0 var(--mint-green);
+        }
+        
+        /* BRUTAL GRID */
+        .brutal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+            align-items: stretch;
+        }
+
+        /* MOBILE-RESPONSIVE GALLERY GRID */
+        .brutal-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .brutal-card ul {
+            flex-grow: 1;
+        }
+        
+        /* BRUTAL NAVIGATION */
+        .brutal-nav {
+            background: var(--black);
+            color: var(--off-white);
+            border-bottom: 8px solid var(--gold);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* MOBILE HAMBURGER MENU */
+        .brutal-nav-toggle {
+            display: none;
+            background: var(--gold);
+            color: var(--black);
+            border: 3px solid var(--black);
+            padding: 0.75rem 1rem;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            text-align: center;
+        }
+
+        /* MOBILE PHONE NUMBER - HIDDEN BY DEFAULT */
+        .brutal-nav-mobile-phone {
+            display: none;
+        }
+
+        .brutal-nav-toggle:hover {
+            background: var(--off-white);
+            color: var(--black);
+        }
+
+        .brutal-mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--black);
+            border-left: 8px solid var(--gold);
+            transition: right 0.3s ease;
+            z-index: 2000;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .brutal-mobile-menu.open {
+            right: 0;
+        }
+
+        .brutal-mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+
+        .brutal-mobile-menu-close {
+            background: var(--gold);
+            color: var(--black);
+            border: 3px solid var(--black);
+            padding: 0.5rem 0.75rem;
+            font-weight: 900;
+            font-size: 1.5rem;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .brutal-mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .brutal-mobile-menu-links li {
+            margin-bottom: 1rem;
+        }
+
+        .brutal-mobile-menu-links a {
+            display: block;
+            color: var(--off-white);
+            text-decoration: none;
+            font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            padding: 1rem;
+            border: 3px solid transparent;
+            transition: all 0.2s ease;
+            min-height: 44px;
+            box-sizing: border-box;
+        }
+
+        .brutal-mobile-menu-links a:hover {
+            border: 3px solid var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .brutal-mobile-menu-phone {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        .brutal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1500;
+        }
+
+        .brutal-overlay.open {
+            display: block;
+        }
+        
+        .brutal-nav-container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brutal-logo {
+            font-family: 'Gasoek One', 'Impact', Arial Black, sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+        
+        .brutal-nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
+        .brutal-nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            transition: all 0.1s ease;
+        }
+        
+        .brutal-nav-link:hover {
+            border: 2px solid var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* BRUTAL HERO */
+        .brutal-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--off-white);
+            position: relative;
+        }
+        
+        
+        .brutal-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* BRUTAL ANIMATIONS */
+        @keyframes brutal-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .brutal-pulse {
+            animation: brutal-pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes brutal-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .brutal-shake {
+            animation: brutal-shake 0.5s ease-in-out;
+        }
+
+        /* SHINY BORDER ANIMATION */
+        @keyframes shiny-border {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .brutal-button--shiny {
+            background: var(--pastel-pink);
+            color: var(--black);
+            border: 6px solid var(--black);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0px;
+            box-shadow: 8px 8px 0 var(--black);
+        }
+
+        .brutal-button--shiny::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--gold),
+                rgba(255, 215, 0, 0.9),
+                var(--gold),
+                transparent
+            );
+            background-size: 200% 100%;
+            animation: shiny-border 2s ease-in-out infinite;
+            z-index: -1;
+            border-radius: 8px;
+        }
+
+        .brutal-button--shiny::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--pastel-pink);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .brutal-button--shiny span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .brutal-button--shiny:hover {
+            background: var(--black);
+            color: var(--pastel-pink);
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .brutal-button--shiny:hover::after {
+            background: var(--black);
+        }
+
+        /* BUTTON CONTAINER FOR HERO */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        /* FOOTER GRID RESPONSIVE */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 1200px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1.5fr 1.5fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* BRUTAL GALLERY STYLES */
+        .brutal-gallery-item:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .brutal-gallery-item {
+                transform: none !important;
+            }
+            
+            /* Reduce CLEAN text size and adjust positioning - MOBILE ONLY */
+            .brutal-title span:last-child {
+                font-size: clamp(4rem, 15vw, 8rem) !important;
+                margin-top: -0.25rem !important;
+            }
+            
+            /* Hide some bubbles on mobile */
+            .soap-bubble-bright:nth-child(n+9) {
+                display: none;
+            }
+            
+            /* Scale down remaining bubbles */
+            .soap-bubble-bright {
+                width: 20px !important;
+                height: 20px !important;
+            }
+            
+            .soap-bubble-bright:nth-child(6),
+            .soap-bubble-bright:nth-child(7),
+            .soap-bubble-bright:nth-child(8) {
+                width: 30px !important;
+                height: 30px !important;
+            }
+            
+            /* Tighter hero text spacing */
+            .brutal-hero p {
+                margin: 0.25rem 0 !important;
+                font-size: 1.2rem !important;
+            }
+            
+            /* Contact info tighter mobile layout */
+            .brutal-hero p[style*="textShadow"] {
+                font-size: 1rem !important;
+                line-height: 1.3;
+                padding: 0 0.5rem;
+                margin: 0.25rem 0 !important;
+            }
+            
+            /* LARGER MOBILE HERO BUTTONS - FULL WIDTH */
+            .hero-buttons {
+                margin-top: 0.75rem !important;
+                gap: 0.75rem !important;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            
+            .hero-buttons a {
+                font-size: 1.3rem !important;
+                padding: 1.25rem 2rem !important;
+                width: 100% !important;
+                max-width: none !important;
+                min-height: 70px !important;
+                font-weight: 900 !important;
+                text-align: center !important;
+                display: block !important;
+            }
+            
+            /* PRICING CARDS MOBILE - TIGHTER SPACING */
+            .brutal-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 0.75rem;
+                margin: 1.5rem 0 !important;
+            }
+            
+            .brutal-card {
+                padding: 1rem 0.75rem !important;
+                margin: 0.75rem 0 !important;
+            }
+            
+            .brutal-card h3 {
+                font-size: 1.6rem !important;
+                margin: 0.5rem 0 !important;
+            }
+            
+            .brutal-card p {
+                font-size: 0.95rem !important;
+                line-height: 1.25;
+                margin: 0.5rem 0 !important;
+            }
+            
+            /* Price text tighter on mobile */
+            .brutal-card h2 {
+                font-size: 2.8rem !important;
+                margin: 0.75rem 0 !important;
+            }
+            
+            /* Most Popular label mobile adjustment */
+            .brutal-card[style*="transform: rotate"] {
+                transform: rotate(0deg) !important;
+                position: static !important;
+                width: auto !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            /* Service features list mobile - tighter */
+            .brutal-card ul {
+                font-size: 0.9rem;
+                line-height: 1.3;
+                margin: 1rem 0 !important;
+            }
+            
+            .brutal-card ul li {
+                padding: 0.4rem 0;
+                border-bottom: 1px solid var(--black);
+            }
+            
+            /* Tighter button spacing in cards */
+            .brutal-card button {
+                margin: 1rem 0 0 0 !important;
+                padding: 1rem !important;
+            }
+            
+            /* GALLERY SECTION MOBILE - TIGHTER SPACING & RESPONSIVE HEADERS */
+            .brutal-section h2 {
+                font-size: clamp(1.8rem, 5.5vw, 2.2rem) !important;
+                margin-bottom: 0.75rem !important;
+                padding: 0 0.75rem;
+                line-height: 1.1 !important;
+                text-align: center !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                max-width: 100% !important;
+                /* Reduce stroke/border weight on mobile */
+                -webkit-text-stroke: 2px var(--off-white) !important;
+                text-stroke: 2px var(--off-white) !important;
+                text-shadow: 1px 1px 0 var(--gold), 2px 2px 0 var(--off-white) !important;
+            }
+            
+            .brutal-section p {
+                margin: 0.75rem 0 !important;
+                padding: 0 0.75rem;
+            }
+            
+            /* Gallery grid mobile - tighter */
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 0.75rem;
+                margin: 1rem 0 !important;
+            }
+            
+            .brutal-gallery-item {
+                margin: 0;
+            }
+            
+            .brutal-gallery-item > div:first-child {
+                height: 180px;
+            }
+            
+            .brutal-gallery-item div[style*="background: var(--black)"] {
+                padding: 0.6rem;
+                font-size: 0.75rem;
+            }
+            
+            /* MASON'S STORY SECTION MOBILE - TIGHTER SPACING */
+            .brutal-section .brutal-container {
+                padding: 0 0.75rem !important;
+            }
+            
+            /* Story text mobile - tighter */
+            .brutal-section p[style*="fontFamily: 'Mansalva'"] {
+                font-size: 1.05rem !important;
+                line-height: 1.4;
+                margin: 0.75rem 0 !important;
+                text-align: left;
+                padding: 0.75rem;
+            }
+            
+            /* Portrait image mobile positioning - tighter */
+            img[src*="mason-portrait-doodle.png"] {
+                float: none !important;
+                display: block;
+                margin: 0.75rem auto !important;
+                max-width: 140px;
+                height: auto;
+            }
+            
+            /* Standards section mobile - tighter */
+            .brutal-section div[style*="border: 6px solid var(--gold)"] {
+                margin: 1.5rem 0 !important;
+                padding: 0.75rem !important;
+            }
+            
+            .brutal-section div[style*="border: 6px solid var(--gold)"] h3 {
+                font-size: 1.4rem !important;
+                margin: 0.5rem 0 !important;
+            }
+            
+            .brutal-section div[style*="border: 6px solid var(--gold)"] ul {
+                margin: 0.75rem 0 !important;
+            }
+            
+            .brutal-section div[style*="border: 6px solid var(--gold)"] ul li {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+            }
+        }
+        
+        /* EXTRA SMALL SCREENS (iPhone SE, etc.) */
+        @media (max-width: 390px) {
+            .brutal-title span:last-child {
+                font-size: clamp(3rem, 12vw, 6rem) !important;
+            }
+            
+            .brutal-hero p[style*="textShadow"] {
+                font-size: 0.8rem !important;
+            }
+            
+            .brutal-card {
+                padding: 1rem 0.5rem;
+            }
+            
+            .brutal-section h2 {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* SOAP BUBBLES */
+        .soap-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
+            border: 2px solid rgba(173, 216, 230, 0.4);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+            box-shadow: 
+                inset 0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(173, 216, 230, 0.2);
+        }
+
+        /* PINK-BLUE GRADIENT BUBBLES */
+        .soap-bubble-bright {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.9), rgba(255, 182, 193, 0.8), rgba(173, 216, 230, 0.7), rgba(135, 206, 250, 0.6));
+            border: 3px solid rgba(255, 182, 193, 0.5);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+            box-shadow: 
+                inset 0 0 30px rgba(255, 255, 255, 0.4),
+                0 0 25px rgba(255, 182, 193, 0.3),
+                0 0 35px rgba(173, 216, 230, 0.2);
+        }
+
+        .soap-bubble:nth-child(1) {
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+
+        .soap-bubble:nth-child(2) {
+            animation-delay: -2s;
+            animation-duration: 6s;
+        }
+
+        .soap-bubble:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+
+        .soap-bubble:nth-child(4) {
+            animation-delay: -1s;
+            animation-duration: 7s;
+        }
+
+        .soap-bubble:nth-child(5) {
+            animation-delay: -3s;
+            animation-duration: 9s;
+        }
+
+        .soap-bubble-bright:nth-child(6) {
+            animation-delay: -1.5s;
+            animation-duration: 8.5s;
+        }
+
+        .soap-bubble-bright:nth-child(7) {
+            animation-delay: -3.5s;
+            animation-duration: 7.5s;
+        }
+
+        .soap-bubble-bright:nth-child(8) {
+            animation-delay: -0.5s;
+            animation-duration: 9.5s;
+        }
+
+        .soap-bubble-bright:nth-child(9) {
+            animation-delay: -2.5s;
+            animation-duration: 8s;
+        }
+
+        .soap-bubble-bright:nth-child(10) {
+            animation-delay: -4.5s;
+            animation-duration: 7.2s;
+        }
+
+        .soap-bubble-bright:nth-child(11) {
+            animation-delay: -1.2s;
+            animation-duration: 8.8s;
+        }
+
+        .soap-bubble-bright:nth-child(12) {
+            animation-delay: -3.8s;
+            animation-duration: 9.2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+                opacity: 1;
+            }
+            66% {
+                transform: translateY(-10px) rotate(240deg);
+                opacity: 0.8;
+            }
+        }
+        
+        /* BRUTAL FORMS */
+        .brutal-form {
+            background: var(--concrete-gray);
+            border: 6px solid var(--black);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .brutal-input {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: 4px solid var(--black);
+            background: var(--off-white);
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+        
+        .brutal-input:focus {
+            outline: none;
+            background: var(--electric-yellow);
+            border-color: var(--danger-red);
+        }
+        
+        .brutal-label {
+            display: block;
+            font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--off-white);
+        }
+        
+        /* BRUTAL QUOTE */
+        .brutal-quote {
+            background: var(--pastel-pink);
+            color: var(--black);
+            border: 8px solid var(--black);
+            padding: 3rem;
+            margin: 3rem 0;
+            font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            transform: rotate(-1deg);
+        }
+        
+        .brutal-quote::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -2rem;
+            left: 1rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+        
+        /* BRUTAL PRICE */
+        .brutal-price {
+            font-family: 'Gasoek One', 'Impact', Arial Black, sans-serif;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--mint-green);
+            text-shadow: 4px 4px 0 var(--black);
+            -webkit-text-stroke: 2px var(--black);
+            text-stroke: 2px var(--black);
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        /* BRUTAL CONTACT */
+        .brutal-contact {
+            background: var(--gold);
+            color: var(--black);
+            border: 8px solid var(--black);
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .brutal-phone {
+            font-family: 'Gasoek One', 'Impact', Arial Black, sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            text-shadow: 2px 2px 0 var(--white);
+            margin: 1rem 0;
+            text-decoration: none;
+            color: var(--black);
+        }
+        
+        .brutal-phone:hover {
+            color: var(--danger-red);
+        }
+        
+        /* MOBILE NAVIGATION */
+        @media (max-width: 768px) {
+            .brutal-nav {
+                padding: 0.5rem 0 0.25rem 0;
+                position: relative;
+            }
+            
+            .brutal-nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding: 0 0.75rem;
+                flex-wrap: nowrap;
+            }
+            
+            /* Hide desktop navigation elements */
+            .brutal-nav-links {
+                display: none !important;
+            }
+            
+            /* Hide desktop book now button */
+            .brutal-nav-container > a.brutal-button {
+                display: none !important;
+            }
+            
+            /* Mobile logo and text section */
+            .brutal-nav-container > div:first-child {
+                display: flex !important;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .brutal-nav-container > div:first-child img {
+                height: 30px !important;
+            }
+            
+            .brutal-nav-container > div:first-child > div {
+                font-size: 0.8rem !important;
+                line-height: 1.1 !important;
+                word-spacing: 1px !important;
+                letter-spacing: 0px !important;
+                margin: 0 !important;
+            }
+            
+            /* Mobile phone number below logo - SHOW ONLY ON MOBILE */
+            .brutal-nav-mobile-phone {
+                display: block !important;
+                font-size: 0.9rem !important;
+                color: var(--gold) !important;
+                font-weight: 800 !important;
+                text-decoration: none !important;
+                margin-top: 0.15rem;
+            }
+            
+            /* Show mobile hamburger toggle */
+            .brutal-nav-toggle {
+                display: block !important;
+                padding: 0.5rem 0.75rem;
+                font-size: 1.1rem;
+                margin-top: 0.25rem;
+            }
+            
+            /* Hide mobile logo text since we're showing main logo */
+            .brutal-mobile-logo {
+                display: none !important;
+            }
+            
+            /* MOBILE HERO SECTION - TIGHTER SPACING */
+            .brutal-hero {
+                padding: 0.5rem 0 1rem 0;
+                min-height: 85vh;
+            }
+            
+            .brutal-hero-content {
+                padding: 0.5rem;
+            }
+            
+            .brutal-title {
+                margin-top: 0 !important;
+                margin-bottom: 0.5rem !important;
+                text-align: center;
+            }
+            
+            /* Prevent overflow from bubbles and text */
+            .brutal-title,
+            .brutal-hero-content {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
+            
+            /* Ensure soap bubbles don't cause overflow */
+            .soap-bubble-bright {
+                max-width: calc(100vw - 40px);
+            }
+            
+            /* Fix any wide elements */
+            * {
+                max-width: 100vw;
+                box-sizing: border-box;
+            }
+            
+            .brutal-nav-toggle {
+                display: block;
+            }
+            
+            .brutal-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .brutal-gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .brutal-button {
+                display: block;
+                text-align: center;
+                margin: 1rem 0;
+                padding: 1.2rem 2rem;
+                font-size: 1.2rem;
+                min-height: 60px;
+            }
+            
+            .brutal-title {
+                font-size: 3rem;
+                -webkit-text-stroke: 1.5px var(--black);
+                text-stroke: 1.5px var(--black);
+            }
+
+            
+            /* GENERAL MOBILE TIGHTER SPACING */
+            .brutal-container {
+                padding: 0.75rem !important;
+            }
+            
+            .brutal-section {
+                padding: 1.5rem 0 !important;
+            }
+            
+            /* MOBILE-ONLY SECTION TITLES - RESPONSIVE & LIGHTER STROKES */
+            .brutal-section h2 {
+                margin: 0.75rem 0 !important;
+                font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
+                line-height: 1.1 !important;
+                text-align: center !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                max-width: 100% !important;
+                padding: 0 0.5rem !important;
+                /* Lighter strokes for mobile only */
+                -webkit-text-stroke: 2px var(--off-white) !important;
+                text-stroke: 2px var(--off-white) !important;
+                text-shadow: 1px 1px 0 var(--gold), 2px 2px 0 var(--off-white) !important;
+            }
+            
+            /* Specific styling for multi-line headers like "TOP DIRTY CAR TRANSFORMATIONS" */
+            .brutal-section h2 span {
+                display: inline-block !important;
+                max-width: 100% !important;
+            }
+            
+            /* Main hero title mobile stroke adjustment */
+            .brutal-title {
+                -webkit-text-stroke: 2px var(--black) !important;
+                text-stroke: 2px var(--black) !important;
+            }
+            
+            /* CLEAN text stroke adjustment for mobile */
+            .brutal-title span:last-child {
+                -webkit-text-stroke: 4px var(--gold) !important;
+                text-stroke: 4px var(--gold) !important;
+            }
+            
+            /* Mobile subtitle responsive sizing */
+            .brutal-subtitle {
+                font-size: clamp(1.2rem, 4vw, 2rem) !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                max-width: 100% !important;
+                padding: 0 0.5rem !important;
+            }
+            
+            /* Price text mobile responsive */
+            .brutal-price {
+                font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+                -webkit-text-stroke: 1.5px var(--black) !important;
+                text-stroke: 1.5px var(--black) !important;
+            }
+            
+            /* Contact section mobile - tighter */
+            .brutal-contact {
+                padding: 1.5rem 1rem !important;
+                margin: 1.5rem 0 !important;
+            }
+            
+            .brutal-contact h3 {
+                margin: 0.5rem 0 !important;
+            }
+            
+            .brutal-contact p {
+                margin: 0.5rem 0 !important;
+            }
+            
+            /* Contact form mobile - tighter */
+            .brutal-contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+                margin: 2rem 0 !important;
+            }
+            
+            .brutal-form {
+                padding: 1.5rem !important;
+                margin: 1rem 0 !important;
+            }
+            
+            .brutal-input {
+                margin-bottom: 0.75rem !important;
+                padding: 1rem !important;
+            }
+            
+            .brutal-label {
+                margin-bottom: 0.4rem !important;
+            }
+            
+            /* Reduce soap bubbles on mobile for performance */
+            .soap-bubble-bright:nth-child(n+7) {
+                display: none;
+            }
+            
+            /* Simplify animations on mobile */
+            .soap-bubble,
+            .soap-bubble-bright {
+                animation-duration: 4s;
+            }
+            
+            /* Footer responsive adjustments */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            /* Contact info mobile optimization */
+            .brutal-phone {
+                font-size: 2rem;
+            }
+        }
+
+        /* Small mobile devices (360px and below) */
+        @media (max-width: 390px) {
+            .brutal-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .brutal-gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .brutal-container {
+                padding: 0.75rem;
+            }
+            
+            .brutal-title {
+                font-size: 2.5rem;
+                -webkit-text-stroke: 1px var(--black);
+                text-stroke: 1px var(--black);
+            }
+            
+            .brutal-button {
+                padding: 1rem 1.5rem;
+                font-size: 1.1rem;
+                margin: 0.8rem 0;
+                min-height: 50px;
+            }
+            
+            .brutal-phone {
+                font-size: 1.8rem;
+            }
+            
+            /* Further reduce bubbles on small screens */
+            .soap-bubble-bright:nth-child(n+5) {
+                display: none;
+            }
+            
+            /* Smaller hero buttons */
+            .hero-buttons {
+                gap: 1.5rem;
+            }
+            
+            .hero-buttons .brutal-button {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            /* Mobile typography improvements */
+            .brutal-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .brutal-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Contact info mobile stacking */
+            .brutal-contact {
+                text-align: center;
+            }
+            
+            /* Service card mobile optimization */
+            .brutal-price {
+                font-size: 3rem;
+                -webkit-text-stroke: 1px var(--black);
+                text-stroke: 1px var(--black);
+            }
+            
+            /* Footer mobile improvements */
+            .footer-grid > div {
+                text-align: center;
+            }
+            
+            /* Better mobile padding */
+            .brutal-section {
+                padding: 1.5rem 0;
+            }
+        }
+
+        /* Accessibility improvements for mobile */
+        @media (prefers-reduced-motion: reduce) {
+            .soap-bubble,
+            .soap-bubble-bright {
+                animation: none;
+            }
+            
+            .brutal-pulse {
+                animation: none;
+            }
+            
+            .brutal-shake {
+                animation: none;
+            }
+        }
+
+        /* Mobile menu toggle visibility */
+        .brutal-mobile-logo {
+            display: none;
+            font-family: 'Gasoek One', 'Impact', Arial Black, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .brutal-mobile-logo {
+                display: block;
+            }
+            
+            /* Contact form mobile optimization */
+            .brutal-contact {
+                padding: 2rem 1.5rem;
+            }
+            
+            .brutal-input {
+                font-size: 1.2rem;
+                padding: 1.2rem;
+                min-height: 44px;
+            }
+            
+            /* Mobile grid adjustments for contact section */
+            .brutal-contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            
+            /* Better spacing for mobile */
+            .hero-buttons .brutal-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            /* Disable hover effects on mobile for better performance */
+            .brutal-card:hover,
+            .brutal-gallery-item:hover {
+                transform: none;
+                box-shadow: initial;
+            }
+            
+            /* Reduce motion for mobile */
+            .brutal-pulse {
+                animation: none;
+            }
+            
+            /* Touch-friendly adjustments */
+            .brutal-nav-link,
+            .brutal-mobile-menu-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* BRUTAL SECTION HEADERS */
+        .brutal-section-title {
+            -webkit-text-stroke: 3px var(--off-white);
+            text-stroke: 3px var(--off-white);
+            color: var(--black);
+            text-shadow: 2px 2px 0 var(--gold), 4px 4px 0 var(--off-white);
+        }
+        
+        /* BRUTAL UTILITIES */
+        .brutal-uppercase {
+            text-transform: uppercase;
+        }
+        
+        .brutal-center {
+            text-align: center;
+        }
+        
+        .brutal-bold {
+            font-weight: 900;
+        }
+        
+        .brutal-shadow {
+            box-shadow: 8px 8px 0 var(--black);
+        }
+        
+        .brutal-border {
+            border: 4px solid var(--black);
+        }
+    </style>
+</head>
+<body>
+    <div id="react-root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // BRUTAL NAVIGATION COMPONENT
+        const BrutalNav = () => {
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+            const toggleMobileMenu = () => {
+                setMobileMenuOpen(!mobileMenuOpen);
+            };
+
+            const closeMobileMenu = () => {
+                setMobileMenuOpen(false);
+            };
+
+            return (
+                <>
+                    <nav className="brutal-nav">
+                        <div className="brutal-nav-container">
+                            <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: '280px'}}>
+                                <img src="./brand_assets/mr-lai-logo.png" 
+                                    alt="Mr. Lai Logo" 
+                                    style={{
+                                        height: '40px',
+                                        width: 'auto',
+                                        filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
+                                    }} 
+                                />
+                                <div style={{
+                                    fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
+                                    fontSize: '1.1rem',
+                                    color: 'var(--off-white)',
+                                    textTransform: 'uppercase',
+                                    fontWeight: 'normal',
+                                    lineHeight: '1.2',
+                                    letterSpacing: '0.5px',
+                                    wordSpacing: '2px',
+                                    textShadow: '2px 2px 0 var(--black), -2px -2px 0 var(--black), 2px -2px 0 var(--black), -2px 2px 0 var(--black)',
+                                    WebkitTextStroke: '1px var(--black)',
+                                    textStroke: '1px var(--black)',
+                                    paintOrder: 'stroke fill'
+                                }}>Mobile Car Wash &<br/>Detailing Services</div>
+                                <a href="tel:323-558-2652" className="brutal-nav-mobile-phone">
+                                    (323) 558-2652
+                                </a>
+                            </div>
+
+                            {/* Mobile Logo */}
+                            <div className="brutal-mobile-logo">
+                                MR. LAI'S
+                            </div>
+
+                            <ul className="brutal-nav-links">
+                                <li><a href="#services" className="brutal-nav-link">SERVICES</a></li>
+                                <li><a href="#education" className="brutal-nav-link">NO CONFUSION</a></li>
+                                <li><a href="#gallery" className="brutal-nav-link">BEFORE & AFTER</a></li>
+                                <li><a href="#about" className="brutal-nav-link">OUR STORY</a></li>
+                                <li><a href="#contact" className="brutal-nav-link">CONTACT</a></li>
+                            </ul>
+
+                            {/* Desktop Book Now Button */}
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                color: 'white !important',
+                                fontWeight: '900 !important',
+                                fontSize: '1.4rem !important',
+                                WebkitTextStroke: 'none !important',
+                                textStroke: 'none !important',
+                                minWidth: '200px',
+                                textAlign: 'center'
+                            }}>
+                                BOOK NOW
+                            </a>
+
+                            {/* Mobile Menu Toggle */}
+                            <button className="brutal-nav-toggle" onClick={toggleMobileMenu}>
+                                ☰
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Mobile Menu Overlay */}
+                    <div className={`brutal-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={closeMobileMenu}></div>
+
+                    {/* Mobile Menu */}
+                    <div className={`brutal-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                        <div className="brutal-mobile-menu-header">
+                            <div style={{
+                                fontFamily: 'Gasoek One, Impact, Arial Black, sans-serif',
+                                fontSize: '1.3rem',
+                                color: 'var(--gold)',
+                                textTransform: 'uppercase'
+                            }}>
+                                MR. LAI'S
+                            </div>
+                            <button className="brutal-mobile-menu-close" onClick={closeMobileMenu}>
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <ul className="brutal-mobile-menu-links">
+                            <li><a href="#services" onClick={closeMobileMenu}>SERVICES</a></li>
+                            <li><a href="#education" onClick={closeMobileMenu}>NO CONFUSION</a></li>
+                            <li><a href="#gallery" onClick={closeMobileMenu}>BEFORE & AFTER</a></li>
+                            <li><a href="#about" onClick={closeMobileMenu}>OUR STORY</a></li>
+                            <li><a href="#contact" onClick={closeMobileMenu}>CONTACT</a></li>
+                        </ul>
+                        
+                        <div className="brutal-mobile-menu-phone">
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                width: '100%',
+                                color: 'white !important',
+                                fontWeight: '900 !important',
+                                fontSize: '1.3rem !important',
+                                WebkitTextStroke: 'none !important',
+                                textStroke: 'none !important',
+                                textAlign: 'center'
+                            }} onClick={closeMobileMenu}>
+                                📞 CALL NOW
+                            </a>
+                        </div>
+                    </div>
+                </>
+            );
+        };
+
+        // BRUTAL HERO COMPONENT
+        const BrutalHero = () => {
+            const [shaking, setShaking] = useState(false);
+
+            const handleShake = () => {
+                setShaking(true);
+                setTimeout(() => setShaking(false), 500);
+            };
+
+            return (
+                <section className="brutal-hero">
+                    <div className="brutal-hero-content" style={{padding: '2rem 1.5rem', maxWidth: '98vw', margin: '0 auto'}}>
+                        <h1 className={`brutal-title ${shaking ? 'brutal-shake' : ''}`} style={{marginTop: '0.5rem'}}>
+                            <span style={{
+                                color: 'white',
+                                fontFamily: 'Impact, Arial Black, sans-serif',
+                                WebkitTextStroke: '2.5px var(--black)',
+                                textStroke: '2.5px var(--black)',
+                                textShadow: '6px 6px 0 var(--gold)',
+                                fontSize: 'clamp(2.2rem, 7vw, 5.5rem)'
+                            }}>NOT JUST CLEAN,</span><br/>
+                            <span style={{
+                                fontFamily: 'Monsie, Gasoek One, Impact, Arial Black, sans-serif',
+                                fontSize: 'clamp(8rem, 20vw, 20rem)',
+                                color: 'var(--pastel-pink)',
+                                background: 'linear-gradient(45deg, #000000 0%, #333333 25%, #FFD700 50%, #333333 75%, #000000 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextStroke: '3px var(--black)',
+                                backgroundClip: 'text',
+                                textStroke: '3px var(--black)',
+                                filter: 'drop-shadow(4px 4px 0 var(--black)) drop-shadow(-4px -4px 0 var(--black)) drop-shadow(4px -4px 0 var(--black)) drop-shadow(-4px 4px 0 var(--black)) drop-shadow(12px 12px 0 var(--gold))',
+                                paintOrder: 'stroke fill',
+                                display: 'block',
+                                lineHeight: '0.8',
+                                marginBottom: '-3rem',
+                                position: 'relative',
+                                zIndex: 2
+                            }}>Mr. Lai</span>
+
+                            <div style={{ 
+                                position: 'relative', 
+                                display: 'block',
+                                width: '100%',
+                                maxWidth: '100vw',
+                                margin: '0 auto',
+                                padding: '0 3rem',
+                                overflow: 'visible'
+                            }}>
+                                <span style={{
+                                    color: 'var(--mint-green)', 
+                                    display: 'block', 
+                                    marginTop: '-0.5rem',
+                                    fontSize: 'clamp(5rem, 14vw, 14rem)',
+                                    fontFamily: 'Impact, Arial Black, sans-serif',
+                                    fontWeight: 900,
+                                    WebkitTextStroke: '2.5px var(--black)',
+                                    textStroke: '2.5px var(--black)',
+                                    textShadow: '8px 8px 0 var(--pastel-pink)',
+                                    position: 'relative',
+                                    zIndex: 2,
+                                    textAlign: 'center'
+                                }}>CLEAN</span>
+                                
+                                {/* Bright Blue Soap Bubbles */}
+                                <div className="soap-bubble-bright" style={{
+                                    width: '60px',
+                                    height: '60px',
+                                    top: '-20px',
+                                    right: '5%',
+                                    zIndex: 1
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    top: '20%',
+                                    left: '5%',
+                                    zIndex: 1
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '80px',
+                                    height: '80px',
+                                    top: '60%',
+                                    right: '8%',
+                                    zIndex: 1
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '25px',
+                                    height: '25px',
+                                    top: '10px',
+                                    left: '20%',
+                                    zIndex: 3
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '35px',
+                                    height: '35px',
+                                    bottom: '10px',
+                                    left: '8%',
+                                    zIndex: 1
+                                }}></div>
+                                
+                                {/* Bigger, Brighter Blue Bubbles around middle */}
+                                <div className="soap-bubble-bright" style={{
+                                    width: '100px',
+                                    height: '100px',
+                                    top: '30%',
+                                    right: '2%',
+                                    zIndex: 3
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '70px',
+                                    height: '70px',
+                                    top: '35%',
+                                    left: '2%',
+                                    zIndex: 2
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '90px',
+                                    height: '90px',
+                                    top: '45%',
+                                    left: '15%',
+                                    zIndex: 1
+                                }}></div>
+                                
+                                {/* Additional bubbles in the middle area */}
+                                <div className="soap-bubble-bright" style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    top: '40%',
+                                    left: '50%',
+                                    zIndex: 2
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '75px',
+                                    height: '75px',
+                                    top: '25%',
+                                    left: '30%',
+                                    zIndex: 1
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '45px',
+                                    height: '45px',
+                                    top: '55%',
+                                    left: '40%',
+                                    zIndex: 2
+                                }}></div>
+                                <div className="soap-bubble-bright" style={{
+                                    width: '65px',
+                                    height: '65px',
+                                    top: '35%',
+                                    right: '25%',
+                                    zIndex: 1
+                                }}></div>
+                            </div>
+                        </h1>
+                        <p className="brutal-text" style={{margin: '1rem 0', fontSize: '1.5rem'}}>
+                            CALL, TEXT, EMAIL OR DM
+                        </p>
+                        <p style={{
+                            textAlign: 'center',
+                            fontSize: '1.1rem',
+                            fontWeight: 'bold',
+                            color: 'var(--black)',
+                            margin: '1rem 0',
+                            textShadow: '2px 2px 0 var(--off-white)'
+                        }}>
+                            📞 (323) 558-2652 | 📧 mrlai.mcds@gmail.com | 📱 @mr.lai_detailing
+                        </p>
+                        <div className="hero-buttons">
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                background: 'var(--black)',
+                                color: 'var(--gold)',
+                                border: '3px solid var(--gold)',
+                                boxShadow: '6px 6px 0 var(--black)',
+                                fontWeight: '900',
+                                textTransform: 'uppercase'
+                            }}>
+                                <span>📞 GET MR LAI CLEAN</span>
+                            </a>
+                            <a href="#services" className="brutal-button brutal-button--mint" onClick={handleShake}>
+                                SEE SERVICES
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL SERVICE CARD COMPONENT
+        const BrutalServiceCard = ({ price, name, subtitle, description, features, popular, buttonText, onClick, duration, centerAlign, colorScheme }) => {
+            const [hovered, setHovered] = useState(false);
+            const [tooltipVisible, setTooltipVisible] = useState({});
+
+            return (
+                <div 
+                    className={`brutal-card ${popular ? 'brutal-card--featured' : ''}`}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                    style={{
+                        minHeight: '480px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        position: 'relative',
+                        padding: '1rem'
+                    }}
+                >
+                    {popular && (
+                        <div style={{
+                            background: 'var(--mint-green)',
+                            color: 'var(--black)',
+                            padding: '0.5rem 1.5rem',
+                            fontFamily: 'Arial Black',
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            border: '4px solid var(--black)',
+                            position: 'absolute',
+                            top: '-15px',
+                            left: '-15px',
+                            transform: 'rotate(-15deg)',
+                            zIndex: 10,
+                            fontSize: '0.9rem'
+                        }}>
+                            MOST POPULAR
+                        </div>
+                    )}
+                    <div className="brutal-price" style={{
+                        marginTop: popular ? '0.5rem' : '0',
+                        textAlign: 'center',
+                        fontSize: '2.2rem'
+                    }}>{price}</div>
+                    <h3 className="brutal-subtitle" style={{fontSize: '1.8rem', margin: '0.5rem 0', textAlign: 'center'}}>
+                        {name}
+                    </h3>
+                    <h4 style={{
+                        fontSize: '1rem',
+                        fontWeight: 'bold',
+                        color: 'var(--pastel-pink)',
+                        margin: '0.3rem 0',
+                        fontStyle: 'italic',
+                        textAlign: 'center',
+                        border: '3px solid var(--black)',
+                        boxShadow: '4px 4px 0 var(--black)',
+                        padding: '0.3rem 0.8rem',
+                        display: 'inline-block',
+                        background: 'white'
+                    }}>
+                        "{subtitle}"
+                    </h4>
+                    <p className="brutal-text" style={{margin: '0.5rem 0', fontStyle: 'italic', fontSize: '0.9rem'}}>
+                        "{description}"
+                    </p>
+                    {duration && (
+                        <p style={{
+                            margin: '0.3rem 0 0.5rem 0',
+                            fontSize: '0.8rem',
+                            fontWeight: 'bold',
+                            color: 'var(--gold)',
+                            background: 'var(--black)',
+                            padding: '0.3rem',
+                            border: '2px solid var(--gold)',
+                            textAlign: 'center'
+                        }}>
+                            ⏱️ {duration}
+                        </p>
+                    )}
+                    <ul style={{listStyle: 'none', margin: '1rem 0', flex: '1'}}>
+                        {features.map((feature, index) => (
+                            <li key={index} style={{
+                                padding: '0.3rem 0',
+                                fontWeight: 'bold',
+                                borderBottom: '2px solid var(--black)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                position: 'relative',
+                                fontSize: '0.9rem'
+                            }}>
+                                <span style={{
+                                    background: 'var(--gold)',
+                                    color: 'var(--black)',
+                                    width: '20px',
+                                    height: '20px',
+                                    marginRight: '1rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontWeight: 900,
+                                    border: '2px solid var(--black)'
+                                }}>
+                                    ✓
+                                </span>
+                                <span 
+                                    style={{
+                                        cursor: typeof feature === 'object' ? 'help' : 'default',
+                                        borderBottom: typeof feature === 'object' ? '1px dotted var(--gold)' : 'none'
+                                    }}
+                                    onMouseEnter={() => {
+                                        if (typeof feature === 'object') {
+                                            setTooltipVisible(prev => ({...prev, [index]: true}));
+                                        }
+                                    }}
+                                    onMouseLeave={() => {
+                                        if (typeof feature === 'object') {
+                                            setTooltipVisible(prev => ({...prev, [index]: false}));
+                                        }
+                                    }}
+                                >
+                                    {typeof feature === 'object' ? feature.text : feature}
+                                </span>
+                                {typeof feature === 'object' && tooltipVisible[index] && (
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '-60px',
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        background: 'var(--black)',
+                                        color: 'var(--gold)',
+                                        padding: '0.5rem 1rem',
+                                        border: '2px solid var(--gold)',
+                                        fontSize: '0.8rem',
+                                        maxWidth: '200px',
+                                        textAlign: 'center',
+                                        zIndex: 100,
+                                        boxShadow: '4px 4px 0 var(--black)'
+                                    }}>
+                                        {feature.tooltip}
+                                    </div>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                    <button 
+                        className="brutal-button"
+                        onClick={onClick}
+                        style={{
+                            width: '100%', 
+                            margin: 'auto 0 0 0',
+                            minHeight: '50px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '1.1rem',
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            background: colorScheme?.primary || 'var(--gold)',
+                            color: 'var(--black)',
+                            border: `3px solid var(--black)`,
+                            boxShadow: `4px 4px 0 var(--black)`,
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        {buttonText}
+                    </button>
+                </div>
+            );
+        };
+
+        // BRUTAL SERVICES COMPONENT
+        const BrutalServices = () => {
+            const services = [
+                {
+                    price: '$125-$175',
+                    name: 'BRONZE',
+                    subtitle: 'Better Than Basic',
+                    description: 'Clean enough that Papa Lai wouldn\'t yell... much.',
+                    features: [
+                        'FOAM WASH & WAX',
+                        'DEEP WHEEL & TIRE CLEANING',
+                        'WINDOW CLEANING',
+                        'DOOR JAMB CLEANING',
+                        'INTERIOR BLOWOUT & VACUUM'
+                    ],
+                    duration: '1 - 1.5 hours',
+                    popular: false,
+                    buttonText: 'BOOK BRONZE',
+                    colorScheme: {
+                        primary: '#CD7F32',
+                        background: '#F5E6D3',
+                        accent: '#8B4513'
+                    }
+                },
+                {
+                    price: '$175-$225',
+                    name: 'SILVER', 
+                    subtitle: 'Actually Clean',
+                    description: 'The one everyone gets. Because basic was never really an option.',
+                    features: [
+                        'EVERYTHING IN BRONZE',
+                        'DOOR PANEL & DASHBOARD CLEANING',
+                        'CENTER CONSOLE CLEANING',
+                        'PLASTIC & LEATHER CONDITIONING',
+                        'AIR FRESHENER'
+                    ],
+                    duration: '2 - 2.5 hours',
+                    popular: true,
+                    buttonText: 'BOOK SILVER',
+                    colorScheme: {
+                        primary: '#C0C0C0',
+                        background: '#F8F8FF',
+                        accent: '#708090'
+                    }
+                },
+                {
+                    price: '$375-$425',
+                    name: 'GOLD',
+                    subtitle: 'Luv U Long Time',
+                    description: 'Every corner. Every crack. Everything Papa Lai would approve.',
+                    features: [
+                        'EVERYTHING IN SILVER',
+                        { text: 'IRON DECONTAMINATION', tooltip: 'Removes metal brake dust particles that cause rust spots - like deep cleaning for paint' },
+                        { text: 'CLAY BAR TREATMENT', tooltip: 'Pulls out dirt soap can\'t reach - makes your paint smooth as glass' },
+                        'ONE-STEP COLOR ENHANCEMENT',
+                        'STEAM CLEANING & SHAMPOO',
+                        'ODOR ELIMINATOR'
+                    ],
+                    duration: '3 - 3.5 hours',
+                    popular: false,
+                    buttonText: 'BOOK GOLD',
+                    colorScheme: {
+                        primary: '#FFD700',
+                        background: '#FFFAF0',
+                        accent: '#DAA520'
+                    }
+                },
+                {
+                    price: '$1,000+',
+                    name: 'PLATINUM',
+                    subtitle: 'Papa Lai Approved',
+                    description: 'You definitely love your car more than anything. Now thats Mr. Lai Clean.',
+                    features: [
+                        { text: '1-STEP OR 2-STEP PAINT CORRECTION', tooltip: 'Removes scratches and swirls - makes paint mirror-like' },
+                        { text: '5-YEAR CERAMIC COATING', tooltip: 'Invisible raincoat for your car - water beads off, dirt slides off' },
+                        'PROFESSIONAL GRADE PROTECTION',
+                        'LONG-TERM DURABILITY',
+                        'SHOWROOM FINISH'
+                    ],
+                    duration: '5 - 8 hours',
+                    popular: false,
+                    buttonText: 'GET QUOTE',
+                    centerAlign: true,
+                    colorScheme: {
+                        primary: '#E5E4E2',
+                        background: '#F7F7F7',
+                        accent: '#71797E'
+                    }
+                }
+            ];
+
+            const theGoodStuff = [
+                {
+                    name: 'Interior Deep Clean',
+                    price: '$125-$275',
+                    duration: '1.5-3 hrs',
+                    description: 'From "passenger shame" to "passenger pride." We vacuum where crumbs hide and steam where spills dried.',
+                    features: ['Full vacuum & wipe down', 'Steam cleaning available', 'Odor elimination', 'Leather conditioning']
+                },
+                {
+                    name: 'Headlight Restoration', 
+                    price: '$85',
+                    duration: '45 min',
+                    description: 'Because driving blind at night isn\'t a vibe. We\'ll make your headlights see clearly again.',
+                    features: ['UV damage removal', 'Clarity restoration', 'Protective coating', 'Like-new visibility']
+                },
+                {
+                    name: 'Claybar Decontamination',
+                    price: '$85', 
+                    duration: '1 hr',
+                    description: 'Pulls out the nasty stuff your regular wash can\'t touch. Think of it as a deep pore cleanse for your car.',
+                    features: ['Iron particle removal', 'Embedded contaminant extraction', 'Smooth paint surface', 'Pre-protection prep']
+                },
+                {
+                    name: 'Water Spot Removal',
+                    price: '$200-$400',
+                    duration: '2-4 hrs', 
+                    description: 'Those stubborn mineral spots that make your car look like it went through a hard water hurricane? Gone.',
+                    features: ['Mineral deposit removal', 'Paint restoration', 'Spot prevention tips', 'Crystal clear finish']
+                },
+                {
+                    name: 'Interior Ceramic Coating',
+                    price: '$350-$450',
+                    duration: '3-4 hrs',
+                    description: 'Spill-proof your interior like a boss. Coffee, kids, pets - bring it on.',
+                    features: ['Stain resistance', 'Easy cleanup', 'UV protection', '2-year protection']
+                },
+                {
+                    name: 'Window Ceramic',
+                    price: '$175-$250', 
+                    duration: '1-2 hrs',
+                    description: 'Rain will bead off like your car is hydrophobic. Because clean windows = clear vision = safer drives.',
+                    features: ['Water repellent', 'Easier cleaning', 'Reduced glare', 'Enhanced visibility']
+                }
+            ];
+
+
+            const handleBooking = (serviceName) => {
+                alert(`BOOKING ${serviceName}! CALL 323-558-2652 NOW!`);
+            };
+
+            return (
+                <section id="services" className="brutal-section" style={{
+                    background: 'var(--light-gray)',
+                    borderTop: '8px solid var(--gold)',
+                    borderBottom: '8px solid var(--gold)'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-section-title" style={{fontSize: '4.5rem', textAlign: 'center', letterSpacing: '0.05em'}}>
+                            W H A T &nbsp; W E &nbsp; D O
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.2rem', 
+                            margin: '2rem 0 4rem 0',
+                            textTransform: 'uppercase'
+                        }}>
+                            PAPA LAI STANDARDS. NO SHORTCUTS. JUST CLEAN CARS.
+                        </p>
+                        
+                        <div className="brutal-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(4, 1fr)',
+                            gap: '1.5rem',
+                            justifyItems: 'center'
+                        }}>
+                            {services.map((service, index) => (
+                                <div key={index} style={{
+                                    width: '100%',
+                                    maxWidth: '320px'
+                                }}>
+                                    <BrutalServiceCard
+                                        {...service}
+                                        onClick={() => handleBooking(service.name)}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* The Good Stuff Section */}
+                        <div style={{
+                            margin: '4rem 0 2rem 0'
+                        }}>
+                            <h3 className="brutal-title brutal-section-title" style={{
+                                fontSize: '4rem', 
+                                textAlign: 'center', 
+                                letterSpacing: '0.1em',
+                                margin: '0 0 3rem 0',
+                                lineHeight: '1.2'
+                            }}>
+                                THE <span style={{color: 'var(--pastel-pink)'}}>GOOD</span> STUFF
+                            </h3>
+                            <p className="brutal-text brutal-center" style={{
+                                fontSize: '1.2rem', 
+                                margin: '0 0 3rem 0',
+                                textTransform: 'uppercase',
+                                fontStyle: 'italic'
+                            }}>
+                                Because your car deserves more than basic.
+                            </p>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                                gap: '2rem',
+                                margin: '2rem 0'
+                            }}>
+                                {theGoodStuff.map((service, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--off-white)',
+                                        border: '4px solid var(--black)',
+                                        padding: '2rem',
+                                        boxShadow: '6px 6px 0 var(--black)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        minHeight: '400px'
+                                    }}>
+                                        <h4 style={{
+                                            fontSize: '1.8rem',
+                                            fontWeight: '900',
+                                            marginBottom: '1rem',
+                                            color: 'var(--black)',
+                                            textAlign: 'center'
+                                        }}>
+                                            {service.name}
+                                        </h4>
+                                        
+                                        <div className="brutal-price" style={{
+                                            textAlign: 'left',
+                                            marginLeft: '1rem',
+                                            marginBottom: '1rem',
+                                            fontSize: '1.8rem'
+                                        }}>{service.price}</div>
+                                        
+                                        <div style={{
+                                            fontSize: '0.9rem',
+                                            fontWeight: 'bold',
+                                            color: 'var(--gold)',
+                                            background: 'var(--black)',
+                                            padding: '0.4rem 0.8rem',
+                                            margin: '0 0 1rem 0',
+                                            textAlign: 'center',
+                                            border: '2px solid var(--gold)'
+                                        }}>
+                                            ⏱️ {service.duration}
+                                        </div>
+                                        
+                                        <p style={{
+                                            fontSize: '1rem',
+                                            margin: '0 0 1.5rem 0',
+                                            fontStyle: 'italic',
+                                            lineHeight: '1.4',
+                                            flex: '1'
+                                        }}>
+                                            {service.description}
+                                        </p>
+                                        
+                                        <div style={{
+                                            background: 'var(--concrete-gray)',
+                                            border: '2px solid var(--black)',
+                                            padding: '1rem',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            <strong>What you get:</strong>
+                                            <ul style={{
+                                                margin: '0.5rem 0 0 0',
+                                                paddingLeft: '1.2rem',
+                                                lineHeight: '1.3'
+                                            }}>
+                                                {service.features.map((feature, idx) => (
+                                                    <li key={idx} style={{marginBottom: '0.3rem'}}>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                            
+                            {/* Paint Correction Quick Guide */}
+                            <div style={{
+                                background: 'var(--mint-green)',
+                                border: '4px solid var(--black)',
+                                padding: '2rem',
+                                margin: '3rem 0',
+                                boxShadow: '8px 8px 0 var(--black)',
+                                textAlign: 'center'
+                            }}>
+                                <h4 style={{
+                                    fontSize: '2.2rem',
+                                    fontWeight: '900',
+                                    marginBottom: '1.5rem',
+                                    color: 'var(--black)'
+                                }}>
+                                    🤔 PAINT CORRECTION: WHICH LEVEL?
+                                </h4>
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gap: '2rem',
+                                    margin: '2rem 0'
+                                }}>
+                                    <div style={{
+                                        background: 'var(--off-white)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem'
+                                    }}>
+                                        <h5 style={{fontSize: '1.5rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--black)'}}>
+                                            1-STEP
+                                        </h5>
+                                        <div className="brutal-price" style={{fontSize: '1.5rem', marginBottom: '1rem'}}>$600-$800</div>
+                                        <p style={{fontSize: '0.95rem', lineHeight: '1.4', textAlign: 'left'}}>
+                                            <strong>For:</strong> Light scratches, daily drivers, newer cars<br/>
+                                            <strong>Gets:</strong> 70-80% improvement, good shine<br/>
+                                            <strong>Time:</strong> 5-6 hours
+                                        </p>
+                                    </div>
+                                    
+                                    <div style={{
+                                        background: 'var(--gold)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem'
+                                    }}>
+                                        <h5 style={{fontSize: '1.5rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--black)'}}>
+                                            2-STEP
+                                        </h5>
+                                        <div className="brutal-price" style={{fontSize: '1.5rem', marginBottom: '1rem'}}>$900-$1200</div>
+                                        <p style={{fontSize: '0.95rem', lineHeight: '1.4', textAlign: 'left'}}>
+                                            <strong>For:</strong> Deep scratches, older cars, show car finish<br/>
+                                            <strong>Gets:</strong> 90-95% improvement, mirror finish<br/>
+                                            <strong>Time:</strong> 7-8 hours
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style={{
+                                    background: 'var(--pastel-pink)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    margin: '2rem 0'
+                                }}>
+                                    <strong style={{fontSize: '1.1rem', color: 'var(--black)'}}>
+                                        Quick Test: Can you clearly see your reflection in your paint?<br/>
+                                        👍 YES = 1-Step probably fine | 👎 NO = You need 2-Step
+                                    </strong>
+                                </div>
+                            </div>
+                            
+                            <p style={{
+                                fontSize: '1rem',
+                                fontStyle: 'italic',
+                                textAlign: 'center',
+                                marginTop: '2rem',
+                                color: 'var(--black)'
+                            }}>
+                                *All pricing depends on vehicle size and condition. We'll give you the real deal, no surprises.
+                            </p>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL PAPA LAI COMPONENT
+        const BrutalEducation = () => {
+            const educationTerms = [
+                {
+                    term: "Clay Bar Treatment",
+                    simple: "Deep Cleaning",
+                    explanation: "Think of your car like your face - it has pores that get clogged! A clay bar pulls out dirt that soap can't reach, like tree sap, bird poop, and brake dust stuck deep in your paint.",
+                    whyNeeded: "Makes your car smooth as glass and ready for wax or coating",
+                    icon: "🧼"
+                },
+                {
+                    term: "Iron Decontamination", 
+                    simple: "Rust Particle Removal",
+                    explanation: "Tiny metal bits from brakes and trains land on your car and can cause rust spots. Special soap dissolves these particles and turns purple when it finds them!",
+                    whyNeeded: "Prevents rust damage and makes your paint last longer",
+                    icon: "🔬"
+                },
+                {
+                    term: "Paint Correction",
+                    simple: "Scratch Removal",
+                    explanation: "Like using sandpaper (very gentle!) to remove scratches and swirls, then polishing it smooth and shiny. It's like giving your car's paint a facelift.",
+                    whyNeeded: "Makes your car shine like new and removes years of damage",
+                    icon: "✨"
+                },
+                {
+                    term: "Ceramic Coating",
+                    simple: "Invisible Shield",
+                    explanation: "Like putting an invisible raincoat on your car that lasts 5 years! Water beads off, dirt slides off easier, and your paint stays protected.",
+                    whyNeeded: "Protects your investment and makes washing much easier",
+                    icon: "🛡️"
+                }
+            ];
+
+            const processSteps = [
+                { step: 1, title: "WASH", description: "Remove surface dirt", time: "30 min" },
+                { step: 2, title: "DECONTAMINATE", description: "Pull out embedded particles", time: "45 min" },
+                { step: 3, title: "CORRECT", description: "Fix scratches & swirls", time: "2-4 hours" },
+                { step: 4, title: "PROTECT", description: "Apply coating or wax", time: "1-2 hours" }
+            ];
+
+            return (
+                <section id="education" className="brutal-section" style={{
+                    background: 'var(--concrete-gray)',
+                    padding: '6rem 0'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
+                            <span style={{color: 'var(--black)'}}>NO MORE</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>CONFUSION</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.5rem',
+                            marginBottom: '4rem',
+                            color: 'var(--black)',
+                            fontWeight: 'bold'
+                        }}>
+                            Car detailing shouldn't sound like rocket science. Here's what we actually do:
+                        </p>
+
+                        {/* Education Terms Grid */}
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                            gap: '2rem',
+                            marginBottom: '4rem'
+                        }}>
+                            {educationTerms.map((term, index) => (
+                                <div key={index} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    padding: '2rem',
+                                    boxShadow: '6px 6px 0 var(--black)',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{
+                                        fontSize: '3rem',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {term.icon}
+                                    </div>
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '900',
+                                        color: 'var(--black)',
+                                        marginBottom: '0.5rem'
+                                    }}>
+                                        {term.term}
+                                    </h3>
+                                    <h4 style={{
+                                        fontSize: '1.2rem',
+                                        color: 'var(--pastel-pink)',
+                                        fontWeight: 'bold',
+                                        marginBottom: '1rem',
+                                        fontStyle: 'italic'
+                                    }}>
+                                        AKA: {term.simple}
+                                    </h4>
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        lineHeight: '1.5',
+                                        marginBottom: '1rem',
+                                        color: 'var(--black)'
+                                    }}>
+                                        {term.explanation}
+                                    </p>
+                                    <div style={{
+                                        background: 'var(--mint-green)',
+                                        border: '2px solid var(--black)',
+                                        padding: '0.8rem',
+                                        fontSize: '0.9rem',
+                                        fontWeight: 'bold'
+                                    }}>
+                                        💪 Why you need it: {term.whyNeeded}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Process Timeline */}
+                        <div style={{
+                            background: 'var(--gold)',
+                            border: '4px solid var(--black)',
+                            padding: '3rem 2rem',
+                            margin: '4rem 0',
+                            boxShadow: '8px 8px 0 var(--black)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2.5rem',
+                                fontWeight: '900',
+                                textAlign: 'center',
+                                marginBottom: '2rem',
+                                color: 'var(--black)'
+                            }}>
+                                🕐 HOW WE ACTUALLY DO IT
+                            </h3>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                gap: '1.5rem'
+                            }}>
+                                {processSteps.map((step, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--off-white)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem',
+                                        textAlign: 'center',
+                                        position: 'relative'
+                                    }}>
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '-15px',
+                                            left: '-15px',
+                                            background: 'var(--pastel-pink)',
+                                            color: 'var(--black)',
+                                            width: '40px',
+                                            height: '40px',
+                                            border: '3px solid var(--black)',
+                                            borderRadius: '50%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontSize: '1.2rem',
+                                            fontWeight: '900'
+                                        }}>
+                                            {step.step}
+                                        </div>
+                                        <h4 style={{
+                                            fontSize: '1.3rem',
+                                            fontWeight: '900',
+                                            marginBottom: '0.5rem',
+                                            marginTop: '1rem'
+                                        }}>
+                                            {step.title}
+                                        </h4>
+                                        <p style={{
+                                            fontSize: '0.9rem',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {step.description}
+                                        </p>
+                                        <div style={{
+                                            background: 'var(--black)',
+                                            color: 'var(--gold)',
+                                            padding: '0.3rem 0.6rem',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 'bold'
+                                        }}>
+                                            ⏱️ {step.time}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL GALLERY COMPONENT
+        const BrutalGallery = () => {
+            // Real gallery data from actual folders
+            // First gallery grid - premium work
+            const galleryItems = [
+                { 
+                    id: 1, 
+                    media: './gallery/audi_r8/Video.mov', 
+                    image: './gallery/audi_r8/image0.jpeg',
+                    title: 'Audi R8 • Paint Correction & Detail',
+                    type: 'video',
+                    service: 'Paint Correction'
+                }
+            ];
+
+            return (
+                <section id="gallery" className="brutal-section" style={{
+                    background: 'var(--light-gray)',
+                    padding: '6rem 0'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
+                            <span style={{color: 'var(--black)'}}>PAPA LAI</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>APPROVED</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.5rem',
+                            marginBottom: '4rem',
+                            color: 'var(--black)',
+                            fontWeight: 'bold'
+                        }}>
+                            Real work. Real results. No filters.
+                        </p>
+
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                            gap: '2rem'
+                        }}>
+                            {galleryItems.slice(0, 6).map((item) => (
+                                <div key={item.id} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    boxShadow: '6px 6px 0 var(--black)',
+                                    overflow: 'hidden'
+                                }}>
+                                    {item.type === 'video' ? (
+                                        <video 
+                                            style={{width: '100%', height: '250px', objectFit: 'cover'}}
+                                            poster={item.image}
+                                            controls
+                                            muted
+                                        >
+                                            <source src={item.media} type="video/mp4" />
+                                        </video>
+                                    ) : (
+                                        <img 
+                                            src={item.image} 
+                                            alt={item.title}
+                                            style={{width: '100%', height: '250px', objectFit: 'cover'}}
+                                        />
+                                    )}
+                                    <div style={{padding: '1.5rem'}}>
+                                        <h3 style={{
+                                            fontSize: '1.2rem',
+                                            fontWeight: '900',
+                                            marginBottom: '0.5rem',
+                                            color: 'var(--black)'
+                                        }}>
+                                            {item.title}
+                                        </h3>
+                                        <span style={{
+                                            background: 'var(--mint-green)',
+                                            color: 'var(--black)',
+                                            padding: '0.3rem 0.8rem',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 'bold',
+                                            border: '2px solid var(--black)'
+                                        }}>
+                                            {item.service}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL PAPA LAI COMPONENT
+        const BrutalEducation = () => {
+            const educationTerms = [
+                {
+                    term: "Clay Bar Treatment",
+                    simple: "Deep Cleaning",
+                    explanation: "Think of your car like your face - it has pores that get clogged! A clay bar pulls out dirt that soap can't reach, like tree sap, bird poop, and brake dust stuck deep in your paint.",
+                    whyNeeded: "Makes your car smooth as glass and ready for wax or coating",
+                    icon: "🧼"
+                },
+                {
+                    term: "Iron Decontamination", 
+                    simple: "Rust Particle Removal",
+                    explanation: "Tiny metal bits from brakes and trains land on your car and can cause rust spots. Special soap dissolves these particles and turns purple when it finds them!",
+                    whyNeeded: "Prevents rust damage and makes your paint last longer",
+                    icon: "🔧"
+                },
+                {
+                    term: "Paint Correction",
+                    simple: "Scratch Removal",
+                    explanation: "Like using sandpaper (but much gentler!) to remove scratches and swirl marks. We level the paint surface so light reflects perfectly again.",
+                    whyNeeded: "Makes your car shine like new and removes years of damage",
+                    icon: "✨"
+                },
+                {
+                    term: "Ceramic Coating",
+                    simple: "Invisible Shield",
+                    explanation: "Like putting an invisible raincoat on your car that lasts 5 years! Water beads off, dirt slides off easier, and your paint stays protected.",
+                    whyNeeded: "Protects your investment and makes washing much easier",
+                    icon: "🛡️"
+                }
+            ];
+
+            const processSteps = [
+                { step: 1, title: "WASH", description: "Remove surface dirt", time: "30 min" },
+                { step: 2, title: "DECONTAMINATE", description: "Pull out embedded particles", time: "45 min" },
+                { step: 3, title: "CORRECT", description: "Fix scratches & swirls", time: "2-4 hours" },
+                { step: 4, title: "PROTECT", description: "Apply coating or wax", time: "1-2 hours" }
+            ];
+
+            return (
+                <section id="education" className="brutal-section" style={{
+                    background: 'var(--concrete-gray)',
+                    padding: '6rem 0'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
+                            <span style={{color: 'var(--black)'}}>NO MORE</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>CONFUSION</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.4rem', 
+                            margin: '2rem 0 4rem 0',
+                            fontWeight: 'bold',
+                            color: 'var(--black)'
+                        }}>
+                            Car detailing terms explained in simple English • No fancy words • Just real talk
+                        </p>
+
+                        {/* Car Detailing Terms Explained */}
+                        <div className="brutal-grid" style={{gap: '2rem', margin: '4rem 0'}}>
+                            {educationTerms.map((term, index) => (
+                                <div key={index} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    padding: '2rem',
+                                    boxShadow: '8px 8px 0 var(--gold)',
+                                    position: 'relative'
+                                }}>
+                                    <div style={{
+                                        fontSize: '3rem',
+                                        textAlign: 'center',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {term.icon}
+                                    </div>
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '900',
+                                        marginBottom: '0.5rem',
+                                        color: 'var(--black)',
+                                        textAlign: 'center'
+                                    }}>
+                                        {term.term}
+                                    </h3>
+                                    <div style={{
+                                        background: 'var(--mint-green)',
+                                        color: 'var(--black)',
+                                        padding: '0.5rem 1rem',
+                                        fontSize: '1.1rem',
+                                        fontWeight: '700',
+                                        textAlign: 'center',
+                                        margin: '1rem 0',
+                                        border: '3px solid var(--black)'
+                                    }}>
+                                        = {term.simple}
+                                    </div>
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        lineHeight: '1.5',
+                                        margin: '1rem 0',
+                                        color: 'var(--black)'
+                                    }}>
+                                        {term.explanation}
+                                    </p>
+                                    <div style={{
+                                        background: 'var(--gold)',
+                                        color: 'var(--black)',
+                                        padding: '0.7rem',
+                                        fontSize: '0.9rem',
+                                        fontWeight: 'bold',
+                                        border: '2px solid var(--black)',
+                                        marginTop: '1rem'
+                                    }}>
+                                        <strong>WHY YOU NEED IT:</strong><br/>
+                                        {term.whyNeeded}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Process Timeline */}
+                        <div style={{
+                            background: 'var(--black)',
+                            color: 'var(--gold)',
+                            padding: '3rem 2rem',
+                            margin: '4rem 0',
+                            border: '6px solid var(--gold)',
+                            boxShadow: '8px 8px 0 var(--pastel-pink)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2.5rem',
+                                fontWeight: '900',
+                                textAlign: 'center',
+                                marginBottom: '2rem',
+                                color: 'var(--gold)'
+                            }}>
+                                🕒 HOW LONG DOES IT ACTUALLY TAKE?
+                            </h3>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                gap: '1.5rem',
+                                margin: '2rem 0'
+                            }}>
+                                {processSteps.map((step, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--gold)',
+                                        color: 'var(--black)',
+                                        padding: '1.5rem',
+                                        border: '3px solid var(--black)',
+                                        textAlign: 'center'
+                                    }}>
+                                        <div style={{
+                                            fontSize: '2rem',
+                                            fontWeight: '900',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            STEP {step.step}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '1.3rem',
+                                            fontWeight: '700',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {step.title}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '0.9rem',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {step.description}
+                                        </div>
+                                        <div style={{
+                                            background: 'var(--black)',
+                                            color: 'var(--gold)',
+                                            padding: '0.3rem',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 'bold'
+                                        }}>
+                                            ⏱️ {step.time}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Red Flags Section */}
+                        <div style={{
+                            background: 'var(--pastel-pink)',
+                            border: '4px solid var(--black)',
+                            padding: '2rem',
+                            margin: '4rem 0',
+                            boxShadow: '8px 8px 0 var(--black)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2.5rem',
+                                fontWeight: '900',
+                                textAlign: 'center',
+                                marginBottom: '2rem',
+                                color: 'var(--black)'
+                            }}>
+                                🚨 AVOID THESE RED FLAGS
+                            </h3>
+                            <div className="brutal-grid" style={{
+                                gap: '1.5rem',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))'
+                            }}>
+                                <div style={{
+                                    background: 'var(--off-white)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{fontSize: '2rem', marginBottom: '1rem'}}>❌</div>
+                                    <strong>Prices Too Good to Be True</strong><br/>
+                                    <em>$50 full detail? Probably a scam</em>
+                                </div>
+                                <div style={{
+                                    background: 'var(--off-white)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{fontSize: '2rem', marginBottom: '1rem'}}>❌</div>
+                                    <strong>No Insurance Info</strong><br/>
+                                    <em>Always ask to see their coverage</em>
+                                </div>
+                                <div style={{
+                                    background: 'var(--off-white)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{fontSize: '2rem', marginBottom: '1rem'}}>❌</div>
+                                    <strong>Door-to-Door Sales</strong><br/>
+                                    <em>Legit detailers don't go house to house</em>
+                                </div>
+                                <div style={{
+                                    background: 'var(--off-white)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{fontSize: '2rem', marginBottom: '1rem'}}>❌</div>
+                                    <strong>Upfront Payment Demands</strong><br/>
+                                    <em>Pay after the work is done</em>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Call to Action */}
+                        <div className="brutal-center">
+                            <a href="#services" className="brutal-button brutal-button--mint" style={{
+                                fontSize: '1.5rem',
+                                padding: '1.5rem 3rem',
+                                textTransform: 'uppercase'
+                            }}>
+                                📚 NOW CHOOSE YOUR SERVICE
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL GALLERY COMPONENT
+        const BrutalGallery = () => {
+            // Real gallery data from actual folders
+            // First gallery grid - premium work
+            const galleryItems = [
+                { 
+                    id: 1, 
+                    media: './gallery/audi_r8/Video.mov', 
+                    image: './gallery/audi_r8/image0.jpeg',
+                    title: 'Audi R8 • Paint Correction & Detail',
+                    type: 'video',
+                    service: 'Paint Correction'
+                },
+                { 
+                    id: 2, 
+                    media: './gallery/ferrari/Video.mov', 
+                    image: './gallery/audi_r8/image0.jpeg', // Use actual image as fallback
+                    title: 'Ferrari • Luxury Detail Service',
+                    type: 'video',
+                    service: 'Full Detail'
+                },
+                { 
+                    id: 3, 
+                    media: './gallery/porsche_ppf/image0.jpeg', 
+                    image: './gallery/porsche_ppf/image1.jpeg',
+                    title: 'Porsche • Paint Protection Film',
+                    type: 'image',
+                    service: 'PPF Installation'
+                },
+                { 
+                    id: 4, 
+                    media: './gallery/cyber_truck/Video.mov', 
+                    image: './gallery/cyber_truck/image0.jpeg',
+                    title: 'Cybertruck • Ceramic Coating',
+                    type: 'video',
+                    service: 'Ceramic Coating'
+                },
+                { 
+                    id: 5, 
+                    media: './gallery/mercedes/Video.mov', 
+                    image: './gallery/bentley/image0.jpeg', // Use actual image as fallback
+                    title: 'Mercedes • Complete Transformation',
+                    type: 'video',
+                    service: 'Full Detail'
+                },
+                { 
+                    id: 6, 
+                    media: './gallery/ceramic_coating/Video.mov', 
+                    image: './gallery/cyber_truck/image0.jpeg', // Use actual image as fallback
+                    title: 'Ceramic Coating • Long-Term Protection',
+                    type: 'video',
+                    service: 'Ceramic Coating'
+                }
+            ];
+
+            // Second gallery grid - additional services
+            const galleryItems2 = [
+                { 
+                    id: 7, 
+                    media: './gallery/bentley/Video.mov', 
+                    image: './gallery/bentley/image0.jpeg',
+                    title: 'Bentley • Luxury Detail Service',
+                    type: 'video',
+                    service: 'Premium Detail'
+                },
+                { 
+                    id: 8, 
+                    media: './gallery/boat_paint_correction/Video.mov', 
+                    image: './gallery/boat_paint_correction/image0.jpeg',
+                    title: 'Marine Detailing • Boat Paint Correction',
+                    type: 'video',
+                    service: 'Marine Detail'
+                },
+                { 
+                    id: 9, 
+                    media: './gallery/g_wagon/Video.mov', 
+                    image: './gallery/bentley/image0.jpeg', // Use actual image as fallback
+                    title: 'G-Wagon • Premium Detail Package',
+                    type: 'video',
+                    service: 'Premium Detail'
+                },
+                { 
+                    id: 10, 
+                    media: './gallery/supra/Video.mov', 
+                    image: './gallery/audi_r8/image0.jpeg', // Use actual image as fallback
+                    title: 'Toyota Supra • Performance Detail',
+                    type: 'video',
+                    service: 'Sport Detail'
+                },
+                { 
+                    id: 11, 
+                    media: './gallery/interior_detail/Video.mov', 
+                    image: './gallery/cyber_truck/image0.jpeg', // Use actual image as fallback
+                    title: 'Interior Detailing • Deep Clean',
+                    type: 'video',
+                    service: 'Interior Detail'
+                },
+                { 
+                    id: 12, 
+                    media: './gallery/overspray_removal/Video.mov', 
+                    image: './gallery/boat_paint_correction/image0.jpeg', // Use actual image as fallback
+                    title: 'Overspray Removal • Paint Restoration',
+                    type: 'video',
+                    service: 'Paint Restoration'
+                }
+            ];
+
+            return (
+                <section className="brutal-section" style={{
+                    background: 'var(--off-white)',
+                    borderTop: '8px solid var(--pastel-pink)',
+                    borderBottom: '8px solid var(--pastel-pink)',
+                    padding: '6rem 0'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
+                            <span style={{color: 'var(--black)'}}>TOP DIRTY CAR</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>TRANSFORMATIONS</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.2rem',
+                            margin: '2rem 0 4rem 0',
+                            textTransform: 'uppercase',
+                            fontStyle: 'italic'
+                        }}>
+                            Before & After • Real Results • No Filters
+                        </p>
+
+                        {/* Gallery Grid */}
+                        <div className="brutal-gallery-grid" style={{
+                            marginBottom: '3rem'
+                        }}>
+                            {galleryItems.map((item, index) => (
+                                <div key={item.id} className="brutal-gallery-item" style={{
+                                    border: '4px solid var(--black)',
+                                    boxShadow: '8px 8px 0 var(--gold)',
+                                    background: 'var(--off-white)',
+                                    overflow: 'hidden',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.2s ease'
+                                }}>
+                                    <div style={{
+                                        position: 'relative',
+                                        height: '250px',
+                                        overflow: 'hidden'
+                                    }}>
+                                        {/* Render video or image based on type */}
+                                        {item.type === 'video' ? (
+                                            <video 
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                                poster={item.image}
+                                                muted
+                                                loop
+                                                playsInline
+                                                onMouseEnter={(e) => e.target.play()}
+                                                onMouseLeave={(e) => e.target.pause()}
+                                            >
+                                                <source src={item.media} type="video/mp4" />
+                                                <source src={item.media} type="video/mov" />
+                                            </video>
+                                        ) : (
+                                            <img 
+                                                src={item.media}
+                                                alt={item.title}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                            />
+                                        )}
+                                        {/* Service badge overlay */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '1rem',
+                                            right: '1rem',
+                                            background: 'var(--gold)',
+                                            color: 'var(--black)',
+                                            padding: '0.5rem 1rem',
+                                            fontSize: '0.7rem',
+                                            fontWeight: '900',
+                                            textTransform: 'uppercase',
+                                            border: '2px solid var(--black)',
+                                            boxShadow: '3px 3px 0 var(--black)'
+                                        }}>
+                                            {item.service}
+                                        </div>
+                                        {/* Play icon for videos */}
+                                        {item.type === 'video' && (
+                                            <div style={{
+                                                position: 'absolute',
+                                                bottom: '1rem',
+                                                left: '1rem',
+                                                background: 'rgba(0,0,0,0.8)',
+                                                color: 'var(--gold)',
+                                                padding: '0.5rem',
+                                                borderRadius: '50%',
+                                                fontSize: '1.5rem'
+                                            }}>
+                                                ▶️
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div style={{
+                                        padding: '1rem',
+                                        background: 'var(--black)',
+                                        color: 'var(--gold)',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold',
+                                        fontSize: '0.9rem'
+                                    }}>
+                                        {item.title}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Second Gallery Grid - More Services */}
+                        <div className="brutal-gallery-grid" style={{
+                            marginBottom: '3rem'
+                        }}>
+                            {galleryItems2.map((item, index) => (
+                                <div key={item.id} className="brutal-gallery-item" style={{
+                                    border: '4px solid var(--black)',
+                                    boxShadow: '8px 8px 0 var(--gold)',
+                                    background: 'var(--off-white)',
+                                    overflow: 'hidden',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.2s ease'
+                                }}>
+                                    <div style={{
+                                        position: 'relative',
+                                        height: '250px',
+                                        overflow: 'hidden'
+                                    }}>
+                                        {/* Render video or image based on type */}
+                                        {item.type === 'video' ? (
+                                            <video 
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                                poster={item.image}
+                                                muted
+                                                loop
+                                                playsInline
+                                                onMouseEnter={(e) => e.target.play()}
+                                                onMouseLeave={(e) => e.target.pause()}
+                                            >
+                                                <source src={item.media} type="video/mp4" />
+                                                <source src={item.media} type="video/mov" />
+                                            </video>
+                                        ) : (
+                                            <img 
+                                                src={item.media}
+                                                alt={item.title}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                            />
+                                        )}
+                                        {/* Service badge overlay */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '1rem',
+                                            right: '1rem',
+                                            background: 'var(--gold)',
+                                            color: 'var(--black)',
+                                            padding: '0.5rem 1rem',
+                                            fontSize: '0.7rem',
+                                            fontWeight: '900',
+                                            textTransform: 'uppercase',
+                                            border: '2px solid var(--black)',
+                                            boxShadow: '3px 3px 0 var(--black)'
+                                        }}>
+                                            {item.service}
+                                        </div>
+                                        {/* Play icon for videos */}
+                                        {item.type === 'video' && (
+                                            <div style={{
+                                                position: 'absolute',
+                                                bottom: '1rem',
+                                                left: '1rem',
+                                                background: 'rgba(0,0,0,0.8)',
+                                                color: 'var(--gold)',
+                                                padding: '0.5rem',
+                                                borderRadius: '50%',
+                                                fontSize: '1.5rem'
+                                            }}>
+                                                ▶️
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div style={{
+                                        padding: '1rem',
+                                        background: 'var(--black)',
+                                        color: 'var(--gold)',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold',
+                                        fontSize: '0.9rem'
+                                    }}>
+                                        {item.title}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* View All Gallery Button */}
+                        <div className="brutal-center">
+                            <a href="#gallery" className="brutal-button brutal-button--mint" style={{
+                                fontSize: '1.5rem',
+                                padding: '1.5rem 3rem',
+                                textTransform: 'uppercase'
+                            }}>
+                                📸 VIEW FULL GALLERY
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL PAPA LAI COMPONENT
+        const BrutalPapaLai = () => {
+            return (
+                <section id="about" className="brutal-section" style={{background: 'var(--light-gray)'}}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem'}}>
+                            <span style={{fontSize: '4.5rem'}}>OUR HIGH</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>STANDARDS</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.2rem', 
+                            margin: '2rem 0 4rem 0',
+                            textTransform: 'uppercase',
+                            fontStyle: 'italic'
+                        }}>
+                            even when no one is watching.
+                        </p>
+                        
+                        <div className="brutal-quote" style={{position: 'relative', textAlign: 'center'}}>
+                            <div style={{
+                                lineHeight: '1.4',
+                                fontSize: '1.8rem',
+                                display: 'inline-block',
+                                textAlign: 'left',
+                                maxWidth: '80%'
+                            }}>
+                                <blockquote>
+                                <div style={{textAlign: 'left', marginBottom: '1rem'}}>
+                                    "MASON, WHY YOU ONLY CLEAN WHAT PEOPLE CAN SEE?
+                                </div>
+                                <div style={{textAlign: 'right', marginBottom: '1rem'}}>
+                                    YOU THINK I NO LOOK IN THE CORNERS?
+                                </div>
+                                <div style={{textAlign: 'left', marginBottom: '1rem'}}>
+                                    YOU THINK I NO CHECK UNDER THE SEATS?
+                                </div>
+                                <div style={{textAlign: 'right', marginBottom: '1rem'}}>
+                                    DO IT AGAIN. DO IT RIGHT."
+                                </div>
+                                <div style={{textAlign: 'center', marginTop: '1.5rem', fontSize: '1.6rem', fontWeight: 'bold', color: 'var(--black)', fontStyle: 'italic'}}>
+                                    DON'T BE A 衰仔 (SEUI JAI - A Bad Kid)!.
+                                </div>
+                                </blockquote>
+                            </div>
+                            
+                            {/* Papa Lai Image - Bottom Left */}
+                            <img 
+                                src="./brand_assets/papalai-standards.png" 
+                                alt="Papa Lai - Do It Right"
+                                style={{
+                                    position: 'absolute',
+                                    bottom: '-50px',
+                                    left: '0',
+                                    width: '200px',
+                                    height: 'auto',
+                                    zIndex: 10
+                                }}
+                            />
+                            <div style={{
+                                position: 'absolute',
+                                bottom: '-2rem',
+                                right: '1rem',
+                                fontSize: '8rem',
+                                color: 'var(--gold)',
+                                lineHeight: '1',
+                                zIndex: 10
+                            }}>"
+                            </div>
+                        </div>
+
+                        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center'}}>
+                            <div style={{position: 'relative'}}>
+                                <img 
+                                    src="./brand_assets/mason-portrait-doodle.png"
+                                    alt="Mason Portrait Doodle"
+                                    style={{
+                                        width: '180px',
+                                        height: 'auto',
+                                        float: 'left',
+                                        marginRight: '2rem',
+                                        marginBottom: '1rem',
+                                        transform: 'rotate(-5deg)',
+                                        border: '3px solid var(--black)',
+                                        boxShadow: '6px 6px 0 var(--gold)'
+                                    }}
+                                />
+                                <p style={{
+                                    fontFamily: 'Mansalva, cursive',
+                                    fontSize: '1.4rem',
+                                    lineHeight: '1.6',
+                                    color: 'var(--black)',
+                                    textAlign: 'justify'
+                                }}>
+                                    I'm Mason — Papa Lai's son who learned the difference between 'good' and 'wow' in hospitality.
+                                    
+                                    Spent years making customers say 'I can't wait to tell my friends about this place.' Then COVID hit, job gone, stuck at home with wife, new baby, and endless TikTok.
+                                    
+                                    Wife said 'Babe, when you flipped cars you cleaned them better than most people clean their houses.' Thought she was just trying to get me to clean ours (it worked).
+                                    
+                                    But she was right — I'd been obsessing over car details for years without thinking about it. Now your car gets that same hospitality-level wow.
+                                </p>
+                            </div>
+                            
+                            <div className="brutal-card">
+                                <h3 className="brutal-subtitle" style={{fontSize: '1.5rem'}}>
+                                    WE DON'T JUST CLEAN WHAT YOU CAN SEE
+                                </h3>
+                                <ul style={{listStyle: 'none', margin: '1rem 0'}}>
+                                    {[
+                                        'EVERY CRACK GETS ATTENTION',
+                                        'EVERY CREVICE GETS LOVE', 
+                                        'BECAUSE PAPA LAI IS STILL CHECKING OUR WORK',
+                                        'NO BEING SEOI ZAI (BAD KID)'
+                                    ].map((item, index) => (
+                                        <li key={index} style={{
+                                            padding: '1rem 0',
+                                            borderBottom: '2px solid var(--black)',
+                                            fontWeight: 'bold',
+                                            display: 'flex',
+                                            alignItems: 'center'
+                                        }}>
+                                            <span style={{
+                                                background: 'var(--danger-red)',
+                                                color: 'var(--white)',
+                                                width: '30px',
+                                                height: '30px',
+                                                marginRight: '1rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                fontWeight: 900,
+                                                border: '2px solid var(--black)'
+                                            }}>
+                                                ●
+                                            </span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL CONTACT COMPONENT
+        const BrutalContact = () => {
+            const [formData, setFormData] = useState({
+                name: '',
+                phone: '',
+                service: '',
+                message: ''
+            });
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                alert('FORM SUBMITTED! WE\'LL CALL YOU BACK ASAP!');
+                setFormData({ name: '', phone: '', service: '', message: '' });
+            };
+
+            const handleChange = (e) => {
+                setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value
+                });
+            };
+
+            return (
+                <section id="contact" className="brutal-section">
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{
+                            fontSize: '4rem',
+                            color: 'var(--black)',
+                            WebkitTextStroke: '2px white',
+                            textStroke: '2px white'
+                        }}>
+                            GET CLEAN NOW
+                        </h2>
+                        <div style={{textAlign: 'center'}}>
+                            <h3 style={{
+                                fontSize: '1.8rem',
+                                fontWeight: 'bold',
+                                color: 'var(--mint-green)',
+                                border: '3px solid var(--black)',
+                                padding: '0.5rem 1rem',
+                                display: 'inline-block',
+                                margin: '1rem auto',
+                                textTransform: 'uppercase'
+                            }}>
+                                ASK FOR MASON
+                            </h3>
+                        </div>
+
+                        <div className="brutal-contact">
+                            <h3 className="brutal-subtitle">GET MR LAI CLEAN</h3>
+                            <a href="tel:323-558-2652" className="brutal-phone">
+                                (323) 558-2652
+                            </a>
+                            <p className="brutal-text" style={{fontSize: '1.2rem', margin: '1rem 0'}}>
+                                CALL TODAY • WE PICK UP • REAL ANSWERS
+                            </p>
+                        </div>
+
+                        <div className="brutal-contact-grid" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', margin: '4rem 0'}}>
+                            <div>
+                                <form className="brutal-form" onSubmit={handleSubmit}>
+                                    <h3 className="brutal-subtitle" style={{color: 'var(--white)', marginBottom: '2rem'}}>
+                                        BOOK NOW FORM
+                                    </h3>
+                                    
+                                    <label className="brutal-label">YOUR NAME</label>
+                                    <input 
+                                        type="text" 
+                                        name="name"
+                                        className="brutal-input"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="ENTER YOUR NAME"
+                                        required
+                                    />
+                                    
+                                    <label className="brutal-label">PHONE NUMBER</label>
+                                    <input 
+                                        type="tel" 
+                                        name="phone"
+                                        className="brutal-input"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="(XXX) XXX-XXXX"
+                                        required
+                                    />
+                                    
+                                    <label className="brutal-label">SERVICE NEEDED</label>
+                                    <select 
+                                        name="service"
+                                        className="brutal-input"
+                                        value={formData.service}
+                                        onChange={handleChange}
+                                        required
+                                    >
+                                        <option value="">SELECT SERVICE</option>
+                                        <option value="DADDY LAI MINIMUM">DADDY LAI MINIMUM - $50</option>
+                                        <option value="MASON STANDARD">MASON STANDARD - $150</option>
+                                        <option value="DADDY LAI APPROVED">DADDY LAI APPROVED - $300</option>
+                                        <option value="CUSTOM">CUSTOM QUOTE</option>
+                                    </select>
+                                    
+                                    <label className="brutal-label">MESSAGE</label>
+                                    <textarea 
+                                        name="message"
+                                        className="brutal-input"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        placeholder="TELL US ABOUT YOUR CAR"
+                                        rows="4"
+                                    ></textarea>
+                                    
+                                    <button type="submit" className="brutal-button brutal-button--danger" style={{
+                                        width: '100%',
+                                        color: 'white !important',
+                                        fontWeight: '900 !important',
+                                        fontSize: '1.6rem !important',
+                                        WebkitTextStroke: 'none !important',
+                                        textStroke: 'none !important'
+                                    }}>
+                                        SUBMIT REQUEST
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div>
+                                <div className="brutal-card">
+                                    <h3 className="brutal-subtitle">SERVICE AREAS</h3>
+                                    <p className="brutal-text" style={{marginBottom: '2rem'}}>
+                                        WE COME TO YOU (50-MILE RADIUS)
+                                    </p>
+                                    <div style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                                        gap: '1rem'
+                                    }}>
+                                        {[
+                                            'BEVERLY HILLS', 'SANTA MONICA', 'MALIBU', 
+                                            'MANHATTAN BEACH', 'PASADENA', 'WEST HOLLYWOOD',
+                                            'BRENTWOOD', 'VENICE', 'MARINA DEL REY',
+                                            'CULVER CITY', 'BURBANK', 'SGV',
+                                            'WHITTIER', '& MORE!'
+                                        ].map((area, index) => (
+                                            <div key={index} style={{
+                                                background: 'var(--black)',
+                                                color: 'var(--pastel-pink)',
+                                                padding: '1rem',
+                                                textAlign: 'center',
+                                                border: '2px solid var(--pastel-pink)',
+                                                fontWeight: 'bold'
+                                            }}>
+                                                {area}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="brutal-card" style={{marginTop: '2rem'}}>
+                                    <h3 className="brutal-subtitle">CONTACT INFO</h3>
+                                    <div className="brutal-text">
+                                        <p><strong>📧 EMAIL:</strong> mrlai.mcds@gmail.com</p>
+                                        <p><strong>📱 INSTAGRAM:</strong> @mr.lai_detailing</p>
+                                        <p><strong>⏰ RESPONSE TIME:</strong> SAME DAY</p>
+                                        <p><strong>📅 BOOKING:</strong> 24-HOUR ADVANCE NOTICE</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="brutal-center" style={{margin: '4rem 0'}}>
+                            <a href="tel:323-558-2652" className="brutal-button brutal-button--danger brutal-pulse" 
+                               style={{
+                                   fontSize: '1.8rem', 
+                                   padding: '2rem 4rem',
+                                   color: 'white !important',
+                                   fontWeight: '900 !important',
+                                   WebkitTextStroke: 'none !important',
+                                   textStroke: 'none !important'
+                               }}>
+                                CALL NOW - MR. LAI CLEAN
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL FOOTER COMPONENT
+        const BrutalFooter = () => {
+            return (
+                <footer style={{
+                    background: 'var(--black)',
+                    color: 'var(--off-white)',
+                    borderTop: '8px solid var(--gold)',
+                    padding: '4rem 0 2rem 0'
+                }}>
+                    <div className="brutal-container">
+                        {/* Main Footer Content */}
+                        <div className="footer-grid" style={{marginBottom: '3rem'}}>
+                            {/* Business Info */}
+                            <div>
+                                <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem'}}>
+                                    <img src="./brand_assets/mr-lai-logo.png" 
+                                        alt="Mr. Lai Mobile Car Wash & Detailing Logo" 
+                                        style={{height: '50px', width: 'auto'}} 
+                                    />
+                                    <div>
+                                        <h3 className="brutal-subtitle" style={{
+                                            fontSize: '1.5rem',
+                                            margin: '0',
+                                            color: 'var(--gold)'
+                                        }}>
+                                            MR. LAI'S MOBILE CAR WASH
+                                        </h3>
+                                        <p style={{margin: '0.5rem 0', fontSize: '1rem'}}>
+                                            Premium Mobile Car Detailing Services
+                                        </p>
+                                    </div>
+                                </div>
+                                <p style={{
+                                    fontSize: '1.1rem',
+                                    lineHeight: '1.5',
+                                    fontFamily: 'Mansalva, cursive'
+                                }}>
+                                    Professional mobile car wash and detailing services in Los Angeles. 
+                                    We bring the detail shop to you with hospitality-level service.
+                                </p>
+                            </div>
+
+                            {/* Services */}
+                            <div>
+                                <h4 className="brutal-subtitle" style={{
+                                    fontSize: '1.3rem',
+                                    color: 'var(--mint-green)',
+                                    marginBottom: '1rem'
+                                }}>
+                                    OUR SERVICES
+                                </h4>
+                                <ul style={{listStyle: 'none', margin: 0, padding: 0}}>
+                                    {[
+                                        'Basic Car Wash & Vacuum',
+                                        'Premium Exterior & Interior Detail',
+                                        'Luxury VIP Complete Detail',
+                                        'Ceramic Coating Application',
+                                        'Paint Protection Film',
+                                        'Window Tinting',
+                                        'Headlight Restoration',
+                                        'Engine Bay Cleaning'
+                                    ].map((service, index) => (
+                                        <li key={index} style={{
+                                            padding: '0.3rem 0',
+                                            borderBottom: '1px solid #333',
+                                            fontSize: '1rem'
+                                        }}>
+                                            {service}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Service Areas */}
+                            <div>
+                                <h4 className="brutal-subtitle" style={{
+                                    fontSize: '1.3rem',
+                                    color: 'var(--mint-green)',
+                                    marginBottom: '1rem'
+                                }}>
+                                    SERVICE AREAS
+                                </h4>
+                                <p style={{marginBottom: '1rem', fontSize: '1rem'}}>
+                                    Mobile car detailing throughout Los Angeles County:
+                                </p>
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                                    gap: '0.5rem'
+                                }}>
+                                    {[
+                                        'Beverly Hills', 'Santa Monica', 'Malibu',
+                                        'Manhattan Beach', 'Pasadena', 'West Hollywood',
+                                        'Brentwood', 'Venice', 'Marina del Rey',
+                                        'Culver City', 'Burbank', 'Whittier',
+                                        'Hollywood', 'Downtown LA', 'Glendale'
+                                    ].map((area, index) => (
+                                        <div key={index} style={{
+                                            fontSize: '0.9rem',
+                                            padding: '0.2rem 0'
+                                        }}>
+                                            {area}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Contact Info */}
+                            <div>
+                                <h4 className="brutal-subtitle" style={{
+                                    fontSize: '1.3rem',
+                                    color: 'var(--mint-green)',
+                                    marginBottom: '1rem'
+                                }}>
+                                    CONTACT INFO
+                                </h4>
+                                <div style={{fontSize: '1.1rem', lineHeight: '1.8'}}>
+                                    <div style={{marginBottom: '0.5rem'}}>
+                                        <strong>📞 Phone:</strong> 
+                                        <a href="tel:323-558-2652" style={{
+                                            color: 'var(--gold)',
+                                            textDecoration: 'none',
+                                            marginLeft: '0.5rem'
+                                        }}>
+                                            (323) 558-2652
+                                        </a>
+                                    </div>
+                                    <div style={{marginBottom: '0.5rem'}}>
+                                        <strong>📧 Email:</strong> 
+                                        <a href="mailto:mrlai.mcds@gmail.com" style={{
+                                            color: 'var(--gold)',
+                                            textDecoration: 'none',
+                                            marginLeft: '0.5rem'
+                                        }}>
+                                            mrlai.mcds@gmail.com
+                                        </a>
+                                    </div>
+                                    <div style={{marginBottom: '0.5rem'}}>
+                                        <strong>📱 Instagram:</strong> 
+                                        <a href="https://instagram.com/mr.lai_detailing" style={{
+                                            color: 'var(--gold)',
+                                            textDecoration: 'none',
+                                            marginLeft: '0.5rem'
+                                        }}>
+                                            @mr.lai_detailing
+                                        </a>
+                                    </div>
+                                    <div style={{marginBottom: '1rem'}}>
+                                        <strong>⏰ Hours:</strong> 7 Days a Week, 8AM - 6PM
+                                    </div>
+                                    <div style={{marginTop: '1.5rem', textAlign: 'center'}}>
+                                        <a href="tel:323-558-2652" className="brutal-button" style={{
+                                            background: 'var(--gold)',
+                                            color: 'var(--black)',
+                                            border: '3px solid var(--off-white)',
+                                            fontSize: '1.2rem',
+                                            padding: '1rem 2rem'
+                                        }}>
+                                            GET FREE QUOTE
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bottom Section */}
+                        <div style={{
+                            borderTop: '2px solid #333',
+                            paddingTop: '2rem',
+                            textAlign: 'center'
+                        }}>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                                gap: '2rem',
+                                alignItems: 'center',
+                                marginBottom: '1.5rem'
+                            }}>
+                                <div>
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        fontFamily: 'Mansalva, cursive',
+                                        margin: 0
+                                    }}>
+                                        "Your car gets that same hospitality-level wow."
+                                    </p>
+                                    <p style={{fontSize: '0.9rem', margin: '0.5rem 0', color: '#ccc'}}>
+                                        - Mason, Owner & Founder
+                                    </p>
+                                </div>
+                                <div>
+                                    <p style={{fontSize: '0.9rem', margin: 0}}>
+                                        Licensed • Insured • Bonded<br/>
+                                        Eco-Friendly Products • Same Day Service
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div style={{
+                                fontSize: '0.8rem',
+                                color: '#888',
+                                borderTop: '1px solid #333',
+                                paddingTop: '1rem'
+                            }}>
+                                <p style={{margin: '0.5rem 0'}}>
+                                    © 2024 Mr. Lai's Mobile Car Wash & Detailing Services. All Rights Reserved.
+                                </p>
+                                <p style={{margin: '0.5rem 0'}}>
+                                    Professional mobile car detailing, car wash, and automotive detailing services in Los Angeles, Beverly Hills, Santa Monica, and surrounding areas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            );
+        };
+
+        // MAIN BRUTALIST APP COMPONENT
+        const BrutalistApp = () => {
+            useEffect(() => {
+                // Add smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }, []);
+
+            return (
+                <div>
+                    <BrutalNav />
+                    <BrutalHero />
+                    <BrutalServices />
+                    <BrutalEducation />
+                    <BrutalGallery />
+                    <BrutalPapaLai />
+                    <BrutalContact />
+                    <BrutalFooter />
+                </div>
+            );
+        };
+
+        // RENDER THE BRUTALIST APP
+        const root = ReactDOM.createRoot(document.getElementById('react-root'));
+        root.render(<BrutalistApp />);
+    </script>
+</body>
+</html>
