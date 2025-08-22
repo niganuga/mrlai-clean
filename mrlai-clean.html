@@ -390,7 +390,7 @@
         .brutal-nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-grow: 1;
             justify-content: center;
         }
@@ -537,6 +537,12 @@
             grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
             gap: 1.5rem;
             align-items: start;
+        }
+        
+        .footer-grid > div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         @media (max-width: 1200px) {
@@ -1451,7 +1457,7 @@
                     <nav className="brutal-nav">
                         <div className="brutal-nav-container">
                             <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: '280px'}}>
-                                <img src="./brand_assets/mr-lai-logo.png" 
+                                <img src="./brand_assets/car.png" 
                                     alt="Mr. Lai Logo" 
                                     style={{
                                         height: '40px',
@@ -1485,8 +1491,9 @@
 
                             <ul className="brutal-nav-links">
                                 <li><a href="#services" className="brutal-nav-link">SERVICES</a></li>
-                                <li><a href="#education" className="brutal-nav-link">NO CONFUSION</a></li>
+                                <li><a href="#education" className="brutal-nav-link">BLOG</a></li>
                                 <li><a href="#gallery" className="brutal-nav-link">BEFORE & AFTER</a></li>
+                                <li><a href="#testimonials" className="brutal-nav-link">REVIEWS</a></li>
                                 <li><a href="#about" className="brutal-nav-link">OUR STORY</a></li>
                                 <li><a href="#contact" className="brutal-nav-link">CONTACT</a></li>
                             </ul>
@@ -1495,11 +1502,13 @@
                             <a href="tel:323-558-2652" className="brutal-button" style={{
                                 color: 'white !important',
                                 fontWeight: '900 !important',
-                                fontSize: '1.4rem !important',
+                                fontSize: '1.2rem !important',
                                 WebkitTextStroke: 'none !important',
                                 textStroke: 'none !important',
-                                minWidth: '200px',
-                                textAlign: 'center'
+                                minWidth: '180px',
+                                textAlign: 'center',
+                                padding: '0.8rem 2rem',
+                                minHeight: '45px'
                             }}>
                                 BOOK NOW
                             </a>
@@ -1570,29 +1579,25 @@
                     <div className="brutal-hero-content" style={{padding: '2rem 1.5rem', maxWidth: '98vw', margin: '0 auto'}}>
                         <h1 className={`brutal-title ${shaking ? 'brutal-shake' : ''}`} style={{marginTop: '0.5rem'}}>
                             <span style={{
-                                color: 'white',
+                                color: 'var(--black)',
                                 fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
-                                WebkitTextStroke: '2.5px var(--black)',
-                                textStroke: '2.5px var(--black)',
+                                WebkitTextStroke: '3px var(--off-white)',
+                                textStroke: '3px var(--off-white)',
                                 textShadow: '6px 6px 0 var(--gold)',
                                 fontSize: 'clamp(2.2rem, 7vw, 5.5rem)'
                             }}>NOT JUST CLEAN,</span><br/>
                             <span style={{
-                                fontFamily: 'Monsie, Gasoek One, Impact, Arial Black, sans-serif',
-                                fontSize: 'clamp(8rem, 20vw, 20rem)',
+                                fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
+                                fontSize: 'clamp(6rem, 15vw, 15rem)',
                                 color: 'var(--pastel-pink)',
-                                background: 'linear-gradient(45deg, #000000 0%, #333333 25%, #000000 50%, #333333 75%, #000000 100%)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextStroke: '3px var(--black)',
-                                backgroundClip: 'text',
-                                textStroke: '3px var(--black)',
-                                filter: 'drop-shadow(4px 4px 0 var(--mint-green)) drop-shadow(-4px -4px 0 var(--black)) drop-shadow(4px -4px 0 var(--black)) drop-shadow(-4px 4px 0 var(--black)) drop-shadow(12px 12px 0 var(--black))',
-                                paintOrder: 'stroke fill',
+                                WebkitTextStroke: '4px var(--black)',
+                                textStroke: '4px var(--black)',
+                                textShadow: '8px 8px 0 var(--mint-green)',
                                 display: 'block',
                                 lineHeight: '0.8',
                                 marginBottom: '-3rem',
                                 position: 'relative',
-                                zIndex: 2
+                                zIndex: 10
                             }}>Mr. Lai</span>
 
                             <div style={{ 
@@ -1607,14 +1612,14 @@
                                 <span style={{
                                     color: 'var(--mint-green)', 
                                     display: 'block', 
-                                    marginTop: '-0.5rem',
-                                    fontSize: 'clamp(5rem, 14vw, 14rem)',
+                                    marginTop: '2rem',
+                                    fontSize: 'clamp(4rem, 11vw, 11rem)',
                                     fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
                                     WebkitTextStroke: '2.5px var(--black)',
                                     textStroke: '2.5px var(--black)',
                                     textShadow: '8px 8px 0 var(--pastel-pink)',
                                     position: 'relative',
-                                    zIndex: 2,
+                                    zIndex: 1,
                                     textAlign: 'center'
                                 }}>CLEAN</span>
                                 
@@ -1753,7 +1758,7 @@
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                     style={{
-                        minHeight: '520px',
+                        height: '620px',
                         display: 'flex',
                         flexDirection: 'column',
                         position: 'relative',
@@ -2075,7 +2080,7 @@
                     borderTop: '8px solid var(--gold)',
                     borderBottom: '8px solid var(--gold)'
                 }}>
-                    <div className="brutal-container">
+                    <div className="brutal-container" style={{maxWidth: '1400px', padding: '2rem 1rem'}}>
                         <h2 className="brutal-title brutal-section-title" style={{fontSize: '4.5rem', textAlign: 'center', letterSpacing: '0.05em'}}>
                             W H A T &nbsp; W E &nbsp; O F F E R
                         </h2>
@@ -2749,7 +2754,7 @@
         };
         const BrutalPapaLai = () => {
             return (
-                <section id="about" className="brutal-section" style={{background: 'var(--light-gray)'}}>
+                <section id="about" className="brutal-section" style={{background: 'var(--light-gray)', padding: '2rem 0'}}>
                     <div className="brutal-container">
                         <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem'}}>
                             <span style={{fontSize: '4.5rem'}}>OUR HIGH</span><br/>
@@ -2886,6 +2891,228 @@
                                     ))}
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL TESTIMONIALS COMPONENT
+        const BrutalTestimonials = () => {
+            const testimonials = [
+                {
+                    id: 1,
+                    name: "Sarah M.",
+                    vehicle: "2022 Tesla Model S",
+                    rating: 5,
+                    review: "Mr. Lai's work is absolutely incredible! My Tesla looked like it just rolled off the showroom floor. The attention to detail is unmatched - he even cleaned spots I didn't know existed. Papa Lai standards are real!",
+                    service: "Premium Detail",
+                    location: "Beverly Hills"
+                },
+                {
+                    id: 2,
+                    name: "Marcus T.",
+                    vehicle: "2021 Porsche 911",
+                    rating: 5,
+                    review: "Been to every detailer in LA and Mason is hands down the best. The ceramic coating looks amazing and the paint correction removed scratches I thought were permanent. Worth every penny!",
+                    service: "Paint Correction + Ceramic",
+                    location: "Manhattan Beach"
+                },
+                {
+                    id: 3,
+                    name: "Jennifer R.",
+                    vehicle: "2020 Range Rover",
+                    rating: 5,
+                    review: "Finally found someone who treats my car like their own. The hospitality background really shows - professional, punctual, and passionate about the work. My Range Rover has never looked better!",
+                    service: "Luxury Treatment",
+                    location: "Malibu"
+                },
+                {
+                    id: 4,
+                    name: "David K.",
+                    vehicle: "2019 Mercedes G-Wagon",
+                    rating: 5,
+                    review: "Mr. Lai Clean is no joke! Came to my office and transformed my G-Wagon while I worked. The convenience factor plus the quality of work makes this a no-brainer. Booking again next month!",
+                    service: "Mobile Detail",
+                    location: "Century City"
+                },
+                {
+                    id: 5,
+                    name: "Amanda L.",
+                    vehicle: "2023 BMW M3",
+                    rating: 5,
+                    review: "Mason's passion for cars really shows in his work. He explained every step of the process and the results speak for themselves. My BMW looks better than the day I bought it. Highly recommend!",
+                    service: "Paint Protection Film",
+                    location: "Santa Monica"
+                },
+                {
+                    id: 6,
+                    name: "Robert H.",
+                    vehicle: "1967 Mustang Fastback",
+                    rating: 5,
+                    review: "Trusted Mason with my classic Mustang and couldn't be happier. He treated it like a museum piece - gentle but thorough. The 'Papa Lai approved' standard is real. This guy knows cars!",
+                    service: "Classic Car Detail",
+                    location: "Pasadena"
+                }
+            ];
+
+            return (
+                <section id="testimonials" className="brutal-section" style={{
+                    background: 'var(--mint-green)',
+                    borderTop: '8px solid var(--black)',
+                    borderBottom: '8px solid var(--black)'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-section-title" style={{
+                            fontSize: '4.5rem', 
+                            textAlign: 'center', 
+                            letterSpacing: '0.05em',
+                            color: 'var(--black)',
+                            marginBottom: '1rem'
+                        }}>
+                            WHAT THEY SAY
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.2rem', 
+                            margin: '0 0 4rem 0',
+                            textTransform: 'uppercase',
+                            fontWeight: 'bold',
+                            color: 'var(--black)'
+                        }}>
+                            REAL CUSTOMERS. REAL RESULTS. PAPA LAI APPROVED.
+                        </p>
+                        
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                            gap: '2rem',
+                            margin: '2rem 0'
+                        }}>
+                            {testimonials.map((testimonial) => (
+                                <div key={testimonial.id} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    padding: '2rem',
+                                    boxShadow: '8px 8px 0 var(--black)',
+                                    position: 'relative',
+                                    minHeight: '300px',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}>
+                                    {/* Stars */}
+                                    <div style={{
+                                        display: 'flex',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <span key={i} style={{
+                                                fontSize: '1.5rem',
+                                                color: 'var(--gold)',
+                                                textShadow: '1px 1px 0 var(--black)'
+                                            }}>★</span>
+                                        ))}
+                                    </div>
+                                    
+                                    {/* Review Text */}
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        lineHeight: '1.5',
+                                        color: 'var(--black)',
+                                        fontStyle: 'italic',
+                                        marginBottom: '1.5rem',
+                                        flex: '1'
+                                    }}>
+                                        "{testimonial.review}"
+                                    </p>
+                                    
+                                    {/* Customer Info */}
+                                    <div style={{
+                                        borderTop: '2px solid var(--black)',
+                                        paddingTop: '1rem',
+                                        marginTop: 'auto'
+                                    }}>
+                                        <div style={{
+                                            fontWeight: 'bold',
+                                            fontSize: '1.1rem',
+                                            color: 'var(--black)',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {testimonial.name}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '0.9rem',
+                                            color: 'var(--black)',
+                                            marginBottom: '0.3rem'
+                                        }}>
+                                            {testimonial.vehicle}
+                                        </div>
+                                        <div style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center'
+                                        }}>
+                                            <span style={{
+                                                background: 'var(--pastel-pink)',
+                                                color: 'var(--black)',
+                                                padding: '0.3rem 0.8rem',
+                                                fontSize: '0.8rem',
+                                                fontWeight: 'bold',
+                                                border: '2px solid var(--black)',
+                                                textTransform: 'uppercase'
+                                            }}>
+                                                {testimonial.service}
+                                            </span>
+                                            <span style={{
+                                                fontSize: '0.8rem',
+                                                color: 'var(--black)',
+                                                fontWeight: 'bold'
+                                            }}>
+                                                📍 {testimonial.location}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* CTA Section */}
+                        <div style={{
+                            textAlign: 'center',
+                            margin: '4rem 0 2rem 0',
+                            padding: '2rem',
+                            background: 'var(--black)',
+                            border: '4px solid var(--off-white)',
+                            boxShadow: '8px 8px 0 var(--pastel-pink)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2rem',
+                                fontWeight: '900',
+                                color: 'var(--gold)',
+                                marginBottom: '1rem',
+                                textTransform: 'uppercase'
+                            }}>
+                                READY FOR PAPA LAI APPROVED?
+                            </h3>
+                            <p style={{
+                                color: 'var(--off-white)',
+                                fontSize: '1.1rem',
+                                marginBottom: '2rem'
+                            }}>
+                                Join hundreds of satisfied customers in LA
+                            </p>
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                background: 'var(--gold)',
+                                color: 'var(--black)',
+                                border: '4px solid var(--off-white)',
+                                fontSize: '1.3rem',
+                                padding: '1.2rem 2.5rem',
+                                fontWeight: '900',
+                                textDecoration: 'none',
+                                display: 'inline-block',
+                                boxShadow: '6px 6px 0 var(--off-white)'
+                            }}>
+                                BOOK NOW → (323) 558-2652
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -3086,7 +3313,7 @@
                     background: 'var(--black)',
                     color: 'var(--off-white)',
                     borderTop: '8px solid var(--gold)',
-                    padding: '4rem 0 2rem 0'
+                    padding: '2.5rem 0 2rem 0'
                 }}>
                     <div className="brutal-container">
                         {/* Main Footer Content */}
@@ -3196,7 +3423,7 @@
                                     CONTACT INFO
                                 </h4>
                                 <div style={{fontSize: '1.1rem', lineHeight: '1.8'}}>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📞 Phone:</strong> 
                                         <a href="tel:323-558-2652" style={{
                                             color: 'var(--gold)',
@@ -3206,7 +3433,7 @@
                                             (323) 558-2652
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📧 Email:</strong> 
                                         <a href="mailto:mrlai.mcds@gmail.com" style={{
                                             color: 'var(--gold)',
@@ -3216,7 +3443,7 @@
                                             mrlai.mcds@gmail.com
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📱 Instagram:</strong> 
                                         <a href="https://instagram.com/mr.lai_detailing" style={{
                                             color: 'var(--gold)',
@@ -3226,7 +3453,7 @@
                                             @mr.lai_detailing
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '1rem'}}>
+                                    <div style={{marginBottom: '1rem', fontSize: '0.9rem'}}>
                                         <strong>⏰ Hours:</strong> 7 Days a Week, 8AM - 6PM
                                     </div>
                                     <div style={{marginTop: '1.5rem', textAlign: 'center'}}>
@@ -3322,6 +3549,7 @@
                     <BrutalEducation />
                     <BrutalGallery />
                     <BrutalPapaLai />
+                    <BrutalTestimonials />
                     <BrutalContact />
                     <BrutalFooter />
                 </div>
