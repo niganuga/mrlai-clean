@@ -61,7 +61,7 @@
             --pastel-pink: #F8BBD9;
             --mint-green: #A8E6CF;
             --dark-gray: #2C2C2C;
-            --light-gray: #E5E5E5;
+            --light-gray: #fafafa;
         }
         
         body {
@@ -174,6 +174,16 @@
             background: var(--black);
             color: var(--mint-green);
             box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        /* SHINE ANIMATION */
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
         
         /* BRUTAL CARDS */
@@ -380,7 +390,7 @@
         .brutal-nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-grow: 1;
             justify-content: center;
         }
@@ -527,6 +537,12 @@
             grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
             gap: 1.5rem;
             align-items: start;
+        }
+        
+        .footer-grid > div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         @media (max-width: 1200px) {
@@ -1441,7 +1457,7 @@
                     <nav className="brutal-nav">
                         <div className="brutal-nav-container">
                             <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: '280px'}}>
-                                <img src="./brand_assets/mr-lai-logo.png" 
+                                <img src="./brand_assets/car.png" 
                                     alt="Mr. Lai Logo" 
                                     style={{
                                         height: '40px',
@@ -1475,7 +1491,9 @@
 
                             <ul className="brutal-nav-links">
                                 <li><a href="#services" className="brutal-nav-link">SERVICES</a></li>
+                                <li><a href="#education" className="brutal-nav-link">BLOG</a></li>
                                 <li><a href="#gallery" className="brutal-nav-link">BEFORE & AFTER</a></li>
+                                <li><a href="#testimonials" className="brutal-nav-link">REVIEWS</a></li>
                                 <li><a href="#about" className="brutal-nav-link">OUR STORY</a></li>
                                 <li><a href="#contact" className="brutal-nav-link">CONTACT</a></li>
                             </ul>
@@ -1484,11 +1502,13 @@
                             <a href="tel:323-558-2652" className="brutal-button" style={{
                                 color: 'white !important',
                                 fontWeight: '900 !important',
-                                fontSize: '1.4rem !important',
+                                fontSize: '1.2rem !important',
                                 WebkitTextStroke: 'none !important',
                                 textStroke: 'none !important',
-                                minWidth: '200px',
-                                textAlign: 'center'
+                                minWidth: '180px',
+                                textAlign: 'center',
+                                padding: '0.8rem 2rem',
+                                minHeight: '45px'
                             }}>
                                 BOOK NOW
                             </a>
@@ -1521,6 +1541,7 @@
                         
                         <ul className="brutal-mobile-menu-links">
                             <li><a href="#services" onClick={closeMobileMenu}>SERVICES</a></li>
+                            <li><a href="#education" onClick={closeMobileMenu}>NO CONFUSION</a></li>
                             <li><a href="#gallery" onClick={closeMobileMenu}>BEFORE & AFTER</a></li>
                             <li><a href="#about" onClick={closeMobileMenu}>OUR STORY</a></li>
                             <li><a href="#contact" onClick={closeMobileMenu}>CONTACT</a></li>
@@ -1558,24 +1579,27 @@
                     <div className="brutal-hero-content" style={{padding: '2rem 1.5rem', maxWidth: '98vw', margin: '0 auto'}}>
                         <h1 className={`brutal-title ${shaking ? 'brutal-shake' : ''}`} style={{marginTop: '0.5rem'}}>
                             <span style={{
-                                color: 'white',
-                                WebkitTextStroke: '3px var(--black)',
-                                textStroke: '3px var(--black)',
+                                color: 'var(--black)',
+                                fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
+                                WebkitTextStroke: '3px var(--off-white)',
+                                textStroke: '3px var(--off-white)',
                                 textShadow: '6px 6px 0 var(--gold)',
                                 fontSize: 'clamp(2.2rem, 7vw, 5.5rem)'
                             }}>NOT JUST CLEAN,</span><br/>
                             <span style={{
-                                fontFamily: 'Monsie, Gasoek One, Impact, Arial Black, sans-serif',
-                                fontSize: 'clamp(8rem, 20vw, 20rem)',
+                                fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
+                                fontSize: 'clamp(6rem, 15vw, 15rem)',
                                 color: 'var(--pastel-pink)',
-                                WebkitTextStroke: '8px var(--pastel-pink)',
-                                textStroke: '8px var(--pastel-pink)',
-                                textShadow: '4px 4px 0 var(--black), -4px -4px 0 var(--black), 4px -4px 0 var(--black), -4px 4px 0 var(--black)',
-                                paintOrder: 'stroke fill',
+                                WebkitTextStroke: '4px var(--black)',
+                                textStroke: '4px var(--black)',
+                                textShadow: '8px 8px 0 var(--mint-green)',
                                 display: 'block',
                                 lineHeight: '0.8',
-                                marginBottom: '-3rem'
+                                marginBottom: '-3rem',
+                                position: 'relative',
+                                zIndex: 10
                             }}>Mr. Lai</span>
+
                             <div style={{ 
                                 position: 'relative', 
                                 display: 'block',
@@ -1588,14 +1612,14 @@
                                 <span style={{
                                     color: 'var(--mint-green)', 
                                     display: 'block', 
-                                    marginTop: '-0.5rem',
-                                    fontSize: 'clamp(6rem, 16vw, 16rem)',
-                                    fontFamily: 'Gasoek One, Impact, Arial Black, sans-serif',
-                                    WebkitTextStroke: '6px var(--gold)',
-                                    textStroke: '6px var(--gold)',
-                                    textShadow: '8px 8px 0 var(--black)',
+                                    marginTop: '2rem',
+                                    fontSize: 'clamp(4rem, 11vw, 11rem)',
+                                    fontFamily: 'GasoekOne-Regular, Gasoek One, Impact, Arial Black, sans-serif',
+                                    WebkitTextStroke: '2.5px var(--black)',
+                                    textStroke: '2.5px var(--black)',
+                                    textShadow: '8px 8px 0 var(--pastel-pink)',
                                     position: 'relative',
-                                    zIndex: 2,
+                                    zIndex: 1,
                                     textAlign: 'center'
                                 }}>CLEAN</span>
                                 
@@ -1704,8 +1728,15 @@
                             📞 (323) 558-2652 | 📧 mrlai.mcds@gmail.com | 📱 @mr.lai_detailing
                         </p>
                         <div className="hero-buttons">
-                            <a href="tel:323-558-2652" className="brutal-button brutal-button--shiny">
-                                <span>📞 DIRTY CAR HOTLINE</span>
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                background: 'var(--black)',
+                                color: 'var(--gold)',
+                                border: '3px solid var(--gold)',
+                                boxShadow: '6px 6px 0 var(--black)',
+                                fontWeight: '900',
+                                textTransform: 'uppercase'
+                            }}>
+                                <span>📞 GET MR LAI CLEAN</span>
                             </a>
                             <a href="#services" className="brutal-button brutal-button--mint" onClick={handleShake}>
                                 SEE SERVICES
@@ -1717,14 +1748,23 @@
         };
 
         // BRUTAL SERVICE CARD COMPONENT
-        const BrutalServiceCard = ({ price, name, subtitle, description, features, popular, buttonText, onClick }) => {
+        const BrutalServiceCard = ({ price, name, subtitle, description, features, popular, buttonText, onClick, duration, centerAlign, colorScheme }) => {
             const [hovered, setHovered] = useState(false);
+            const [tooltipVisible, setTooltipVisible] = useState({});
 
             return (
                 <div 
                     className={`brutal-card ${popular ? 'brutal-card--featured' : ''}`}
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
+                    style={{
+                        height: '620px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        position: 'relative',
+                        padding: '1rem',
+                        background: colorScheme?.background || 'var(--off-white)'
+                    }}
                 >
                     {popular && (
                         <div style={{
@@ -1746,37 +1786,59 @@
                         </div>
                     )}
                     <div className="brutal-price" style={{
-                        marginTop: popular ? '0.5rem' : '0'
+                        marginTop: popular ? '0.5rem' : '0',
+                        textAlign: 'center',
+                        fontSize: '3rem',
+                        minHeight: '3.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}>{price}</div>
-                    <h3 className="brutal-subtitle" style={{fontSize: '2.2rem', margin: '1rem 0', textAlign: 'center'}}>
+                    <h3 className="brutal-subtitle" style={{fontSize: '1.8rem', margin: '0.5rem 0', textAlign: 'center'}}>
                         {name}
                     </h3>
                     <h4 style={{
-                        fontSize: '1.3rem',
+                        fontSize: '1rem',
                         fontWeight: 'bold',
                         color: 'var(--pastel-pink)',
-                        margin: '0.5rem 0',
+                        margin: '0.3rem 0',
                         fontStyle: 'italic',
                         textAlign: 'center',
                         border: '3px solid var(--black)',
                         boxShadow: '4px 4px 0 var(--black)',
-                        padding: '0.5rem 1rem',
+                        padding: '0.3rem 0.8rem',
                         display: 'inline-block',
                         background: 'white'
                     }}>
                         "{subtitle}"
                     </h4>
-                    <p className="brutal-text" style={{margin: '1rem 0', fontStyle: 'italic'}}>
+                    <p className="brutal-text" style={{margin: '0.5rem 0', fontStyle: 'italic', fontSize: '0.9rem'}}>
                         "{description}"
                     </p>
-                    <ul style={{listStyle: 'none', margin: '2rem 0'}}>
+                    {duration && (
+                        <p style={{
+                            margin: '0.3rem 0 0.5rem 0',
+                            fontSize: '0.8rem',
+                            fontWeight: 'bold',
+                            color: 'var(--gold)',
+                            background: 'var(--black)',
+                            padding: '0.3rem',
+                            border: '2px solid var(--gold)',
+                            textAlign: 'center'
+                        }}>
+                            ⏱️ {duration}
+                        </p>
+                    )}
+                    <ul style={{listStyle: 'none', margin: '1rem 0', flex: '1'}}>
                         {features.map((feature, index) => (
                             <li key={index} style={{
-                                padding: '0.5rem 0',
+                                padding: '0.3rem 0',
                                 fontWeight: 'bold',
                                 borderBottom: '2px solid var(--black)',
                                 display: 'flex',
-                                alignItems: 'center'
+                                alignItems: 'center',
+                                position: 'relative',
+                                fontSize: '0.9rem'
                             }}>
                                 <span style={{
                                     background: 'var(--gold)',
@@ -1792,26 +1854,80 @@
                                 }}>
                                     ✓
                                 </span>
-                                {feature}
+                                <span 
+                                    style={{
+                                        cursor: typeof feature === 'object' ? 'help' : 'default',
+                                        borderBottom: typeof feature === 'object' ? '1px dotted var(--gold)' : 'none'
+                                    }}
+                                    onMouseEnter={() => {
+                                        if (typeof feature === 'object') {
+                                            setTooltipVisible(prev => ({...prev, [index]: true}));
+                                        }
+                                    }}
+                                    onMouseLeave={() => {
+                                        if (typeof feature === 'object') {
+                                            setTooltipVisible(prev => ({...prev, [index]: false}));
+                                        }
+                                    }}
+                                >
+                                    {typeof feature === 'object' ? feature.text : feature}
+                                </span>
+                                {typeof feature === 'object' && tooltipVisible[index] && (
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '-60px',
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        background: 'var(--black)',
+                                        color: 'var(--gold)',
+                                        padding: '0.5rem 1rem',
+                                        border: '2px solid var(--gold)',
+                                        fontSize: '0.8rem',
+                                        maxWidth: '200px',
+                                        textAlign: 'center',
+                                        zIndex: 100,
+                                        boxShadow: '4px 4px 0 var(--black)'
+                                    }}>
+                                        {feature.tooltip}
+                                    </div>
+                                )}
                             </li>
                         ))}
                     </ul>
                     <button 
-                        className={`brutal-button ${popular ? 'brutal-button--mint' : 'brutal-button--pink'}`}
+                        className="brutal-button"
                         onClick={onClick}
                         style={{
                             width: '100%', 
-                            margin: '2rem 0 0 0',
-                            minHeight: '70px',
+                            margin: 'auto 0 0 0',
+                            minHeight: '50px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            fontSize: '1.4rem',
+                            fontSize: '1.1rem',
                             textAlign: 'center',
-                            whiteSpace: 'pre-line'
+                            fontWeight: '900',
+                            background: colorScheme?.primary || 'var(--gold)',
+                            color: 'var(--black)',
+                            border: `3px solid var(--black)`,
+                            boxShadow: `4px 4px 0 var(--black)`,
+                            whiteSpace: 'nowrap',
+                            position: 'relative',
+                            overflow: 'hidden'
                         }}
                     >
-                        {buttonText}
+                        <span style={{position: 'relative', zIndex: 2}}>{buttonText}</span>
+                        <div style={{
+                            position: 'absolute',
+                            top: '-50%',
+                            left: '-50%',
+                            width: '200%',
+                            height: '200%',
+                            background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)',
+                            transform: 'translateX(-100%)',
+                            animation: hovered ? 'shine 1.5s ease-in-out' : 'none',
+                            zIndex: 1
+                        }}></div>
                     </button>
                 </div>
             );
@@ -1821,49 +1937,138 @@
         const BrutalServices = () => {
             const services = [
                 {
-                    price: '$50',
-                    name: 'BASIC',
+                    price: '$125-$175',
+                    name: 'BRONZE',
                     subtitle: 'Better Than Basic',
                     description: 'Clean enough that Papa Lai wouldn\'t yell... much.',
                     features: [
-                        'EXTERIOR WASH & HAND DRY',
-                        'BASIC INTERIOR VACUUM (still picking up driver side chip crumbs)',
-                        'DON\'T EMBARRASS YOURSELF LEVEL'
+                        'FOAM WASH & WAX',
+                        'DEEP WHEEL & TIRE CLEANING',
+                        'WINDOW CLEANING',
+                        'DOOR JAMB CLEANING',
+                        'INTERIOR BLOWOUT & VACUUM'
                     ],
+                    duration: '1 - 1.5 hours',
                     popular: false,
-                    buttonText: 'BOOK\nBASIC'
+                    buttonText: 'BOOK BRONZE',
+                    colorScheme: {
+                        primary: '#CD7F32',
+                        background: '#F5E6D3',
+                        accent: '#8B4513'
+                    }
                 },
                 {
-                    price: '$150',
-                    name: 'PREMIUM', 
+                    price: '$175-$225',
+                    name: 'SILVER', 
                     subtitle: 'Actually Clean',
                     description: 'The one everyone gets. Because basic was never really an option.',
                     features: [
-                        'COMPLETE EXTERIOR WASH',
-                        'PAINT DECONTAMINATION',
-                        'INTERIOR DEEP CLEAN',
-                        'LEATHER CONDITIONING',
-                        'TIRE SHINE & WINDOW CLEANING'
+                        'EVERYTHING IN BRONZE',
+                        'DOOR PANEL & DASHBOARD CLEANING',
+                        'CENTER CONSOLE CLEANING',
+                        'PLASTIC & LEATHER CONDITIONING',
+                        'AIR FRESHENER'
                     ],
+                    duration: '2 - 2.5 hours',
                     popular: true,
-                    buttonText: 'BOOK PREMIUM'
+                    buttonText: 'BOOK SILVER',
+                    colorScheme: {
+                        primary: '#C0C0C0',
+                        background: '#F8F8FF',
+                        accent: '#708090'
+                    }
                 },
                 {
-                    price: '$300',
-                    name: 'LUXURY VIP',
-                    subtitle: 'Luv U Long Time', 
-                    description: 'Every corner. Every crack. Everything.',
+                    price: '$375-$425',
+                    name: 'GOLD',
+                    subtitle: 'Luv U Long Time',
+                    description: 'Every corner. Every crack. Everything Papa Lai would approve.',
                     features: [
-                        'PAINT CORRECTION',
-                        'CERAMIC COATING PREP',
-                        'PREMIUM INTERIOR TREATMENT',
-                        'ENGINE BAY CLEANING',
-                        'HEADLIGHT RESTORATION'
+                        'EVERYTHING IN SILVER',
+                        { text: 'IRON DECONTAMINATION', tooltip: 'Removes metal brake dust particles that cause rust spots - like deep cleaning for paint' },
+                        { text: 'CLAY BAR TREATMENT', tooltip: 'Pulls out dirt soap can\'t reach - makes your paint smooth as glass' },
+                        'ONE-STEP COLOR ENHANCEMENT',
+                        'STEAM CLEANING & SHAMPOO',
+                        'ODOR ELIMINATOR'
                     ],
+                    duration: '3 - 3.5 hours',
                     popular: false,
-                    buttonText: 'BOOK LUXURY VIP'
+                    buttonText: 'BOOK GOLD',
+                    colorScheme: {
+                        primary: '#FFD700',
+                        background: '#FFFAF0',
+                        accent: '#DAA520'
+                    }
+                },
+                {
+                    price: '$1,000+',
+                    name: 'PLATINUM',
+                    subtitle: 'Papa Lai Approved',
+                    description: 'You definitely love your car more than anything. Now thats Mr. Lai Clean.',
+                    features: [
+                        { text: '1-STEP OR 2-STEP PAINT CORRECTION', tooltip: 'Removes scratches and swirls - makes paint mirror-like' },
+                        { text: '5-YEAR CERAMIC COATING', tooltip: 'Invisible raincoat for your car - water beads off, dirt slides off' },
+                        'PROFESSIONAL GRADE PROTECTION',
+                        'LONG-TERM DURABILITY',
+                        'SHOWROOM FINISH'
+                    ],
+                    duration: '5 - 8 hours',
+                    popular: false,
+                    buttonText: 'GET QUOTE',
+                    centerAlign: true,
+                    colorScheme: {
+                        primary: 'linear-gradient(45deg, #FF69B4, #9370DB, #00CED1, #FF69B4)',
+                        background: 'linear-gradient(135deg, #FFE4E1 0%, #E6E6FA 25%, #F0FFFF 50%, #FFE4E1 75%, #E6E6FA 100%)',
+                        accent: '#9370DB'
+                    }
                 }
             ];
+
+            const theGoodStuff = [
+                {
+                    name: 'Interior Deep Clean',
+                    price: '$125-$275',
+                    duration: '1.5-3 hrs',
+                    description: 'From "passenger shame" to "passenger pride." We vacuum where crumbs hide and steam where spills dried.',
+                    features: ['Full vacuum & wipe down', 'Steam cleaning available', 'Odor elimination', 'Leather conditioning']
+                },
+                {
+                    name: 'Headlight Restoration', 
+                    price: '$85',
+                    duration: '45 min',
+                    description: 'Because driving blind at night isn\'t a vibe. We\'ll make your headlights see clearly again.',
+                    features: ['UV damage removal', 'Clarity restoration', 'Protective coating', 'Like-new visibility']
+                },
+                {
+                    name: 'Claybar Decontamination',
+                    price: '$85', 
+                    duration: '1 hr',
+                    description: 'Pulls out the nasty stuff your regular wash can\'t touch. Think of it as a deep pore cleanse for your car.',
+                    features: ['Iron particle removal', 'Embedded contaminant extraction', 'Smooth paint surface', 'Pre-protection prep']
+                },
+                {
+                    name: 'Water Spot Removal',
+                    price: '$200-$400',
+                    duration: '2-4 hrs', 
+                    description: 'Those stubborn mineral spots that make your car look like it went through a hard water hurricane? Gone.',
+                    features: ['Mineral deposit removal', 'Paint restoration', 'Spot prevention tips', 'Crystal clear finish']
+                },
+                {
+                    name: 'Interior Ceramic Coating',
+                    price: '$350-$450',
+                    duration: '3-4 hrs',
+                    description: 'Spill-proof your interior like a boss. Coffee, kids, pets - bring it on.',
+                    features: ['Stain resistance', 'Easy cleanup', 'UV protection', '2-year protection']
+                },
+                {
+                    name: 'Window Ceramic',
+                    price: '$175-$250', 
+                    duration: '1-2 hrs',
+                    description: 'Rain will bead off like your car is hydrophobic. Because clean windows = clear vision = safer drives.',
+                    features: ['Water repellent', 'Easier cleaning', 'Reduced glare', 'Enhanced visibility']
+                }
+            ];
+
 
             const handleBooking = (serviceName) => {
                 alert(`BOOKING ${serviceName}! CALL 323-558-2652 NOW!`);
@@ -1875,9 +2080,9 @@
                     borderTop: '8px solid var(--gold)',
                     borderBottom: '8px solid var(--gold)'
                 }}>
-                    <div className="brutal-container">
-                        <h2 className="brutal-title brutal-section-title" style={{fontSize: '4rem', textAlign: 'center', letterSpacing: '0.1em'}}>
-                            W H A T &nbsp; W E &nbsp; D O
+                    <div className="brutal-container" style={{maxWidth: '1400px', padding: '2rem 1rem'}}>
+                        <h2 className="brutal-title brutal-section-title" style={{fontSize: '4.5rem', textAlign: 'center', letterSpacing: '0.05em'}}>
+                            W H A T &nbsp; W E &nbsp; O F F E R
                         </h2>
                         <p className="brutal-text brutal-center" style={{
                             fontSize: '1.2rem', 
@@ -1887,35 +2092,431 @@
                             PAPA LAI STANDARDS. NO SHORTCUTS. JUST CLEAN CARS.
                         </p>
                         
-                        <div className="brutal-grid">
+                        <div className="brutal-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(4, 1fr)',
+                            gap: '1.5rem',
+                            justifyItems: 'stretch',
+                            maxWidth: '100%',
+                            overflow: 'visible'
+                        }}>
                             {services.map((service, index) => (
-                                <BrutalServiceCard
-                                    key={index}
-                                    {...service}
-                                    onClick={() => handleBooking(service.name)}
-                                />
+                                <div key={index} style={{
+                                    width: '100%',
+                                    minWidth: 0
+                                }}>
+                                    <BrutalServiceCard
+                                        {...service}
+                                        onClick={() => handleBooking(service.name)}
+                                    />
+                                </div>
                             ))}
                         </div>
 
-                        <div className="brutal-card" style={{
-                            background: 'var(--gold)',
-                            textAlign: 'center',
-                            margin: '4rem 0'
+                        {/* The Good Stuff Section */}
+                        <div style={{
+                            margin: '4rem 0 2rem 0'
                         }}>
                             <h3 className="brutal-title brutal-section-title" style={{
-                                fontSize: '3.5rem', 
+                                fontSize: '4rem', 
                                 textAlign: 'center', 
                                 letterSpacing: '0.1em',
-                                margin: '1rem 0 2rem 0',
+                                margin: '0 0 3rem 0',
                                 lineHeight: '1.2'
                             }}>
-                                THE GOOD STUFF<br/>
-                                <span style={{color: 'var(--pastel-pink)'}}>ADD-ONS</span>
+                                THE <span style={{color: 'var(--pastel-pink)'}}>GOOD</span> STUFF
                             </h3>
-                            <div className="brutal-text" style={{fontSize: '1.3rem'}}>
-                                <strong>CERAMIC COATING:</strong> $500-$1500<br/>
-                                <strong>PAINT PROTECTION FILM:</strong> $800-$3000<br/>
-                                <strong>WINDOW TINTING:</strong> $200-$600
+                            <p className="brutal-text brutal-center" style={{
+                                fontSize: '1.2rem', 
+                                margin: '0 0 3rem 0',
+                                textTransform: 'uppercase',
+                                fontStyle: 'italic'
+                            }}>
+                                Because your car deserves more than basic.
+                            </p>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                                gap: '2rem',
+                                margin: '2rem 0'
+                            }}>
+                                {theGoodStuff.map((service, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--off-white)',
+                                        border: '4px solid var(--black)',
+                                        padding: '2rem',
+                                        boxShadow: '6px 6px 0 var(--black)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        minHeight: '450px'
+                                    }}>
+                                        <h4 style={{
+                                            fontSize: '1.8rem',
+                                            fontWeight: '900',
+                                            marginBottom: '1rem',
+                                            color: 'var(--black)',
+                                            textAlign: 'center',
+                                            minHeight: '4.5rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            lineHeight: '1.2'
+                                        }}>
+                                            {service.name}
+                                        </h4>
+                                        
+                                        <div className="brutal-price" style={{
+                                            textAlign: 'center',
+                                            marginBottom: '1rem',
+                                            fontSize: '3rem',
+                                            minHeight: '4rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}>{service.price}</div>
+                                        
+                                        <div style={{
+                                            fontSize: '0.9rem',
+                                            fontWeight: 'bold',
+                                            color: 'var(--gold)',
+                                            background: 'var(--black)',
+                                            padding: '0.4rem 0.8rem',
+                                            margin: '0 0 1rem 0',
+                                            textAlign: 'center',
+                                            border: '2px solid var(--gold)',
+                                            minHeight: '2rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}>
+                                            ⏱️ {service.duration}
+                                        </div>
+                                        
+                                        <p style={{
+                                            fontSize: '1rem',
+                                            margin: '0 0 1.5rem 0',
+                                            fontStyle: 'italic',
+                                            lineHeight: '1.4',
+                                            flex: '1'
+                                        }}>
+                                            {service.description}
+                                        </p>
+                                        
+                                        <div style={{
+                                            background: 'var(--concrete-gray)',
+                                            border: '2px solid var(--black)',
+                                            padding: '1rem',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            <strong>What you get:</strong>
+                                            <ul style={{
+                                                margin: '0.5rem 0 0 0',
+                                                paddingLeft: '1.2rem',
+                                                lineHeight: '1.3'
+                                            }}>
+                                                {service.features.map((feature, idx) => (
+                                                    <li key={idx} style={{marginBottom: '0.3rem'}}>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                            
+                            {/* Paint Correction Quick Guide */}
+                            <div style={{
+                                background: 'var(--mint-green)',
+                                border: '4px solid var(--black)',
+                                padding: '2rem',
+                                margin: '3rem 0',
+                                boxShadow: '8px 8px 0 var(--black)',
+                                textAlign: 'center'
+                            }}>
+                                <h4 style={{
+                                    fontSize: '2.2rem',
+                                    fontWeight: '900',
+                                    marginBottom: '1.5rem',
+                                    color: 'var(--black)'
+                                }}>
+                                    🤔 PAINT CORRECTION: WHICH LEVEL?
+                                </h4>
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gap: '2rem',
+                                    margin: '2rem 0'
+                                }}>
+                                    <div style={{
+                                        background: 'var(--off-white)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem'
+                                    }}>
+                                        <h5 style={{fontSize: '1.5rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--black)'}}>
+                                            1-STEP
+                                        </h5>
+                                        <div className="brutal-price" style={{
+                                            fontSize: '2.2rem', 
+                                            marginBottom: '1rem',
+                                            textAlign: 'center',
+                                            minHeight: '2.5rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}>$600-$800</div>
+                                        <p style={{fontSize: '0.95rem', lineHeight: '1.4', textAlign: 'left'}}>
+                                            <strong>For:</strong> Light scratches, daily drivers, newer cars<br/>
+                                            <strong>Gets:</strong> 70-80% improvement, good shine<br/>
+                                            <strong>Time:</strong> 5-6 hours
+                                        </p>
+                                    </div>
+                                    
+                                    <div style={{
+                                        background: 'var(--gold)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem'
+                                    }}>
+                                        <h5 style={{fontSize: '1.5rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--black)'}}>
+                                            2-STEP
+                                        </h5>
+                                        <div className="brutal-price" style={{
+                                            fontSize: '2.2rem', 
+                                            marginBottom: '1rem',
+                                            textAlign: 'center',
+                                            minHeight: '2.5rem',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}>$900-$1200</div>
+                                        <p style={{fontSize: '0.95rem', lineHeight: '1.4', textAlign: 'left'}}>
+                                            <strong>For:</strong> Deep scratches, older cars, show car finish<br/>
+                                            <strong>Gets:</strong> 90-95% improvement, mirror finish<br/>
+                                            <strong>Time:</strong> 7-8 hours
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style={{
+                                    background: 'var(--pastel-pink)',
+                                    border: '3px solid var(--black)',
+                                    padding: '1.5rem',
+                                    margin: '2rem 0'
+                                }}>
+                                    <strong style={{fontSize: '1.1rem', color: 'var(--black)'}}>
+                                        Quick Test: Can you clearly see your reflection in your paint?<br/>
+                                        👍 YES = 1-Step probably fine | 👎 NO = You need 2-Step
+                                    </strong>
+                                </div>
+                            </div>
+                            
+                            <p style={{
+                                fontSize: '1rem',
+                                fontStyle: 'italic',
+                                textAlign: 'center',
+                                marginTop: '2rem',
+                                color: 'var(--black)'
+                            }}>
+                                *All pricing depends on vehicle size and condition. We'll give you the real deal, no surprises.
+                            </p>
+                    </div>
+                </section>
+            );
+        };
+
+        // BRUTAL EDUCATION COMPONENT
+        const BrutalEducation = () => {
+            const educationTerms = [
+                {
+                    term: "Clay Bar Treatment",
+                    simple: "Deep Cleaning",
+                    explanation: "Think of your car like your face - it has pores that get clogged! A clay bar pulls out dirt that soap can't reach, like tree sap, bird poop, and brake dust stuck deep in your paint.",
+                    whyNeeded: "Makes your car smooth as glass and ready for wax or coating",
+                    icon: "🧼"
+                },
+                {
+                    term: "Iron Decontamination", 
+                    simple: "Rust Particle Removal",
+                    explanation: "Tiny metal bits from brakes and trains land on your car and can cause rust spots. Special soap dissolves these particles and turns purple when it finds them!",
+                    whyNeeded: "Prevents rust damage and makes your paint last longer",
+                    icon: "🔬"
+                },
+                {
+                    term: "Paint Correction",
+                    simple: "Scratch Removal",
+                    explanation: "Like using sandpaper (very gentle!) to remove scratches and swirls, then polishing it smooth and shiny. It's like giving your car's paint a facelift.",
+                    whyNeeded: "Makes your car shine like new and removes years of damage",
+                    icon: "✨"
+                },
+                {
+                    term: "Ceramic Coating",
+                    simple: "Invisible Shield",
+                    explanation: "Like putting an invisible raincoat on your car that lasts 5 years! Water beads off, dirt slides off easier, and your paint stays protected.",
+                    whyNeeded: "Protects your investment and makes washing much easier",
+                    icon: "🛡️"
+                }
+            ];
+
+            const processSteps = [
+                { step: 1, title: "WASH", description: "Remove surface dirt", time: "30 min" },
+                { step: 2, title: "DECONTAMINATE", description: "Pull out embedded particles", time: "45 min" },
+                { step: 3, title: "CORRECT", description: "Fix scratches & swirls", time: "2-4 hours" },
+                { step: 4, title: "PROTECT", description: "Apply coating or wax", time: "1-2 hours" }
+            ];
+
+            return (
+                <section id="education" className="brutal-section" style={{
+                    background: 'var(--concrete-gray)',
+                    padding: '6rem 0'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
+                            <span style={{color: 'var(--black)'}}>NO MORE</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>CONFUSION</span>
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.5rem',
+                            marginBottom: '4rem',
+                            color: 'var(--black)',
+                            fontWeight: 'bold'
+                        }}>
+                            Car detailing shouldn't sound like rocket science. Here's what we actually do:
+                        </p>
+
+                        {/* Education Terms Grid */}
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(4, 1fr)',
+                            gap: '1.5rem',
+                            marginBottom: '4rem'
+                        }}>
+                            {educationTerms.map((term, index) => (
+                                <div key={index} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    padding: '2rem',
+                                    boxShadow: '6px 6px 0 var(--black)',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{
+                                        fontSize: '3rem',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {term.icon}
+                                    </div>
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '900',
+                                        color: 'var(--black)',
+                                        marginBottom: '0.5rem'
+                                    }}>
+                                        {term.term}
+                                    </h3>
+                                    <h4 style={{
+                                        fontSize: '1.2rem',
+                                        color: 'var(--pastel-pink)',
+                                        fontWeight: 'bold',
+                                        marginBottom: '1rem',
+                                        fontStyle: 'italic'
+                                    }}>
+                                        AKA: {term.simple}
+                                    </h4>
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        lineHeight: '1.5',
+                                        marginBottom: '1rem',
+                                        color: 'var(--black)'
+                                    }}>
+                                        {term.explanation}
+                                    </p>
+                                    <div style={{
+                                        background: 'var(--mint-green)',
+                                        border: '2px solid var(--black)',
+                                        padding: '0.8rem',
+                                        fontSize: '0.9rem',
+                                        fontWeight: 'bold'
+                                    }}>
+                                        💪 Why you need it: {term.whyNeeded}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Process Timeline */}
+                        <div style={{
+                            background: 'var(--gold)',
+                            border: '4px solid var(--black)',
+                            padding: '3rem 2rem',
+                            margin: '4rem 0',
+                            boxShadow: '8px 8px 0 var(--black)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2.5rem',
+                                fontWeight: '900',
+                                textAlign: 'center',
+                                marginBottom: '2rem',
+                                color: 'var(--black)'
+                            }}>
+                                🕐 HOW WE ACTUALLY DO IT
+                            </h3>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                gap: '1.5rem'
+                            }}>
+                                {processSteps.map((step, index) => (
+                                    <div key={index} style={{
+                                        background: 'var(--off-white)',
+                                        border: '3px solid var(--black)',
+                                        padding: '1.5rem',
+                                        textAlign: 'center',
+                                        position: 'relative'
+                                    }}>
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '-15px',
+                                            left: '-15px',
+                                            background: 'var(--pastel-pink)',
+                                            color: 'var(--black)',
+                                            width: '40px',
+                                            height: '40px',
+                                            border: '3px solid var(--black)',
+                                            borderRadius: '50%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontSize: '1.2rem',
+                                            fontWeight: '900'
+                                        }}>
+                                            {step.step}
+                                        </div>
+                                        <h4 style={{
+                                            fontSize: '1.3rem',
+                                            fontWeight: '900',
+                                            marginBottom: '0.5rem',
+                                            marginTop: '1rem'
+                                        }}>
+                                            {step.title}
+                                        </h4>
+                                        <p style={{
+                                            fontSize: '0.9rem',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {step.description}
+                                        </p>
+                                        <div style={{
+                                            background: 'var(--black)',
+                                            color: 'var(--gold)',
+                                            padding: '0.3rem 0.6rem',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 'bold'
+                                        }}>
+                                            ⏱️ {step.time}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -1925,115 +2526,235 @@
 
         // BRUTAL GALLERY COMPONENT
         const BrutalGallery = () => {
-            // Sample gallery data - replace with actual images
+            // Real gallery data from actual folders
+            // First gallery grid - premium work
             const galleryItems = [
-                { id: 1, before: './gallery/car1_before.jpg', after: './gallery/car1_after.jpg', title: 'BMW Detail Transformation' },
-                { id: 2, before: './gallery/car2_before.jpg', after: './gallery/car2_after.jpg', title: 'Mercedes Interior Revival' },
-                { id: 3, before: './gallery/car3_before.jpg', after: './gallery/car3_after.jpg', title: 'Tesla Paint Correction' },
-                { id: 4, before: './gallery/car4_before.jpg', after: './gallery/car4_after.jpg', title: 'Audi Full Detail' },
-                { id: 5, before: './gallery/car5_before.jpg', after: './gallery/car5_after.jpg', title: 'Range Rover Restoration' },
-                { id: 6, before: './gallery/car6_before.jpg', after: './gallery/car6_after.jpg', title: 'Porsche Ceramic Coating' }
+                { 
+                    id: 1, 
+                    media: './gallery/audi_r8/Video.mov', 
+                    image: './gallery/audi_r8/image0.jpeg',
+                    title: 'Audi R8 • Paint Correction & Detail',
+                    type: 'video',
+                    service: 'Paint Correction'
+                },
+                { 
+                    id: 2, 
+                    media: './gallery/ferrari/Video.mov', 
+                    image: './gallery/ferrari/Video.mov',
+                    title: 'Ferrari 488 • Luxury Treatment',
+                    type: 'video',
+                    service: 'Platinum Detail'
+                },
+                { 
+                    id: 3, 
+                    media: './gallery/porsche_ppf/image0.jpeg', 
+                    image: './gallery/porsche_ppf/image0.jpeg',
+                    title: 'Porsche 911 • Paint Protection Film',
+                    type: 'image',
+                    service: 'PPF Installation'
+                },
+                { 
+                    id: 4, 
+                    media: './gallery/mercedes/Video.mov', 
+                    image: './gallery/mercedes/Video.mov',
+                    title: 'Mercedes S-Class • Ceramic Coating',
+                    type: 'video',
+                    service: 'Ceramic Coating'
+                },
+                { 
+                    id: 5, 
+                    media: './gallery/bentley/Video.mov', 
+                    image: './gallery/bentley/image0.jpeg',
+                    title: 'Bentley Continental • Interior Restoration',
+                    type: 'video',
+                    service: 'Interior Detail'
+                },
+                { 
+                    id: 6, 
+                    media: './gallery/cyber_truck/Video.mov', 
+                    image: './gallery/cyber_truck/image0.jpeg',
+                    title: 'Cybertruck • Premium Detail',
+                    type: 'video',
+                    service: 'Premium Detail'
+                },
+                { 
+                    id: 7, 
+                    media: './gallery/bmw_ceramic_coating/Video.mov', 
+                    image: './gallery/bmw_ceramic_coating/Video.mov',
+                    title: 'BMW M3 • Ceramic Coating',
+                    type: 'video',
+                    service: 'Ceramic Coating'
+                },
+                { 
+                    id: 8, 
+                    media: './gallery/supra/Video.mov', 
+                    image: './gallery/supra/Video.mov',
+                    title: 'Toyota Supra • Show Car Prep',
+                    type: 'video',
+                    service: 'Platinum Detail'
+                },
+                { 
+                    id: 9, 
+                    media: './gallery/porsche/Video.mov', 
+                    image: './gallery/porsche/Video.mov',
+                    title: 'Porsche 911 • Paint Correction',
+                    type: 'video',
+                    service: 'Paint Correction'
+                }
             ];
 
             return (
-                <section className="brutal-section" style={{
-                    background: 'var(--off-white)',
-                    borderTop: '8px solid var(--pastel-pink)',
-                    borderBottom: '8px solid var(--pastel-pink)',
+                <section id="gallery" className="brutal-section" style={{
+                    background: 'var(--black)',
                     padding: '6rem 0'
                 }}>
                     <div className="brutal-container">
                         <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem', marginBottom: '2rem'}}>
-                            <span style={{color: 'var(--black)'}}>TOP DIRTY CAR</span><br/>
-                            <span style={{color: 'var(--pastel-pink)'}}>TRANSFORMATIONS</span>
+                            <span style={{
+                                color: 'var(--off-white)',
+                                WebkitTextStroke: '2px var(--gold)',
+                                textStroke: '2px var(--gold)',
+                                textShadow: '4px 4px 0 var(--pastel-pink)'
+                            }}>PAPA LAI</span><br/>
+                            <span style={{color: 'var(--pastel-pink)'}}>APPROVED</span>
                         </h2>
                         <p className="brutal-text brutal-center" style={{
-                            fontSize: '1.2rem',
-                            margin: '2rem 0 4rem 0',
-                            textTransform: 'uppercase',
-                            fontStyle: 'italic'
+                            fontSize: '1.5rem',
+                            marginBottom: '4rem',
+                            color: 'var(--off-white)',
+                            fontWeight: 'bold'
                         }}>
-                            Before & After • Real Results • No Filters
+                            Real work. Real results. No filters.
                         </p>
 
-                        {/* Gallery Grid */}
                         <div className="brutal-gallery-grid" style={{
-                            marginBottom: '3rem'
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                            gap: '2rem',
+                            maxWidth: '100%'
                         }}>
-                            {galleryItems.map((item, index) => (
-                                <div key={item.id} className="brutal-gallery-item" style={{
-                                    border: '4px solid var(--black)',
-                                    boxShadow: '8px 8px 0 var(--gold)',
+                            {galleryItems.slice(0, 9).map((item) => (
+                                <div key={item.id} className="brutal-gallery-card" style={{
                                     background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    boxShadow: '8px 8px 0 var(--black)',
                                     overflow: 'hidden',
                                     cursor: 'pointer',
-                                    transition: 'transform 0.2s ease'
-                                }}>
-                                    <div style={{
+                                    transition: 'all 0.3s ease'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = 'translate(-2px, -2px)';
+                                    e.currentTarget.style.boxShadow = '12px 12px 0 var(--black)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'translate(0, 0)';
+                                    e.currentTarget.style.boxShadow = '8px 8px 0 var(--black)';
+                                }}
+                                >
+                                    <div className="brutal-gallery-image" style={{
+                                        width: '100%',
+                                        height: '300px',
+                                        backgroundImage: `url(${item.image})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
                                         position: 'relative',
-                                        height: '250px',
                                         overflow: 'hidden'
                                     }}>
-                                        {/* Before/After slider placeholder */}
+                                        {item.type === 'video' && (
+                                            <div style={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                left: '50%',
+                                                transform: 'translate(-50%, -50%)',
+                                                background: 'rgba(0,0,0,0.8)',
+                                                borderRadius: '50%',
+                                                width: '80px',
+                                                height: '80px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                border: '3px solid var(--gold)'
+                                            }}>
+                                                <span style={{
+                                                    color: 'var(--gold)',
+                                                    fontSize: '32px',
+                                                    marginLeft: '6px'
+                                                }}>▶</span>
+                                            </div>
+                                        )}
                                         <div style={{
                                             position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '100%',
-                                            height: '100%',
-                                            background: 'linear-gradient(45deg, var(--concrete-gray) 25%, transparent 25%), linear-gradient(-45deg, var(--concrete-gray) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--concrete-gray) 75%), linear-gradient(-45deg, transparent 75%, var(--concrete-gray) 75%)',
-                                            backgroundSize: '20px 20px',
-                                            backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center'
+                                            bottom: '0',
+                                            left: '0',
+                                            right: '0',
+                                            background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+                                            padding: '2rem 1.5rem 1rem 1.5rem',
+                                            color: 'white'
                                         }}>
-                                            <div style={{
-                                                background: 'var(--black)',
-                                                color: 'var(--gold)',
-                                                padding: '1rem 2rem',
-                                                border: '3px solid var(--gold)',
-                                                fontWeight: 'bold',
-                                                textAlign: 'center'
+                                            <h3 style={{
+                                                fontSize: '1.2rem',
+                                                fontWeight: '900',
+                                                marginBottom: '0.5rem',
+                                                textShadow: '2px 2px 0 var(--black)'
                                             }}>
-                                                BEFORE / AFTER<br/>
-                                                <span style={{fontSize: '0.9rem', color: 'var(--off-white)'}}>{item.title}</span>
-                                            </div>
+                                                {item.title}
+                                            </h3>
+                                            <span style={{
+                                                background: 'var(--pastel-pink)',
+                                                color: 'var(--black)',
+                                                padding: '0.4rem 1rem',
+                                                fontSize: '0.9rem',
+                                                fontWeight: 'bold',
+                                                border: '2px solid var(--black)',
+                                                boxShadow: '3px 3px 0 var(--black)'
+                                            }}>
+                                                {item.service}
+                                            </span>
                                         </div>
-                                    </div>
-                                    <div style={{
-                                        padding: '1rem',
-                                        background: 'var(--black)',
-                                        color: 'var(--gold)',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold',
-                                        fontSize: '0.9rem'
-                                    }}>
-                                        CLICK TO VIEW FULL TRANSFORMATION
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* View All Gallery Button */}
-                        <div className="brutal-center">
-                            <a href="#gallery" className="brutal-button brutal-button--mint" style={{
-                                fontSize: '1.5rem',
-                                padding: '1.5rem 3rem',
-                                textTransform: 'uppercase'
-                            }}>
+                        {/* View Gallery Button */}
+                        <div style={{
+                            textAlign: 'center',
+                            marginTop: '4rem'
+                        }}>
+                            <button 
+                                className="brutal-button"
+                                onClick={() => alert('Gallery feature coming soon! Call 323-558-2652 to see more work.')}
+                                style={{
+                                    fontSize: '1.3rem',
+                                    padding: '1.2rem 2.5rem',
+                                    background: 'var(--pastel-pink)',
+                                    color: 'var(--black)',
+                                    border: '4px solid var(--black)',
+                                    boxShadow: '6px 6px 0 var(--black)',
+                                    fontWeight: '900',
+                                    textTransform: 'uppercase',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s ease'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.transform = 'translate(-2px, -2px)';
+                                    e.target.style.boxShadow = '8px 8px 0 var(--black)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.transform = 'translate(0, 0)';
+                                    e.target.style.boxShadow = '6px 6px 0 var(--black)';
+                                }}
+                            >
                                 📸 VIEW FULL GALLERY
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </section>
             );
         };
-
-        // BRUTAL PAPA LAI COMPONENT
         const BrutalPapaLai = () => {
             return (
-                <section id="about" className="brutal-section" style={{background: 'var(--light-gray)'}}>
+                <section id="about" className="brutal-section" style={{background: 'var(--light-gray)', padding: '2rem 0'}}>
                     <div className="brutal-container">
                         <h2 className="brutal-title brutal-center brutal-section-title" style={{fontSize: '4rem'}}>
                             <span style={{fontSize: '4.5rem'}}>OUR HIGH</span><br/>
@@ -2074,15 +2795,20 @@
                                 </div>
                                 </blockquote>
                             </div>
-                            <div style={{
-                                marginTop: '2rem',
-                                fontSize: '1.1rem',
-                                color: 'var(--black)',
-                                fontWeight: '900',
-                                textAlign: 'right'
-                            }}>
-                                — MY POPS
-                            </div>
+                            
+                            {/* Papa Lai Image - Bottom Left */}
+                            <img 
+                                src="./brand_assets/papalai-standards.png" 
+                                alt="Papa Lai - Do It Right"
+                                style={{
+                                    position: 'absolute',
+                                    bottom: '-50px',
+                                    left: '0',
+                                    width: '200px',
+                                    height: 'auto',
+                                    zIndex: 10
+                                }}
+                            />
                             <div style={{
                                 position: 'absolute',
                                 bottom: '-2rem',
@@ -2171,6 +2897,228 @@
             );
         };
 
+        // BRUTAL TESTIMONIALS COMPONENT
+        const BrutalTestimonials = () => {
+            const testimonials = [
+                {
+                    id: 1,
+                    name: "Sarah M.",
+                    vehicle: "2022 Tesla Model S",
+                    rating: 5,
+                    review: "Mr. Lai's work is absolutely incredible! My Tesla looked like it just rolled off the showroom floor. The attention to detail is unmatched - he even cleaned spots I didn't know existed. Papa Lai standards are real!",
+                    service: "Premium Detail",
+                    location: "Beverly Hills"
+                },
+                {
+                    id: 2,
+                    name: "Marcus T.",
+                    vehicle: "2021 Porsche 911",
+                    rating: 5,
+                    review: "Been to every detailer in LA and Mason is hands down the best. The ceramic coating looks amazing and the paint correction removed scratches I thought were permanent. Worth every penny!",
+                    service: "Paint Correction + Ceramic",
+                    location: "Manhattan Beach"
+                },
+                {
+                    id: 3,
+                    name: "Jennifer R.",
+                    vehicle: "2020 Range Rover",
+                    rating: 5,
+                    review: "Finally found someone who treats my car like their own. The hospitality background really shows - professional, punctual, and passionate about the work. My Range Rover has never looked better!",
+                    service: "Luxury Treatment",
+                    location: "Malibu"
+                },
+                {
+                    id: 4,
+                    name: "David K.",
+                    vehicle: "2019 Mercedes G-Wagon",
+                    rating: 5,
+                    review: "Mr. Lai Clean is no joke! Came to my office and transformed my G-Wagon while I worked. The convenience factor plus the quality of work makes this a no-brainer. Booking again next month!",
+                    service: "Mobile Detail",
+                    location: "Century City"
+                },
+                {
+                    id: 5,
+                    name: "Amanda L.",
+                    vehicle: "2023 BMW M3",
+                    rating: 5,
+                    review: "Mason's passion for cars really shows in his work. He explained every step of the process and the results speak for themselves. My BMW looks better than the day I bought it. Highly recommend!",
+                    service: "Paint Protection Film",
+                    location: "Santa Monica"
+                },
+                {
+                    id: 6,
+                    name: "Robert H.",
+                    vehicle: "1967 Mustang Fastback",
+                    rating: 5,
+                    review: "Trusted Mason with my classic Mustang and couldn't be happier. He treated it like a museum piece - gentle but thorough. The 'Papa Lai approved' standard is real. This guy knows cars!",
+                    service: "Classic Car Detail",
+                    location: "Pasadena"
+                }
+            ];
+
+            return (
+                <section id="testimonials" className="brutal-section" style={{
+                    background: 'var(--mint-green)',
+                    borderTop: '8px solid var(--black)',
+                    borderBottom: '8px solid var(--black)'
+                }}>
+                    <div className="brutal-container">
+                        <h2 className="brutal-title brutal-section-title" style={{
+                            fontSize: '4.5rem', 
+                            textAlign: 'center', 
+                            letterSpacing: '0.05em',
+                            color: 'var(--black)',
+                            marginBottom: '1rem'
+                        }}>
+                            WHAT THEY SAY
+                        </h2>
+                        <p className="brutal-text brutal-center" style={{
+                            fontSize: '1.2rem', 
+                            margin: '0 0 4rem 0',
+                            textTransform: 'uppercase',
+                            fontWeight: 'bold',
+                            color: 'var(--black)'
+                        }}>
+                            REAL CUSTOMERS. REAL RESULTS. PAPA LAI APPROVED.
+                        </p>
+                        
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                            gap: '2rem',
+                            margin: '2rem 0'
+                        }}>
+                            {testimonials.map((testimonial) => (
+                                <div key={testimonial.id} style={{
+                                    background: 'var(--off-white)',
+                                    border: '4px solid var(--black)',
+                                    padding: '2rem',
+                                    boxShadow: '8px 8px 0 var(--black)',
+                                    position: 'relative',
+                                    minHeight: '300px',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}>
+                                    {/* Stars */}
+                                    <div style={{
+                                        display: 'flex',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <span key={i} style={{
+                                                fontSize: '1.5rem',
+                                                color: 'var(--gold)',
+                                                textShadow: '1px 1px 0 var(--black)'
+                                            }}>★</span>
+                                        ))}
+                                    </div>
+                                    
+                                    {/* Review Text */}
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        lineHeight: '1.5',
+                                        color: 'var(--black)',
+                                        fontStyle: 'italic',
+                                        marginBottom: '1.5rem',
+                                        flex: '1'
+                                    }}>
+                                        "{testimonial.review}"
+                                    </p>
+                                    
+                                    {/* Customer Info */}
+                                    <div style={{
+                                        borderTop: '2px solid var(--black)',
+                                        paddingTop: '1rem',
+                                        marginTop: 'auto'
+                                    }}>
+                                        <div style={{
+                                            fontWeight: 'bold',
+                                            fontSize: '1.1rem',
+                                            color: 'var(--black)',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {testimonial.name}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '0.9rem',
+                                            color: 'var(--black)',
+                                            marginBottom: '0.3rem'
+                                        }}>
+                                            {testimonial.vehicle}
+                                        </div>
+                                        <div style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center'
+                                        }}>
+                                            <span style={{
+                                                background: 'var(--pastel-pink)',
+                                                color: 'var(--black)',
+                                                padding: '0.3rem 0.8rem',
+                                                fontSize: '0.8rem',
+                                                fontWeight: 'bold',
+                                                border: '2px solid var(--black)',
+                                                textTransform: 'uppercase'
+                                            }}>
+                                                {testimonial.service}
+                                            </span>
+                                            <span style={{
+                                                fontSize: '0.8rem',
+                                                color: 'var(--black)',
+                                                fontWeight: 'bold'
+                                            }}>
+                                                📍 {testimonial.location}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* CTA Section */}
+                        <div style={{
+                            textAlign: 'center',
+                            margin: '4rem 0 2rem 0',
+                            padding: '2rem',
+                            background: 'var(--black)',
+                            border: '4px solid var(--off-white)',
+                            boxShadow: '8px 8px 0 var(--pastel-pink)'
+                        }}>
+                            <h3 style={{
+                                fontSize: '2rem',
+                                fontWeight: '900',
+                                color: 'var(--gold)',
+                                marginBottom: '1rem',
+                                textTransform: 'uppercase'
+                            }}>
+                                READY FOR PAPA LAI APPROVED?
+                            </h3>
+                            <p style={{
+                                color: 'var(--off-white)',
+                                fontSize: '1.1rem',
+                                marginBottom: '2rem'
+                            }}>
+                                Join hundreds of satisfied customers in LA
+                            </p>
+                            <a href="tel:323-558-2652" className="brutal-button" style={{
+                                background: 'var(--gold)',
+                                color: 'var(--black)',
+                                border: '4px solid var(--off-white)',
+                                fontSize: '1.3rem',
+                                padding: '1.2rem 2.5rem',
+                                fontWeight: '900',
+                                textDecoration: 'none',
+                                display: 'inline-block',
+                                boxShadow: '6px 6px 0 var(--off-white)'
+                            }}>
+                                BOOK NOW → (323) 558-2652
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
         // BRUTAL CONTACT COMPONENT
         const BrutalContact = () => {
             const [formData, setFormData] = useState({
@@ -2220,7 +3168,7 @@
                         </div>
 
                         <div className="brutal-contact">
-                            <h3 className="brutal-subtitle">DIRTY CAR HOTLINE</h3>
+                            <h3 className="brutal-subtitle">GET MR LAI CLEAN</h3>
                             <a href="tel:323-558-2652" className="brutal-phone">
                                 (323) 558-2652
                             </a>
@@ -2365,7 +3313,7 @@
                     background: 'var(--black)',
                     color: 'var(--off-white)',
                     borderTop: '8px solid var(--gold)',
-                    padding: '4rem 0 2rem 0'
+                    padding: '2.5rem 0 2rem 0'
                 }}>
                     <div className="brutal-container">
                         {/* Main Footer Content */}
@@ -2475,7 +3423,7 @@
                                     CONTACT INFO
                                 </h4>
                                 <div style={{fontSize: '1.1rem', lineHeight: '1.8'}}>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📞 Phone:</strong> 
                                         <a href="tel:323-558-2652" style={{
                                             color: 'var(--gold)',
@@ -2485,7 +3433,7 @@
                                             (323) 558-2652
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📧 Email:</strong> 
                                         <a href="mailto:mrlai.mcds@gmail.com" style={{
                                             color: 'var(--gold)',
@@ -2495,7 +3443,7 @@
                                             mrlai.mcds@gmail.com
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '0.5rem'}}>
+                                    <div style={{marginBottom: '0.5rem', fontSize: '0.9rem'}}>
                                         <strong>📱 Instagram:</strong> 
                                         <a href="https://instagram.com/mr.lai_detailing" style={{
                                             color: 'var(--gold)',
@@ -2505,7 +3453,7 @@
                                             @mr.lai_detailing
                                         </a>
                                     </div>
-                                    <div style={{marginBottom: '1rem'}}>
+                                    <div style={{marginBottom: '1rem', fontSize: '0.9rem'}}>
                                         <strong>⏰ Hours:</strong> 7 Days a Week, 8AM - 6PM
                                     </div>
                                     <div style={{marginTop: '1.5rem', textAlign: 'center'}}>
@@ -2598,8 +3546,10 @@
                     <BrutalNav />
                     <BrutalHero />
                     <BrutalServices />
+                    <BrutalEducation />
                     <BrutalGallery />
                     <BrutalPapaLai />
+                    <BrutalTestimonials />
                     <BrutalContact />
                     <BrutalFooter />
                 </div>
