@@ -1,0 +1,29 @@
+{
+  "brandName": "Tony's Pizza Palace",
+  "voice": "Authentic, family-owned, passionate, local favorite",
+  "tone": "Warm, inviting, confident, no corporate jargon",
+  "services": [
+    "Wood-fired pizza",
+    "Fresh pasta",
+    "Italian salads",
+    "Catering",
+    "Private events",
+    "Delivery"
+  ],
+  "serviceAreas": ["Downtown", "Midtown", "University District"],
+  "offers": [
+    { "name": "First Order Special", "cta": "Order now", "value": "$5 off" },
+    { "name": "Family Feast Deal", "cta": "See menu", "value": "20% off orders $50+" }
+  ],
+  "proof": {
+    "reviews": 847,
+    "testimonials": [
+      {
+        "name": "Maria Rodriguez",
+        "review": "Best pizza in the city! The wood-fired crust is perfection.",
+        "rating": 5,
+        "service": "Dine-in"
+      }
+    ]
+  }
+}

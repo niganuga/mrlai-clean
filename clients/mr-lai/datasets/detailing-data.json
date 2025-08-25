@@ -1,0 +1,319 @@
+{
+  "businessInfo": {
+    "businessName": "Mr. Lai's Mobile Car Detailing Services",
+    "brandTagline": "Not Just Clean — Mr. Lai Clean",
+    "businessId": "mr-lai-mobile-detailing",
+    "lastUpdated": "2025-08-14T06:59:07.057Z",
+    "status": "active",
+    "businessType": "mobile_automotive_detailing"
+  },
+  "contact": {
+    "primary": {
+      "phone": "323-558-2652",
+      "email": "mrlai.mcds@gmail.com",
+      "preferredMethod": "phone"
+    },
+    "social": {
+      "instagram": {
+        "handle": "@mr.lai_detailing",
+        "url": "https://instagram.com/mr.lai_detailing",
+        "active": true
+      }
+    },
+    "availability": {
+      "responseTime": "same_day",
+      "bookingAdvance": "24_hours_minimum",
+      "emergencyService": false
+    }
+  },
+  "serviceArea": {
+    "type": "mobile",
+    "coverage": "greater_los_angeles",
+    "travelRadius": 50,
+    "unit": "miles",
+    "notes": "Travel to customer location"
+  },
+  "founder": {
+    "name": "Mr. Lai",
+    "background": {
+      "previousIndustry": "hospitality",
+      "yearStarted": 2020,
+      "pivotReason": "pandemic_career_change",
+      "experience": "5+ years",
+      "specialty": "high_end_vehicles"
+    },
+    "story": "Transitioned from hospitality industry during pandemic to automotive detailing, focusing on premium service delivery and customer convenience"
+  },
+  "services": {
+    "packages": [
+      {
+        "id": "basic_wash",
+        "name": "Basic Wash",
+        "category": "exterior",
+        "price": {
+          "amount": 50,
+          "currency": "USD",
+          "unit": "per_vehicle"
+        },
+        "duration": {
+          "estimated": 60,
+          "unit": "minutes"
+        },
+        "description": "Standard exterior wash and dry",
+        "includes": [
+          "exterior_wash",
+          "hand_dry",
+          "basic_interior_vacuum"
+        ],
+        "vehicleTypes": ["sedan", "suv", "hatchback"],
+        "targetCustomer": "budget_conscious"
+      },
+      {
+        "id": "premium_detail",
+        "name": "Premium Detail",
+        "category": "full_service",
+        "price": {
+          "amount": 150,
+          "currency": "USD",
+          "unit": "per_vehicle"
+        },
+        "duration": {
+          "estimated": 180,
+          "unit": "minutes"
+        },
+        "description": "Comprehensive interior and exterior detailing",
+        "includes": [
+          "complete_exterior_wash",
+          "paint_decontamination",
+          "interior_deep_clean",
+          "leather_conditioning",
+          "tire_shine",
+          "window_cleaning"
+        ],
+        "vehicleTypes": ["all"],
+        "targetCustomer": "quality_focused",
+        "popular": true
+      },
+      {
+        "id": "luxury_treatment",
+        "name": "Luxury Treatment",
+        "category": "premium",
+        "price": {
+          "amount": 300,
+          "currency": "USD",
+          "unit": "per_vehicle"
+        },
+        "duration": {
+          "estimated": 300,
+          "unit": "minutes"
+        },
+        "description": "Ultimate detailing experience for luxury vehicles",
+        "includes": [
+          "paint_correction",
+          "ceramic_coating_prep",
+          "premium_interior_treatment",
+          "engine_bay_cleaning",
+          "headlight_restoration",
+          "paint_protection"
+        ],
+        "vehicleTypes": ["luxury", "exotic", "classic"],
+        "targetCustomer": "luxury_owners",
+        "premium": true
+      }
+    ],
+    "addOns": [
+      {
+        "id": "ceramic_coating",
+        "name": "Ceramic Coating",
+        "category": "protection",
+        "priceRange": {
+          "min": 500,
+          "max": 1500,
+          "currency": "USD",
+          "variableFactors": ["vehicle_size", "coating_grade", "prep_required"]
+        },
+        "duration": {
+          "estimated": 480,
+          "unit": "minutes"
+        },
+        "description": "Long-lasting paint protection with hydrophobic properties",
+        "benefits": [
+          "scratch_resistance",
+          "uv_protection",
+          "easy_maintenance",
+          "enhanced_gloss"
+        ],
+        "warranty": "2-5 years",
+        "cureTime": "24-48 hours"
+      },
+      {
+        "id": "paint_protection_film",
+        "name": "Paint Protection Film (PPF)",
+        "category": "protection",
+        "priceRange": {
+          "min": 800,
+          "max": 3000,
+          "currency": "USD",
+          "variableFactors": ["coverage_area", "vehicle_complexity", "film_grade"]
+        },
+        "duration": {
+          "estimated": 600,
+          "unit": "minutes"
+        },
+        "description": "Invisible protective film for high-impact areas",
+        "benefits": [
+          "stone_chip_protection",
+          "self_healing_properties",
+          "maintains_resale_value",
+          "invisible_finish"
+        ],
+        "warranty": "10 years",
+        "coverage": ["partial", "full_front", "full_vehicle"]
+      },
+      {
+        "id": "window_tinting",
+        "name": "Window Tinting",
+        "category": "enhancement",
+        "priceRange": {
+          "min": 200,
+          "max": 600,
+          "currency": "USD",
+          "variableFactors": ["tint_grade", "number_of_windows", "vehicle_type"]
+        },
+        "duration": {
+          "estimated": 180,
+          "unit": "minutes"
+        },
+        "description": "Professional window film installation",
+        "benefits": [
+          "uv_protection",
+          "privacy",
+          "heat_reduction",
+          "glare_reduction"
+        ],
+        "tintOptions": ["ceramic", "carbon", "dyed"],
+        "warranty": "lifetime"
+      }
+    ]
+  },
+  "vehicleSpecialties": [
+    {
+      "brand": "mercedes",
+      "experience": "expert",
+      "specialServices": ["paint_correction", "interior_restoration"]
+    },
+    {
+      "brand": "porsche",
+      "experience": "expert",
+      "specialServices": ["ppf_installation", "ceramic_coating", "paint_correction"]
+    },
+    {
+      "brand": "ferrari",
+      "experience": "expert",
+      "specialServices": ["exotic_care", "paint_preservation"]
+    },
+    {
+      "brand": "range_rover",
+      "experience": "expert",
+      "specialServices": ["luxury_interior_care", "paint_protection"]
+    },
+    {
+      "brand": "toyota_supra",
+      "experience": "expert",
+      "specialServices": ["performance_vehicle_care", "modification_friendly"]
+    }
+  ],
+  "businessValues": {
+    "coreValues": [
+      "premium_quality",
+      "customer_convenience",
+      "attention_to_detail",
+      "professional_integrity",
+      "personalized_service"
+    ],
+    "uniqueSellingPropositions": [
+      "mobile_service_convenience",
+      "luxury_vehicle_expertise",
+      "personal_attention_from_owner",
+      "hospitality_background_service",
+      "high_end_product_usage"
+    ],
+    "customerPromise": "Delivering exceptional automotive care with the convenience of mobile service and the quality standards of luxury establishments"
+  },
+  "marketing": {
+    "brandPersonality": [
+      "professional",
+      "approachable",
+      "detail_oriented",
+      "luxury_focused",
+      "convenient"
+    ],
+    "targetMarkets": [
+      {
+        "segment": "luxury_car_owners",
+        "characteristics": ["high_income", "values_convenience", "quality_focused"],
+        "primaryServices": ["luxury_treatment", "ceramic_coating", "ppf"]
+      },
+      {
+        "segment": "busy_professionals",
+        "characteristics": ["time_constrained", "values_convenience", "regular_maintenance"],
+        "primaryServices": ["premium_detail", "mobile_convenience"]
+      },
+      {
+        "segment": "car_enthusiasts",
+        "characteristics": ["performance_focused", "modification_friendly", "detail_oriented"],
+        "primaryServices": ["paint_correction", "protection_services"]
+      }
+    ],
+    "keyMessages": [
+      "Professional mobile detailing at your location",
+      "Luxury vehicle expertise with personal attention",
+      "Convenience without compromising quality",
+      "Hospitality industry service standards applied to automotive care"
+    ]
+  },
+  "operationalInfo": {
+    "serviceModel": "mobile_only",
+    "equipmentType": "professional_mobile_unit",
+    "waterSource": "self_contained",
+    "wastewater": "contained_system",
+    "insuranceStatus": "fully_insured",
+    "licensingStatus": "licensed_and_bonded"
+  },
+  "booking": {
+    "methods": ["phone", "email", "instagram_dm"],
+    "advanceNotice": "24_hours_minimum",
+    "scheduling": {
+      "flexibility": "high",
+      "weekendAvailability": true,
+      "emergencyService": false
+    },
+    "paymentMethods": ["cash", "venmo", "zelle", "check"],
+    "cancellationPolicy": "24_hour_notice_required"
+  },
+  "qualityAssurance": {
+    "satisfactionGuarantee": true,
+    "followUpService": true,
+    "qualityChecklist": true,
+    "beforeAfterPhotos": true,
+    "customerFeedback": "actively_solicited"
+  },
+  "metadata": {
+    "dataVersion": "1.0",
+    "lastSync": "2025-08-19T19:30:00Z",
+    "sourceDocument": "Mr. Lai's Mobile Detailing Services Info",
+    "structureCreatedBy": "ai_assistant",
+    "automationCompatible": true,
+    "apiReady": true,
+    "tags": [
+      "mobile_detailing",
+      "luxury_automotive",
+      "los_angeles",
+      "premium_service",
+      "paint_protection",
+      "ceramic_coating",
+      "ppf",
+      "car_care"
+    ]
+  }
+}

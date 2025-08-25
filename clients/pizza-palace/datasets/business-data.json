@@ -1,0 +1,90 @@
+{
+  "businessInfo": {
+    "businessName": "Tony's Pizza Palace",
+    "brandTagline": "Authentic Italian Since 1987",
+    "businessId": "tonys-pizza-palace",
+    "lastUpdated": "2025-08-23T07:35:00.000Z",
+    "status": "active",
+    "businessType": "restaurant"
+  },
+  "contact": {
+    "primary": {
+      "phone": "(555) PIZZA-99",
+      "email": "orders@tonyspizzapalace.com",
+      "preferredMethod": "phone"
+    },
+    "social": {
+      "instagram": {
+        "handle": "@tonyspizzapalace",
+        "url": "https://instagram.com/tonyspizzapalace",
+        "active": true
+      }
+    },
+    "availability": {
+      "responseTime": "30_minutes",
+      "bookingAdvance": "same_day",
+      "emergencyService": false
+    }
+  },
+  "serviceArea": {
+    "type": "delivery_and_pickup",
+    "coverage": "greater_metro_area",
+    "deliveryRadius": 15,
+    "unit": "miles",
+    "notes": "Free delivery over $25"
+  },
+  "founder": {
+    "name": "Tony Marinelli",
+    "background": {
+      "previousIndustry": "family_restaurant_tradition",
+      "yearStarted": 1987,
+      "pivotReason": "third_generation_family_business",
+      "experience": "35+ years",
+      "specialty": "wood_fired_neapolitan_pizza"
+    },
+    "story": "Third-generation pizza maker bringing authentic Italian recipes from Naples to our local community with wood-fired ovens and fresh ingredients"
+  },
+  "services": {
+    "packages": [
+      {
+        "id": "classic_pizza",
+        "name": "Classic Pizzas",
+        "description": "Traditional wood-fired pizzas with fresh ingredients",
+        "basePrice": 18,
+        "duration": "20 minutes",
+        "includes": [
+          "Hand-stretched dough",
+          "San Marzano tomatoes",
+          "Fresh mozzarella",
+          "Wood-fired oven cooking"
+        ]
+      },
+      {
+        "id": "specialty_pizza",
+        "name": "Specialty Pizzas",
+        "description": "Gourmet pizzas with premium toppings",
+        "basePrice": 24,
+        "duration": "25 minutes",
+        "includes": [
+          "Premium ingredients",
+          "Artisanal cheeses",
+          "Imported meats",
+          "Fresh herbs"
+        ]
+      },
+      {
+        "id": "family_feast",
+        "name": "Family Feast",
+        "description": "Complete meal for 4-6 people",
+        "basePrice": 65,
+        "duration": "30 minutes",
+        "includes": [
+          "2 large pizzas",
+          "Caesar salad",
+          "Garlic bread",
+          "2L soda"
+        ]
+      }
+    ]
+  }
+}

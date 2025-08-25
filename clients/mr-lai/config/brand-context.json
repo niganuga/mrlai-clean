@@ -1,0 +1,22 @@
+{
+  "brandName": "Mr. Lai Mobile Car Wash & Detailing",
+  "voice": "Friendly, expert, local, clear CTA",
+  "tone": "Trustworthy, energetic, no jargon",
+  "services": [
+    "Exterior wash",
+    "Interior detail",
+    "Paint correction",
+    "Ceramic coating",
+    "Overspray removal",
+    "Boat detailing"
+  ],
+  "serviceAreas": ["Riverside", "IE", "Nearby suburbs"],
+  "offers": [
+    { "name": "First Wash Discount", "cta": "Book now", "value": "$25 off" },
+    { "name": "Ceramic Coating Special", "cta": "Get a quote", "value": "Seasonal pricing" }
+  ],
+  "proof": {
+    "reviews": 0,
+    "testimonials": []
+  }
+}

@@ -1,0 +1,9 @@
+# Where access/keys live; do not store secrets in git.
+# Example:
+# google_business: grant manager access to agency@you.com
+# search_console: owner or full user
+# analytics: viewer
+# sheets: drive folder link
+# email: convertkit account + API key location (Doppler/Vault)
+# payments: stripe account + restricted keys
+# scheduling: cal.com org + routing rules

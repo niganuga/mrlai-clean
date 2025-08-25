@@ -1,0 +1,342 @@
+{
+  "clientName": "mrlai-clean",
+  "businessType": "Mobile Car Detailing Services",
+  "analysisDate": "2025-08-24",
+  "primaryKeywords": [
+    {
+      "keyword": "mobile car detailing",
+      "searchVolume": "22,200",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "car detailing near me",
+      "searchVolume": "201,000",
+      "difficulty": "high",
+      "intent": "local",
+      "priority": "critical"
+    },
+    {
+      "keyword": "mobile auto detailing",
+      "searchVolume": "8,100",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "ceramic coating near me",
+      "searchVolume": "27,100",
+      "difficulty": "high",
+      "intent": "high-commercial",
+      "priority": "critical"
+    },
+    {
+      "keyword": "auto detailing services",
+      "searchVolume": "14,800",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "mobile car wash and detail",
+      "searchVolume": "6,600",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "medium"
+    }
+  ],
+  "localKeywords": [
+    {
+      "keyword": "mobile car detailing near me",
+      "searchVolume": "49,500",
+      "difficulty": "high",
+      "intent": "local-commercial",
+      "priority": "critical"
+    },
+    {
+      "keyword": "car wash near me",
+      "searchVolume": "301,000",
+      "difficulty": "very-high",
+      "intent": "local",
+      "priority": "high"
+    },
+    {
+      "keyword": "auto detailing near me",
+      "searchVolume": "40,500",
+      "difficulty": "high",
+      "intent": "local-commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "mobile detailing services near me",
+      "searchVolume": "12,100",
+      "difficulty": "medium",
+      "intent": "local-commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "car detailing services near me",
+      "searchVolume": "18,100",
+      "difficulty": "medium",
+      "intent": "local-commercial",
+      "priority": "high"
+    }
+  ],
+  "serviceSpecificKeywords": [
+    {
+      "keyword": "ceramic coating",
+      "searchVolume": "110,000",
+      "difficulty": "high",
+      "intent": "commercial",
+      "priority": "critical"
+    },
+    {
+      "keyword": "paint correction",
+      "searchVolume": "18,100",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "paint protection film",
+      "searchVolume": "22,200",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "interior detailing",
+      "searchVolume": "12,100",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "headlight restoration",
+      "searchVolume": "14,800",
+      "difficulty": "low",
+      "intent": "commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "waterless car wash",
+      "searchVolume": "9,900",
+      "difficulty": "low",
+      "intent": "commercial",
+      "priority": "medium"
+    }
+  ],
+  "longTailKeywords": [
+    {
+      "keyword": "mobile car detailing services in my area",
+      "searchVolume": "1,300",
+      "difficulty": "low",
+      "intent": "local-commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "best mobile car detailing service",
+      "searchVolume": "2,900",
+      "difficulty": "medium",
+      "intent": "commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "professional mobile car detailing",
+      "searchVolume": "1,600",
+      "difficulty": "low",
+      "intent": "commercial",
+      "priority": "medium"
+    },
+    {
+      "keyword": "mobile ceramic coating application",
+      "searchVolume": "880",
+      "difficulty": "low",
+      "intent": "high-commercial",
+      "priority": "high"
+    },
+    {
+      "keyword": "luxury car detailing at home",
+      "searchVolume": "720",
+      "difficulty": "low",
+      "intent": "high-commercial",
+      "priority": "high"
+    }
+  ],
+  "voiceSearchQueries": [
+    {
+      "query": "Hey Siri, find mobile car detailing near me",
+      "intent": "local-discovery",
+      "priority": "high"
+    },
+    {
+      "query": "Ok Google, what is the best car detailing service nearby",
+      "intent": "local-comparison",
+      "priority": "high"
+    },
+    {
+      "query": "Alexa, book mobile car wash and detail",
+      "intent": "booking",
+      "priority": "critical"
+    },
+    {
+      "query": "Hey Siri, how much does ceramic coating cost",
+      "intent": "pricing-research",
+      "priority": "medium"
+    },
+    {
+      "query": "Ok Google, mobile car detailing that comes to me",
+      "intent": "service-discovery",
+      "priority": "high"
+    },
+    {
+      "query": "Alexa, find professional car detailing services",
+      "intent": "service-quality",
+      "priority": "medium"
+    },
+    {
+      "query": "Hey Siri, waterless car wash service near me",
+      "intent": "eco-service",
+      "priority": "medium"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Spiffy",
+      "description": "National mobile car care franchise",
+      "strengths": ["Brand recognition", "Technology platform", "Wide coverage"],
+      "marketPosition": "Premium national brand"
+    },
+    {
+      "name": "Washos",
+      "description": "On-demand mobile car wash service",
+      "strengths": ["App-based booking", "Subscription model", "Urban focus"],
+      "marketPosition": "Tech-forward urban service"
+    },
+    {
+      "name": "Prime Time Mobile Detailing",
+      "description": "Regional mobile detailing service",
+      "strengths": ["Local expertise", "Quality service", "Competitive pricing"],
+      "marketPosition": "Regional quality leader"
+    },
+    {
+      "name": "Eco Mobile Detailing",
+      "description": "Eco-friendly mobile detailing",
+      "strengths": ["Environmental focus", "Waterless technology", "Sustainability"],
+      "marketPosition": "Eco-conscious premium"
+    },
+    {
+      "name": "The Detailing Mafia",
+      "description": "Professional detailing franchise",
+      "strengths": ["Franchise model", "Professional training", "Service quality"],
+      "marketPosition": "Professional franchise"
+    }
+  ],
+  "searchTrends": {
+    "mobileDetailing": {
+      "trend": "Growing",
+      "yearOverYear": "+15%",
+      "driverFactors": ["Convenience demand", "Busy lifestyles", "Premium service trend"]
+    },
+    "ceramicCoating": {
+      "trend": "Rapidly Growing",
+      "yearOverYear": "+25%",
+      "driverFactors": ["Paint protection awareness", "Premium service demand", "Long-term value"]
+    },
+    "localSearch": {
+      "trend": "Consistently High",
+      "nearMeQueries": "76% of voice searches",
+      "mobileSearches": "62% of automotive searches"
+    }
+  },
+  "marketInsights": {
+    "industrySize": "$85.19 billion (2025)",
+    "projectedGrowth": "CAGR 7.97% through 2034",
+    "mobileSegmentShare": "15-20% of total market",
+    "keyGrowthDrivers": [
+      "Convenience-focused consumer behavior",
+      "Premium service demand",
+      "Environmental consciousness",
+      "Technology integration",
+      "Subscription service models"
+    ]
+  },
+  "contentRecommendations": [
+    {
+      "type": "Service Pages",
+      "keywords": ["mobile car detailing", "ceramic coating near me", "paint protection film"],
+      "content": "Location-specific service pages with pricing and booking"
+    },
+    {
+      "type": "Blog Content",
+      "keywords": ["ceramic coating benefits", "paint correction guide", "car care tips"],
+      "content": "Educational content establishing expertise"
+    },
+    {
+      "type": "FAQ Section",
+      "keywords": ["mobile detailing cost", "ceramic coating duration", "paint protection benefits"],
+      "content": "Answer common voice search queries"
+    },
+    {
+      "type": "Local Landing Pages",
+      "keywords": ["car detailing [city name]", "mobile detailing [area]"],
+      "content": "Geo-specific pages for local SEO"
+    }
+  ],
+  "seoStrategy": {
+    "localSEO": {
+      "priority": "Critical",
+      "tactics": [
+        "Google Business Profile optimization",
+        "Local citation building",
+        "Geographic landing pages",
+        "Customer review management"
+      ]
+    },
+    "technicalSEO": {
+      "priority": "High",
+      "tactics": [
+        "Mobile-first optimization",
+        "Page speed optimization",
+        "Schema markup for services",
+        "Voice search optimization"
+      ]
+    },
+    "contentStrategy": {
+      "priority": "High",
+      "tactics": [
+        "Service-specific content hubs",
+        "Educational blog content",
+        "Video content for services",
+        "Customer testimonials and case studies"
+      ]
+    }
+  },
+  "opportunityKeywords": [
+    {
+      "keyword": "waterless car detailing",
+      "searchVolume": "2,400",
+      "difficulty": "low",
+      "opportunity": "High - eco-conscious trend, low competition"
+    },
+    {
+      "keyword": "luxury mobile car detailing",
+      "searchVolume": "880",
+      "difficulty": "low", 
+      "opportunity": "High - premium market, high value clients"
+    },
+    {
+      "keyword": "mobile paint correction service",
+      "searchVolume": "590",
+      "difficulty": "low",
+      "opportunity": "Medium - specialized service, good margins"
+    },
+    {
+      "keyword": "at home car detailing service",
+      "searchVolume": "1,900",
+      "difficulty": "low",
+      "opportunity": "High - convenience focus, growing trend"
+    }
+  ]
+}
