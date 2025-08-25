@@ -567,7 +567,22 @@
 
         .services-compact {
             display: grid;
-            gap: var(--space-3);
+            gap: var(--space-4);
+        }
+
+        .service-section {
+            margin-bottom: var(--space-8);
+        }
+
+        .service-section h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+            text-transform: none;
+            text-shadow: none;
+            text-align: left;
         }
 
         .service-row {
@@ -576,22 +591,60 @@
             border-radius: 8px;
             padding: var(--space-4);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(168, 230, 207, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .service-row:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(168, 230, 207, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 230, 207, 0.2);
+        }
+
+        .service-row:hover::before {
+            left: 100%;
         }
 
         .service-row.selected {
             border-color: var(--color-accent);
-            background: rgba(168, 230, 207, 0.2);
-            box-shadow: 0 4px 15px rgba(168, 230, 207, 0.3);
+            background: rgba(168, 230, 207, 0.15);
+            box-shadow: 0 8px 30px rgba(168, 230, 207, 0.3);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .service-row.selected .service-checkbox {
+            background: var(--color-accent);
+            color: var(--color-dark);
         }
 
         .service-row.popular {
             border-color: var(--color-accent);
+            position: relative;
+        }
+
+        .service-row.popular::after {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--color-accent);
+            color: var(--color-dark);
+            font-size: var(--text-xs);
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transform: rotate(3deg);
         }
 
         .service-row.luxury {
@@ -605,14 +658,47 @@
 
         .service-info {
             display: grid;
-            grid-template-columns: 1fr auto auto;
+            grid-template-columns: auto 1fr auto auto;
             gap: var(--space-4);
             align-items: center;
+        }
+
+        .service-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-primary);
+            border-radius: 4px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .service-checkbox.checked {
+            background: var(--color-primary);
+            color: var(--color-dark);
+        }
+
+        .service-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
         }
 
         .service-name {
             font-weight: 600;
             color: var(--color-light);
+            font-size: var(--text-base);
+        }
+
+        .service-description {
+            font-size: var(--text-sm);
+            color: var(--color-light);
+            opacity: 0.7;
+            line-height: 1.3;
         }
 
         .popular-badge {
@@ -631,6 +717,8 @@
             font-weight: bold;
             -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
             text-stroke: 1px rgba(0, 0, 0, 0.8);
+            font-size: var(--text-lg);
+            text-align: right;
         }
 
         .service-duration {
@@ -642,13 +730,18 @@
 
         @media (max-width: 48rem) {
             .service-info {
-                grid-template-columns: 1fr;
-                gap: var(--space-2);
-                text-align: center;
+                grid-template-columns: auto 1fr;
+                gap: var(--space-3);
             }
             
+            .service-price,
             .service-duration {
-                text-align: center;
+                text-align: left;
+                margin-top: var(--space-1);
+            }
+
+            .service-details {
+                grid-column: 1 / -1;
             }
         }
 
@@ -785,6 +878,44 @@
             text-transform: none;
         }
 
+        .pricing-breakdown {
+            background: rgba(13, 13, 13, 0.9);
+            border: 2px solid var(--color-dark);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+            border-radius: 8px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid rgba(168, 230, 207, 0.2);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+            padding-top: var(--space-3);
+            margin-top: var(--space-3);
+            border-top: 2px solid var(--color-primary);
+        }
+
+        .pricing-row.total {
+            font-weight: bold;
+            font-size: var(--text-lg);
+        }
+
+        .pricing-label {
+            color: var(--color-light);
+            font-size: var(--text-sm);
+        }
+
+        .pricing-value {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
         .deposit-amount {
             font-size: var(--text-3xl);
             font-weight: bold;
@@ -807,22 +938,63 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
-            min-width: 250px;
+            transition: all 0.3s ease;
+            min-width: 280px;
             min-height: 56px;
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stripe-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .stripe-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .stripe-btn:hover::before {
+            left: 100%;
         }
 
         .stripe-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .stripe-btn:disabled:hover::before {
+            left: -100%;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--color-light);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: var(--space-2);
+        }
+
+        .stripe-btn.loading .loading-spinner {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Footer */
@@ -850,28 +1022,244 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
+        /* Form Enhancement */
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #ff4757;
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.3);
+        }
+
+        .form-group.success input,
+        .form-group.success select,
+        .form-group.success textarea {
+            border-color: var(--color-primary);
+        }
+
+        .form-error {
+            color: #ff4757;
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+            display: none;
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .form-success {
+            color: var(--color-primary);
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+            display: none;
+        }
+
+        .form-group.success .form-success {
+            display: block;
+        }
+
+        /* Loading States */
+        .service-row.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .calendly-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: var(--color-primary);
+        }
+
+        .calendly-loading .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(168, 230, 207, 0.3);
+            border-top: 4px solid var(--color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: var(--space-4);
+        }
+
+        /* Enhanced Mobile Responsiveness */
         @media (max-width: 48rem) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
+                gap: var(--space-3);
             }
             
             .hero {
-                padding: var(--space-12) 0;
+                padding: var(--space-12) 0 var(--space-16) 0;
             }
             
-            .trust-points,
+            .hero h1 {
+                font-size: var(--text-4xl);
+            }
+            
+            .trust-points {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+            
+            .trust-point {
+                flex-direction: column;
+                text-align: center;
+                padding: var(--space-6);
+            }
+            
+            .trust-point .icon {
+                font-size: var(--text-4xl);
+                margin-bottom: var(--space-3);
+            }
+            
+            .trust-point h3,
+            .trust-point p {
+                text-align: center;
+            }
+            
             .booking-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-8);
             }
             
             .form-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
 
-            .service-card .price {
-                font-size: var(--text-2xl);
+            .stripe-btn {
+                min-width: 100%;
+                padding: var(--space-4) var(--space-6);
+                font-size: var(--text-base);
+            }
+
+            .pricing-breakdown {
+                font-size: var(--text-sm);
+            }
+            
+            .service-section h4 {
+                font-size: var(--text-base);
+                margin-bottom: var(--space-3);
+            }
+            
+            .service-description {
+                font-size: var(--text-xs);
+            }
+            
+            .calendly-placeholder {
+                padding: var(--space-6);
+                min-height: 300px;
+            }
+            
+            .calendly-placeholder h4 {
+                font-size: var(--text-lg);
+            }
+        }
+        
+        /* Extra Small Mobile Devices */
+        @media (max-width: 25rem) {
+            .container {
+                padding: 0 var(--space-3);
+            }
+            
+            .hero h1 {
+                font-size: var(--text-3xl);
+            }
+            
+            .service-row {
+                padding: var(--space-3);
+            }
+            
+            .service-info {
+                gap: var(--space-2);
+            }
+            
+            .service-price {
+                font-size: var(--text-base);
+            }
+            
+            .pricing-breakdown {
+                padding: var(--space-4);
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: var(--space-3);
+                font-size: var(--text-base);
+            }
+            
+            .stripe-btn {
+                padding: var(--space-3) var(--space-4);
+                min-height: 48px;
+            }
+        }
+        
+        /* Touch-Friendly Improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .service-row {
+                min-height: 60px;
+                padding: var(--space-4);
+            }
+            
+            .service-checkbox {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                min-height: 32px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                min-height: 48px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            .stripe-btn {
+                min-height: 48px;
+                font-size: 16px;
+            }
+            
+            /* Larger touch targets */
+            .service-row,
+            .form-group input,
+            .form-group select,
+            .form-group textarea,
+            .stripe-btn {
+                -webkit-tap-highlight-color: rgba(168, 230, 207, 0.3);
+            }
+        }
+        
+        /* Landscape Mobile */
+        @media (max-width: 64rem) and (orientation: landscape) {
+            .hero {
+                padding: var(--space-8) 0;
+            }
+            
+            .trust-points {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-row {
+                padding: var(--space-3);
+            }
+        }
+        
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .service-checkbox {
+                border-width: 1px;
+            }
+            
+            .service-row {
+                border-width: 2px;
             }
         }
 
@@ -890,6 +1278,78 @@
             font-weight: bold;
             margin: var(--space-2) 0;
             transform: rotate(-1deg);
+        }
+        
+        /* Accessibility Improvements */
+        .service-row:focus {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+        
+        .service-checkbox:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 1px;
+        }
+        
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .service-row {
+                border-width: 3px;
+            }
+            
+            .service-checkbox {
+                border-width: 2px;
+            }
+            
+            .pricing-row {
+                border-bottom-width: 2px;
+            }
+        }
+        
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .service-row,
+            .stripe-btn,
+            .service-checkbox,
+            .loading-spinner {
+                transition: none;
+                animation: none;
+            }
+            
+            .service-row::before,
+            .stripe-btn::before {
+                display: none;
+            }
+            
+            .service-row:hover,
+            .stripe-btn:hover {
+                transform: none;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .services-overview,
+            .pricing-breakdown {
+                background: white !important;
+                color: black !important;
+                border: 2px solid black !important;
+            }
+            
+            .service-row {
+                background: white !important;
+                border: 1px solid black !important;
+            }
+            
+            .stripe-btn,
+            .calendly-placeholder,
+            .loading-spinner {
+                display: none !important;
+            }
+            
+            .contact-form {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -911,142 +1371,235 @@
     <section class="hero">
         <div class="container">
             <h1>Book Your Service</h1>
-            <p>Your car's about to get the royal treatment. Pick your poison below.</p>
+            <p>Ready to make your car shine? Choose the service that's right for you.</p>
         </div>
     </section>
 
-    <!-- Trust Builder Section -->
-    <section class="trust-builder">
-        <div class="container">
-            <h2>🔒 Why Your Money's Safe With Us</h2>
-            
-            <div class="trust-points">
-                <div class="trust-point">
-                    <span class="icon">✅</span>
-                    <div>
-                        <h3>Small Deposit, Not Highway Robbery</h3>
-                        <p>We ask for $25-$75 upfront to keep the tire-kickers away. You pay the rest after your car looks better than the day you bought it.</p>
-                    </div>
-                </div>
-                
-                <div class="trust-point">
-                    <span class="icon">🛡️</span>
-                    <div>
-                        <h3>Secure Payment (Not Sketchy Venmo)</h3>
-                        <p>We use Stripe - the same system Netflix and Amazon trust. Your card info never touches our hands or servers.</p>
-                    </div>
-                </div>
-                
-                <div class="trust-point">
-                    <span class="icon">📞</span>
-                    <div>
-                        <h3>Real Human, Real Business</h3>
-                        <p>Text Mason at (323) 558-2652. He'll actually answer. Licensed, insured, and won't disappear after taking your money.</p>
-                    </div>
-                </div>
-                
-                <div class="trust-point">
-                    <span class="icon">📅</span>
-                    <div>
-                        <h3>Cancel Without Drama</h3>
-                        <p>Life happens. 24-hour notice gets you a full refund. We're not monsters.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="red-flags">
-                <h3 style="text-align: center;">🛡️ Our Guarantees</h3>
-                <div class="guarantees-grid">
-                    <div class="dos-column">
-                        <h4>✅ What We Do</h4>
-                        <p>Small deposit, see results first</p>
-                        <p>Mason answers: (323) 558-2652</p>
-                        <p>Real prices for real work</p>
-                        <p>No pressure, we'll be here</p>
-                    </div>
-                    <div class="donts-column">
-                        <h4>❌ What Others Do</h4>
-                        <p>"Pay everything now, trust us"</p>
-                        <p>Burner phones and P.O. boxes</p>
-                        <p>"$20 for a full detail!"</p>
-                        <p>"Book now or lose this deal"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Booking Section -->
     <section class="booking-section">
         <div class="container">
             <h2>Pick Your Date</h2>
             
+            <!-- Progressive Enhancement: Works without JavaScript -->
+            <form id="service-selection-form" method="post" action="#booking-form" style="display: none;">
+                <fieldset>
+                    <legend>Select Services (No-JS Fallback)</legend>
+                    <input type="radio" id="basic-fallback" name="coreService" value="basic">
+                    <label for="basic-fallback">Basic Wash - $60 (Deposit: $25)</label>
+                    <input type="radio" id="premium-fallback" name="coreService" value="premium">
+                    <label for="premium-fallback">Premium Detail - $150 (Deposit: $50)</label>
+                    <input type="radio" id="luxury-fallback" name="coreService" value="luxury">
+                    <label for="luxury-fallback">Luxury Treatment - $300 (Deposit: $75)</label>
+                    <br><br>
+                    <input type="checkbox" id="ceramic-fallback" name="addons" value="ceramic">
+                    <label for="ceramic-fallback">Ceramic Coating - $500-1500 (Deposit: $100)</label>
+                    <input type="checkbox" id="ppf-fallback" name="addons" value="ppf">
+                    <label for="ppf-fallback">Paint Protection Film - $800-3000 (Deposit: $200)</label>
+                    <br>
+                    <button type="submit">Continue to Booking Form</button>
+                </fieldset>
+            </form>
+            
             <div class="services-overview">
-                <h3>All Services Available</h3>
+                <h3>🚗 Pick Your Service Level</h3>
                 <div class="services-compact">
-                    <div class="service-row" data-service="basic" data-price="50" data-deposit="25">
-                        <div class="service-info">
-                            <span class="service-name">Basic Wash</span>
-                            <span class="service-price">$50</span>
-                            <span class="service-duration">1hr</span>
+                    <!-- Core Services -->
+                    <div class="service-section">
+                        <h4>Core Detailing Services</h4>
+                        
+                        <div class="service-row" data-service="basic" data-price="60" data-deposit="25" data-type="core">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="basic">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Basic Wash</span>
+                                    <span class="service-description">Exterior wash, tire cleaning, windows, basic interior vacuum</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$60</span>
+                                    <span class="service-duration">1hr</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-row popular" data-service="premium" data-price="150" data-deposit="50" data-type="core">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="premium">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Premium Detail</span>
+                                    <span class="service-description">Complete detail with clay bar, light paint correction, wax protection</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$150</span>
+                                    <span class="service-duration">3hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-row luxury" data-service="luxury" data-price="300" data-deposit="75" data-type="core">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="luxury">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Luxury Treatment</span>
+                                    <span class="service-description">Full paint correction, premium wax, complete interior restoration</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$300</span>
+                                    <span class="service-duration">5hrs</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="service-row popular" data-service="premium" data-price="150" data-deposit="50">
-                        <div class="service-info">
-                            <span class="service-name">Premium Detail <span class="popular-badge">POPULAR</span></span>
-                            <span class="service-price">$150</span>
-                            <span class="service-duration">3hrs</span>
+
+                    <!-- Premium Add-ons -->
+                    <div class="service-section">
+                        <h4>Premium Protection Add-ons</h4>
+                        
+                        <div class="service-row addon" data-service="ceramic" data-price-min="500" data-price-max="1500" data-deposit="100" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="ceramic">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Ceramic Coating</span>
+                                    <span class="service-description">Long-lasting protection with hydrophobic properties, 2-5 year warranty</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$500-1500</span>
+                                    <span class="service-duration">8hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-row addon" data-service="ppf" data-price-min="800" data-price-max="3000" data-deposit="200" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="ppf">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Paint Protection Film</span>
+                                    <span class="service-description">Invisible shield against rock chips, scratches, and UV damage</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$800-3000</span>
+                                    <span class="service-duration">10hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-row addon" data-service="tinting" data-price-min="200" data-price-max="600" data-deposit="50" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="tinting">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Window Tinting</span>
+                                    <span class="service-description">Privacy, UV protection, and heat reduction with premium films</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">$200-600</span>
+                                    <span class="service-duration">3hrs</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="service-row luxury" data-service="luxury" data-price="300" data-deposit="75">
-                        <div class="service-info">
-                            <span class="service-name">Luxury Treatment</span>
-                            <span class="service-price">$300</span>
-                            <span class="service-duration">5hrs</span>
+
+                    <!-- Additional Services -->
+                    <div class="service-section">
+                        <h4>Additional Services</h4>
+                        
+                        <div class="service-row addon" data-service="pet-hair" data-price="25" data-deposit="0" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="pet-hair">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Pet Hair Removal</span>
+                                    <span class="service-description">Deep cleaning for pet hair and odor elimination</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">+$25</span>
+                                    <span class="service-duration">+30min</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="service-row addon" data-service="ceramic" data-price="500-1500" data-deposit="100">
-                        <div class="service-info">
-                            <span class="service-name">Ceramic Coating</span>
-                            <span class="service-price">$500-1500</span>
-                            <span class="service-duration">8hrs</span>
+                        
+                        <div class="service-row addon" data-service="stain-treatment" data-price="35" data-deposit="0" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="stain-treatment">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Stain Treatment</span>
+                                    <span class="service-description">Specialized cleaning for tough stains and spills</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">+$35</span>
+                                    <span class="service-duration">+45min</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="service-row addon" data-service="ppf" data-price="800-3000" data-deposit="200">
-                        <div class="service-info">
-                            <span class="service-name">Paint Protection Film</span>
-                            <span class="service-price">$800-3000</span>
-                            <span class="service-duration">10hrs</span>
-                        </div>
-                    </div>
-                    
-                    <div class="service-row addon" data-service="tinting" data-price="200-600" data-deposit="50">
-                        <div class="service-info">
-                            <span class="service-name">Window Tinting</span>
-                            <span class="service-price">$200-600</span>
-                            <span class="service-duration">3hrs</span>
+                        
+                        <div class="service-row addon" data-service="engine-bay" data-price="50" data-deposit="0" data-type="addon">
+                            <div class="service-info">
+                                <div class="service-checkbox" data-service="engine-bay">
+                                    <span class="checkmark">✓</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-name">Engine Bay Detailing</span>
+                                    <span class="service-description">Professional engine compartment cleaning and dressing</span>
+                                </div>
+                                <div>
+                                    <span class="service-price">+$50</span>
+                                    <span class="service-duration">+1hr</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="booking-grid">
-                <!-- Calendar Integration -->
+                <!-- Calendar Integration with Fallback -->
                 <div class="calendar-section" style="grid-column: 1 / -1;">
                     <h3>When's Your Car's Spa Day?</h3>
+                    
+                    <!-- No-JS Fallback -->
+                    <noscript>
+                        <div class="calendar-fallback" style="
+                            background: rgba(168, 230, 207, 0.1);
+                            border: 2px solid var(--color-primary);
+                            padding: var(--space-6);
+                            border-radius: 8px;
+                            text-align: center;
+                        ">
+                            <h4 style="color: var(--color-primary); margin-bottom: var(--space-4);">Schedule by Phone or Email</h4>
+                            <p style="margin-bottom: var(--space-4);">Our booking calendar requires JavaScript. Please contact us directly:</p>
+                            <div style="font-size: var(--text-lg); margin-bottom: var(--space-4);">
+                                <strong>Call:</strong> <a href="tel:323-558-2652" style="color: var(--color-primary);">(323) 558-2652</a><br>
+                                <strong>Email:</strong> <a href="mailto:mrlai.mcds@gmail.com" style="color: var(--color-primary);">mrlai.mcds@gmail.com</a>
+                            </div>
+                            <p style="font-size: var(--text-sm); color: var(--color-gray);">
+                                <strong>Available Hours:</strong><br>
+                                Monday-Saturday: 8am-6pm<br>
+                                Sunday: Closed
+                            </p>
+                        </div>
+                    </noscript>
+                    
                     <div id="calendly-container">
                         <div class="calendly-placeholder">
                             <div>
-                                <h4>📅 Pick Your Service Above, Then Schedule</h4>
-                                <p>Click any service to see available times</p>
-                                <p style="font-size: var(--text-sm); margin-top: var(--space-4);">
-                                    <strong>When We Work:</strong><br>
-                                    Mon-Sat: 8am-6pm<br>
-                                    Sunday: Netflix day
+                                <h4>📅 Select a Core Service First</h4>
+                                <p>Choose Basic Wash, Premium Detail, or Luxury Treatment to see available appointment times</p>
+                                <p style="font-size: var(--text-sm); margin-top: var(--space-4); opacity: 0.8;">
+                                    Add-on services can be selected after choosing your core service
                                 </p>
                             </div>
                         </div>
@@ -1061,43 +1614,89 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="customer-name">Full Name *</label>
-                            <input type="text" id="customer-name" name="customerName" required>
+                            <input type="text" id="customer-name" name="customerName" required 
+                                   placeholder="Your full name" 
+                                   autocomplete="name"
+                                   data-validate="name">
+                            <div class="form-error">Please enter your full name</div>
+                            <div class="form-success">✓ Looks good!</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="customer-phone">Phone Number *</label>
-                            <input type="tel" id="customer-phone" name="customerPhone" required>
+                            <input type="tel" id="customer-phone" name="customerPhone" required 
+                                   placeholder="(555) 123-4567" 
+                                   autocomplete="tel"
+                                   data-validate="phone">
+                            <div class="form-error">Please enter a valid phone number</div>
+                            <div class="form-success">✓ Valid phone number</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="customer-email">Email Address *</label>
-                            <input type="email" id="customer-email" name="customerEmail" required>
+                            <input type="email" id="customer-email" name="customerEmail" required 
+                                   placeholder="your@email.com" 
+                                   autocomplete="email"
+                                   data-validate="email">
+                            <div class="form-error">Please enter a valid email address</div>
+                            <div class="form-success">✓ Valid email</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="car-info">What Are We Pampering? *</label>
-                            <input type="text" id="car-info" name="carInfo" placeholder="2020 Honda Accord (or whatever you drive)" required>
+                            <input type="text" id="car-info" name="carInfo" 
+                                   placeholder="2020 Honda Accord (year, make, model)" 
+                                   required
+                                   data-validate="car">
+                            <div class="form-error">Please tell us about your vehicle</div>
+                            <div class="form-success">✓ Got it!</div>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="service-location">Where's This Happening? *</label>
-                        <input type="text" id="service-location" name="serviceLocation" placeholder="Your address or nearby area" required>
+                        <input type="text" id="service-location" name="serviceLocation" 
+                               placeholder="Your address or nearby area" 
+                               required
+                               autocomplete="address-line1"
+                               data-validate="location">
+                        <div class="form-error">Please provide your service location</div>
+                        <div class="form-success">✓ Location noted</div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="location-type">Location Type</label>
-                        <select id="location-type" name="locationType">
-                            <option value="driveway">Driveway</option>
-                            <option value="street">Street Parking</option>
-                            <option value="garage">Parking Garage</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="location-type">Location Type</label>
+                            <select id="location-type" name="locationType">
+                                <option value="">Select location type</option>
+                                <option value="driveway">Driveway</option>
+                                <option value="street">Street Parking</option>
+                                <option value="garage">Parking Garage</option>
+                                <option value="apartment">Apartment Complex</option>
+                                <option value="office">Office Building</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferred-time">Preferred Time of Day</label>
+                            <select id="preferred-time" name="preferredTime">
+                                <option value="">No preference</option>
+                                <option value="morning">Morning (8am-12pm)</option>
+                                <option value="afternoon">Afternoon (12pm-4pm)</option>
+                                <option value="evening">Evening (4pm-6pm)</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="special-requests">Anything Special About Your Ride?</label>
-                        <textarea id="special-requests" name="specialRequests" rows="3" placeholder="Sensitive areas, special products needed, or just say hi"></textarea>
+                        <textarea id="special-requests" name="specialRequests" rows="3" 
+                                  placeholder="Sensitive areas, special products needed, pets, allergies, or just say hi!"
+                                  maxlength="500"></textarea>
+                        <div style="font-size: var(--text-xs); color: var(--color-gray); margin-top: var(--space-1);">
+                            <span id="char-count">0</span>/500 characters
+                        </div>
                     </div>
                 </form>
             </div>
@@ -1106,19 +1705,95 @@
             <div class="payment-section">
                 <h3>4. Lock It In</h3>
                 
-                <div class="deposit-info">
+                <div class="pricing-breakdown" id="pricing-breakdown">
+                    <div class="pricing-row">
+                        <span class="pricing-label">Selected Services:</span>
+                        <span class="pricing-value" id="selected-services-count">0 services</span>
+                    </div>
+                    <div id="selected-services-list"></div>
+                    <div class="pricing-row total">
+                        <span class="pricing-label">Total Service Cost:</span>
+                        <span class="pricing-value" id="total-service-cost">$0</span>
+                    </div>
+                    <div class="pricing-row total">
+                        <span class="pricing-label">Deposit Required:</span>
+                        <span class="pricing-value" id="total-deposit-amount">$0</span>
+                    </div>
+                    <div class="pricing-row">
+                        <span class="pricing-label">Due After Completion:</span>
+                        <span class="pricing-value" id="balance-amount">$0</span>
+                    </div>
+                </div>
+                
+                <div class="deposit-info" style="display: none;">
                     <h4>You Picked: <span id="selected-service">Choose your service above</span></h4>
                     <div class="deposit-amount" id="deposit-amount">$-- to start</div>
-                    <p>Remaining $<span id="balance-amount">--</span> after we blow your mind</p>
+                    <p>Remaining $<span id="balance-amount-old">--</span> after we blow your mind</p>
                 </div>
                 
                 <button id="stripe-payment-btn" class="stripe-btn" disabled>
-                    🔒 Book It (Stripe Keeps It Safe)
+                    <div class="loading-spinner"></div>
+                    <span class="btn-text">🔒 Select Services to Continue</span>
                 </button>
+                
+                <!-- No-JS Fallback -->
+                <noscript>
+                    <div style="margin-top: var(--space-4); padding: var(--space-4); background: rgba(168, 230, 207, 0.1); border-radius: 8px; text-align: left;">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--space-2);">Manual Booking Process</h4>
+                        <p style="margin-bottom: var(--space-2); font-size: var(--text-sm);">Without JavaScript, please follow these steps:</p>
+                        <ol style="margin-left: var(--space-4); color: var(--color-light); font-size: var(--text-sm);">
+                            <li>Fill out the contact form above</li>
+                            <li>Call us at <strong>(323) 558-2652</strong></li>
+                            <li>Mention your preferred services and schedule</li>
+                            <li>We'll send a secure payment link via email</li>
+                        </ol>
+                    </div>
+                </noscript>
                 
                 <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-gray);">
                     Stripe handles payment (they're the pros). We never see your card details.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Builder Section -->
+    <section class="trust-builder">
+        <div class="container">
+            <h2>Here's Why You Can Book With Confidence</h2>
+            
+            <div class="trust-points">
+                <div class="trust-point">
+                    <span class="icon">✅</span>
+                    <div>
+                        <h3>Easy Booking, Small Deposit</h3>
+                        <p>We ask for a small deposit ($25-$75) to hold your spot. You'll pay the rest when we're done and you love the results.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h3>Secure Payment Processing</h3>
+                        <p>We use Stripe for secure payments. Your payment info is protected and never stored on our servers.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">📞</span>
+                    <div>
+                        <h3>Personal Service You Can Count On</h3>
+                        <p>Call or text Mason at (323) 558-2652. He responds personally to every message. We're licensed, insured, and here to stay.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">📅</span>
+                    <div>
+                        <h3>Flexible Cancellation Policy</h3>
+                        <p>Need to reschedule? Just give us 24 hours notice for a full refund.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1132,51 +1807,189 @@
         </div>
     </footer>
 
-    <!-- Load booking services -->
-    <script src="./services/calendly-service.js"></script>
-    <script src="./services/booking-manager.js"></script>
+    <!-- Progressive Enhancement: Hide fallback form when JS loads -->
+    <script>
+        // Hide no-JS fallback immediately when JS is available
+        document.getElementById('service-selection-form').style.display = 'none';
+    </script>
+    
+    <!-- Load booking services with error handling -->
+    <script src="./services/calendly-service.js" onerror="console.error('Failed to load calendly-service.js')"></script>
+    <script src="./services/booking-manager.js" onerror="console.error('Failed to load booking-manager.js')"></script>
     
     <script>
-        // Initialize professional booking system
+        let bookingManager;
+        
+        // Initialize enhanced booking system
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize booking manager
+            // Initialize booking manager with enhanced functionality
             bookingManager = new BookingManager();
             
             // Validate configuration
             const validation = bookingManager.validateConfiguration();
             if (!validation.valid) {
                 console.warn('Booking system configuration issues:', validation.issues);
+                // Show user-friendly warning
+                const warning = document.createElement('div');
+                warning.style.cssText = `
+                    position: fixed; top: 0; left: 0; right: 0; z-index: 10000;
+                    background: #ffa502; color: #000; padding: 10px; text-align: center;
+                    font-weight: bold; font-size: 14px;
+                `;
+                warning.textContent = 'Booking system in demo mode - some features may be limited';
+                document.body.appendChild(warning);
+                
+                // Auto-hide warning after 5 seconds
+                setTimeout(() => warning.remove(), 5000);
             }
             
-            console.log('✅ Professional booking system initialized');
+            console.log('✅ Enhanced booking system initialized');
+            console.log('🎆 Features: Multi-service selection, Real-time validation, Dynamic pricing');
+            
+            // Set up keyboard shortcuts for power users
+            document.addEventListener('keydown', (e) => {
+                // Ctrl/Cmd + R to reset booking
+                if ((e.ctrlKey || e.metaKey) && e.key === 'r' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    if (confirm('Reset all selections and start over?')) {
+                        bookingManager.reset();
+                    }
+                }
+            });
+            
+            // Add focus management for better accessibility
+            setupAccessibilityFeatures();
         });
         
-        // All booking functionality now handled by professional BookingManager class
+        /**
+         * Set up accessibility features
+         */
+        function setupAccessibilityFeatures() {
+            // Add keyboard navigation for service selection
+            document.querySelectorAll('.service-row').forEach((row, index) => {
+                row.setAttribute('tabindex', '0');
+                row.setAttribute('role', 'checkbox');
+                row.setAttribute('aria-label', `Service option: ${row.querySelector('.service-name')?.textContent}`);
+                
+                row.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        bookingManager.toggleService(row.dataset.service);
+                    }
+                    
+                    // Arrow key navigation
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const nextRow = document.querySelectorAll('.service-row')[index + 1];
+                        if (nextRow) nextRow.focus();
+                    }
+                    
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const prevRow = document.querySelectorAll('.service-row')[index - 1];
+                        if (prevRow) prevRow.focus();
+                    }
+                });
+            });
+            
+            // Announce selection changes to screen readers
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const target = mutation.target;
+                        if (target.classList.contains('service-row')) {
+                            const serviceName = target.querySelector('.service-name')?.textContent;
+                            const isSelected = target.classList.contains('selected');
+                            
+                            // Create announcement for screen readers
+                            const announcement = document.createElement('div');
+                            announcement.setAttribute('aria-live', 'polite');
+                            announcement.setAttribute('aria-atomic', 'true');
+                            announcement.style.position = 'absolute';
+                            announcement.style.left = '-10000px';
+                            announcement.textContent = `${serviceName} ${isSelected ? 'selected' : 'deselected'}`;
+                            
+                            document.body.appendChild(announcement);
+                            setTimeout(() => announcement.remove(), 1000);
+                        }
+                    }
+                });
+            });
+            
+            // Observe service row changes
+            document.querySelectorAll('.service-row').forEach(row => {
+                observer.observe(row, { attributes: true });
+            });
+        }
         
-        // Dropdown toggle functionality
-        function toggleDropdown(button) {
-            const dropdown = button.closest('.service-row').querySelector('.service-dropdown');
-            const isOpen = dropdown.classList.contains('open');
-            
-            // Close all dropdowns
-            document.querySelectorAll('.service-dropdown').forEach(d => d.classList.remove('open'));
-            document.querySelectorAll('.dropdown-toggle').forEach(b => b.classList.remove('active'));
-            
-            // Toggle current dropdown
-            if (!isOpen) {
-                dropdown.classList.add('open');
-                button.classList.add('active');
+        /**
+         * Global helper functions
+         */
+        
+        // Smooth scroll to section with offset for fixed header
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerHeight = 80; // Approximate header height
+                const targetPosition = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         }
-
-        // Form validation helpers
-        document.getElementById('customer-phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 10) {
-                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+        
+        // Show temporary notification
+        function showNotification(message, type = 'info', duration = 3000) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed; top: 20px; right: 20px; z-index: 10001;
+                padding: 15px 20px; border-radius: 8px; font-weight: 600;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                transform: translateX(400px); transition: transform 0.3s ease;
+                max-width: 300px; word-wrap: break-word;
+            `;
+            
+            // Set colors based on type
+            switch(type) {
+                case 'success':
+                    notification.style.background = '#00d668';
+                    notification.style.color = '#000';
+                    break;
+                case 'error':
+                    notification.style.background = '#ff4757';
+                    notification.style.color = '#fff';
+                    break;
+                case 'warning':
+                    notification.style.background = '#ffa502';
+                    notification.style.color = '#000';
+                    break;
+                default:
+                    notification.style.background = 'var(--color-primary)';
+                    notification.style.color = 'var(--color-dark)';
             }
-            e.target.value = value;
-        });
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Animate out and remove
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => notification.remove(), 300);
+            }, duration);
+        }
+        
+        // Export for debugging (development only)
+        if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+            window.bookingManager = bookingManager;
+            window.showNotification = showNotification;
+            console.log('🔧 Development tools available: window.bookingManager, window.showNotification');
+        }
     </script>
 
     <!-- React and Babel for component functionality -->
