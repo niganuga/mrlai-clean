@@ -1091,14 +1091,19 @@
 
             galleryGrid.innerHTML = data.map(item => `
                 <div class="gallery-item" onclick="openModal(${item.id})" data-service="${item.service}">
-                    ${item.video ? `
-                        <video class="gallery-media" muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                            <source src="${item.video}" type="video/mp4">
-                            <img src="${item.image}" alt="${item.title}" class="gallery-media">
-                        </video>
-                    ` : `
-                        <img src="${item.image}" alt="${item.title}" class="gallery-media">
-                    `}
+                    <div class="media-container" style="position: relative;">
+                        <img src="${item.image}" alt="${item.title}" class="gallery-media" 
+                             onerror="this.src='clients/mr-lai/assets/brand/generic-car-placeholder.jpg'" 
+                             loading="lazy">
+                        ${item.video ? `
+                            <div class="video-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                                 background: rgba(168, 230, 207, 0.9); border-radius: 50%; width: 60px; height: 60px; 
+                                 display: flex; align-items: center; justify-content: center; color: #1a1a1a; 
+                                 font-size: 20px; cursor: pointer; transition: all 0.3s ease;">
+                                <div class="play-button">▶</div>
+                            </div>
+                        ` : ''}
+                    </div>
                     <div class="gallery-info">
                         <div class="gallery-service">${item.serviceLabel}</div>
                         <h3 class="gallery-title">${item.title}</h3>
