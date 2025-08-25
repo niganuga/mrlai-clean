@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Book Service - Mr. Lai's Detailing | Your Car Will Thank You</title>
+    
+    <!-- SEO and Performance Optimizations -->
+    <meta name="description" content="Book detailing that makes your car shine like new. Small deposits, big results. Los Angeles mobile detailing done right.">
+    <meta name="keywords" content="book car detailing, mobile car wash booking, car detailing appointment, ceramic coating booking, Los Angeles mobile detailing">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Book Your Service - Mr. Lai's Mobile Car Detailing">
+    <meta property="og:description" content="Your car deserves better than a gas station wash. Book detailing that delivers results you'll actually notice.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/brand/mr-lai-primary-logo.png">
+    <meta property="og:url" content="https://mrlaidetailing.com/booking">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Your Service - Mr. Lai's Mobile Car Detailing">
+    <meta name="twitter:description" content="Mobile detailing that shows up and shows out. Your car will thank you.">
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://js.stripe.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/brand/mr-lai-primary-logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#A8E6CF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mr. Lai's Booking">
+    <link rel="apple-touch-icon" href="../clients/mr-lai/assets/brand/mr-lai-primary-logo.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Los Angeles">
+    <meta name="geo.position" content="34.0522;-118.2437">
+    <meta name="ICBM" content="34.0522, -118.2437">
+    <meta name="author" content="Mr. Lai's Mobile Car Detailing">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mrlaidetailing.com/booking">
+    
+    <!-- Structured Data for Booking Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Mobile Car Detailing Booking",
+        "description": "Professional mobile car detailing services with secure online booking. Choose from Basic Wash, Premium Detail, or Luxury Detail packages.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Mr. Lai's Mobile Car Detailing Services",
+            "telephone": "323-558-2652",
+            "email": "mrlai.mcds@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Los Angeles",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+            }
+        },
+        "serviceType": "Mobile Car Detailing",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "34.0522",
+                "longitude": "-118.2437"
+            },
+            "geoRadius": "80467"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Basic Wash",
+                "price": "60",
+                "priceCurrency": "USD",
+                "description": "Exterior wash, tire cleaning, windows, basic interior vacuum",
+                "availability": "InStock"
+            },
+            {
+                "@type": "Offer", 
+                "name": "Premium Detail",
+                "price": "150",
+                "priceCurrency": "USD",
+                "description": "Complete detail with clay bar, light paint correction, wax",
+                "availability": "InStock"
+            },
+            {
+                "@type": "Offer",
+                "name": "Luxury Detail", 
+                "price": "300",
+                "priceCurrency": "USD",
+                "description": "Full paint correction, ceramic coating, complete restoration",
+                "availability": "InStock"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        /* MODERN MOBILE-FIRST RESPONSIVE RESET (2025) */
+        :root {
+            /* Design System Colors */
+            --color-primary: #A8E6CF;       /* Mint Green */
+            --color-secondary: #F8BBD9;     /* Pastel Pink */
+            --color-accent: #FFD700;        /* Gold */
+            --color-dark: #0D0D0D;          /* Deep Black */
+            --color-light: #FFFFFF;         /* Pure White */
+            --color-neutral: #1A1A1A;       /* Charcoal */
+            --color-gray: #666666;          /* Medium Gray */
+            
+            /* Spacing Scale (Mobile-First) */
+            --space-1: 0.25rem;    /* 4px */
+            --space-2: 0.5rem;     /* 8px */
+            --space-3: 0.75rem;    /* 12px */
+            --space-4: 1rem;       /* 16px */
+            --space-5: 1.25rem;    /* 20px */
+            --space-6: 1.5rem;     /* 24px */
+            --space-8: 2rem;       /* 32px */
+            --space-10: 2.5rem;    /* 40px */
+            --space-12: 3rem;      /* 48px */
+            --space-16: 4rem;      /* 64px */
+            --space-20: 5rem;      /* 80px */
+            --space-24: 6rem;      /* 96px */
+            
+            /* Fluid Typography Scale */
+            --text-xs: clamp(0.75rem, 2vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 2.5vw, 1rem);
+            --text-base: clamp(1rem, 3vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 4vw, 1.5rem);
+            --text-2xl: clamp(1.5rem, 5vw, 2rem);
+            --text-3xl: clamp(2rem, 6vw, 3rem);
+            --text-4xl: clamp(2.5rem, 7vw, 4rem);
+            --text-5xl: clamp(3rem, 8vw, 5rem);
+            --text-6xl: clamp(3.5rem, 10vw, 6rem);
+            
+            /* Container Widths */
+            --container-xs: 20rem;     /* 320px */
+            --container-sm: 24rem;     /* 384px */
+            --container-md: 28rem;     /* 448px */
+            --container-lg: 32rem;     /* 512px */
+            --container-xl: 48rem;     /* 768px */
+            --container-2xl: 64rem;    /* 1024px */
+            --container-3xl: 80rem;    /* 1280px */
+            --container-max: 90rem;    /* 1440px */
+            
+            /* Breakpoints */
+            --bp-sm: 24rem;    /* 384px */
+            --bp-md: 28rem;    /* 448px */
+            --bp-lg: 32rem;    /* 512px */
+            --bp-xl: 48rem;    /* 768px */
+            --bp-2xl: 64rem;   /* 1024px */
+            --bp-3xl: 80rem;   /* 1280px */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 100%; /* Respects user preferences */
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--color-light);
+            background-color: var(--color-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-display: swap;
+        }
+        
+        /* Custom Font Loading */
+        @font-face {
+            font-family: 'Gasoek One';
+            src: url('../assets/fonts/gasoek_one_regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Mansalva';
+            src: url('../assets/fonts/mansalva_regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Monsie';
+            src: url('../assets/fonts/monsie_regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('../assets/fonts/inter_regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Utility Classes for Consistent Layout */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        
+        @media (min-width: 48rem) {
+            .container {
+                padding: 0 var(--space-6);
+            }
+        }
+        
+        @media (min-width: 80rem) {
+            .container {
+                padding: 0 var(--space-8);
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gasoek One', sans-serif;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+            color: var(--color-primary);
+            text-shadow: 4px 4px 0px var(--color-secondary), 
+                         -2px -2px 0px var(--color-secondary),
+                         2px -2px 0px var(--color-secondary),
+                         -2px 2px 0px var(--color-secondary),
+                         2px 2px 0px var(--color-secondary);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        h1 {
+            font-size: var(--text-5xl);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: var(--text-4xl);
+        }
+        
+        h3 {
+            font-size: var(--text-3xl);
+        }
+        
+        h4 {
+            font-size: var(--text-2xl);
+        }
+        
+        p {
+            font-size: var(--text-base);
+            margin-bottom: var(--space-4);
+            max-width: 65ch;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(168, 230, 207, 0.1);
+            padding: var(--space-4) 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Gasoek One', sans-serif;
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            text-decoration: none;
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 0px var(--color-secondary), 1px 1px 0px var(--color-secondary), 3px 3px 0px rgba(248, 187, 217, 0.6);
+        }
+
+        /* Header - Booking Page Specific */
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: var(--space-6) 0;
+            margin-top: 0;
+            border-bottom: 4px solid var(--color-dark);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+
+        .logo {
+            font-family: 'Gasoek One', sans-serif;
+            font-size: var(--text-2xl);
+            font-weight: normal;
+            color: var(--color-dark);
+            text-decoration: none;
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            background: var(--color-dark);
+            color: var(--color-light);
+            padding: var(--space-3) var(--space-6);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            font-size: var(--text-base);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-dark), var(--color-neutral));
+            padding: var(--space-20) 0;
+            text-align: center;
+            border-bottom: 4px solid var(--color-primary);
+        }
+
+        .hero h1 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-6);
+        }
+
+        .hero p {
+            font-size: var(--text-lg);
+            color: var(--color-light);
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Trust Builder Section */
+        .trust-builder {
+            background: var(--color-neutral);
+            padding: var(--space-20) 0;
+            border-bottom: 4px solid var(--color-primary);
+        }
+
+        .trust-builder h2 {
+            margin-bottom: var(--space-12);
+        }
+
+        .trust-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .trust-point {
+            background: rgba(168, 230, 207, 0.1);
+            border: 3px solid var(--color-primary);
+            padding: var(--space-8);
+            border-radius: 12px;
+            display: flex;
+            gap: var(--space-6);
+            transition: all 0.3s ease;
+        }
+
+        .trust-point:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(168, 230, 207, 0.2);
+        }
+
+        .trust-point .icon {
+            font-size: var(--text-3xl);
+            flex-shrink: 0;
+        }
+
+        .trust-point h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-3);
+            text-transform: none;
+            text-align: left;
+            text-shadow: none;
+            color: var(--color-primary);
+        }
+
+        .trust-point p {
+            color: var(--color-light);
+            opacity: 0.9;
+            text-align: left;
+            font-size: var(--text-sm);
+        }
+
+        /* Red Flags Warning */
+        .red-flags {
+            background: rgba(255, 193, 7, 0.1);
+            border: 3px solid var(--color-accent);
+            padding: var(--space-8);
+            margin-top: var(--space-12);
+            border-radius: 12px;
+        }
+
+        .red-flags h3 {
+            color: var(--color-accent);
+            margin-bottom: var(--space-8);
+            text-transform: none;
+            text-shadow: none;
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+            margin-top: var(--space-6);
+        }
+
+        @media (max-width: 48rem) {
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+        }
+
+        .dos-column,
+        .donts-column {
+            text-align: left;
+        }
+
+        .dos-column h4,
+        .donts-column h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            text-transform: none;
+            text-shadow: none;
+            -webkit-text-stroke: none;
+            text-stroke: none;
+        }
+
+        .dos-column h4 {
+            color: var(--color-primary);
+        }
+
+        .donts-column h4 {
+            color: var(--color-secondary);
+        }
+
+        .dos-column p,
+        .donts-column p {
+            margin-bottom: var(--space-3);
+            color: var(--color-light);
+            opacity: 0.9;
+            line-height: 1.6;
+            text-align: left;
+            max-width: none;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            background: var(--color-dark);
+            padding: var(--space-20) 0;
+        }
+
+        .booking-section h2 {
+            margin-bottom: var(--space-12);
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+
+        @media (min-width: 64rem) {
+            .booking-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Services Overview */
+        .services-overview {
+            background: rgba(168, 230, 207, 0.1);
+            border: 3px solid var(--color-primary);
+            padding: var(--space-8);
+            border-radius: 12px;
+            margin-bottom: var(--space-12);
+        }
+
+        .services-overview h3 {
+            text-transform: none;
+            text-align: center;
+            text-shadow: none;
+            margin-bottom: var(--space-8);
+            color: var(--color-primary);
+        }
+
+        .services-compact {
+            display: grid;
+            gap: var(--space-3);
+        }
+
+        .service-row {
+            background: rgba(13, 13, 13, 0.8);
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            padding: var(--space-4);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .service-row:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(168, 230, 207, 0.2);
+        }
+
+        .service-row.selected {
+            border-color: var(--color-accent);
+            background: rgba(168, 230, 207, 0.2);
+            box-shadow: 0 4px 15px rgba(168, 230, 207, 0.3);
+        }
+
+        .service-row.popular {
+            border-color: var(--color-accent);
+        }
+
+        .service-row.luxury {
+            border-color: var(--color-secondary);
+        }
+
+        .service-row.addon {
+            border-color: var(--color-gray);
+            opacity: 0.9;
+        }
+
+        .service-info {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--space-4);
+            align-items: center;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--color-light);
+        }
+
+        .popular-badge {
+            font-size: var(--text-xs);
+            background: var(--color-accent);
+            color: var(--color-dark);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: var(--space-2);
+        }
+
+        .service-price {
+            font-family: 'Gasoek One', sans-serif;
+            color: var(--color-accent);
+            font-weight: bold;
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-stroke: 1px rgba(0, 0, 0, 0.8);
+        }
+
+        .service-duration {
+            font-size: var(--text-sm);
+            color: var(--color-light);
+            opacity: 0.7;
+            text-align: right;
+        }
+
+        @media (max-width: 48rem) {
+            .service-info {
+                grid-template-columns: 1fr;
+                gap: var(--space-2);
+                text-align: center;
+            }
+            
+            .service-duration {
+                text-align: center;
+            }
+        }
+
+        /* Calendar Integration */
+        .calendar-section {
+            background: rgba(248, 187, 217, 0.1);
+            border: 3px solid var(--color-secondary);
+            padding: var(--space-8);
+            border-radius: 12px;
+        }
+
+        .calendar-section h3 {
+            text-transform: none;
+            text-align: left;
+            text-shadow: none;
+            color: var(--color-secondary);
+            margin-bottom: var(--space-8);
+        }
+
+        .calendly-placeholder {
+            min-height: 400px;
+            background: rgba(13, 13, 13, 0.5);
+            border: 2px dashed var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--space-8);
+            border-radius: 12px;
+        }
+
+        .calendly-placeholder div {
+            color: var(--color-light);
+            opacity: 0.8;
+        }
+
+        .calendly-placeholder h4 {
+            margin-bottom: var(--space-4);
+            color: var(--color-secondary);
+            text-shadow: none;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 215, 0, 0.1);
+            border: 3px solid var(--color-accent);
+            padding: var(--space-8);
+            margin-top: var(--space-12);
+            border-radius: 12px;
+        }
+
+        .contact-form h3 {
+            text-transform: none;
+            text-align: left;
+            text-shadow: none;
+            color: var(--color-accent);
+            margin-bottom: var(--space-8);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        @media (min-width: 48rem) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+            color: var(--color-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-4);
+            border: 2px solid var(--color-accent);
+            background: rgba(13, 13, 13, 0.8);
+            color: var(--color-light);
+            font-size: var(--text-base);
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(168, 230, 207, 0.3);
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border: 3px solid var(--color-dark);
+            padding: var(--space-8);
+            margin-top: var(--space-12);
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .payment-section h3 {
+            color: var(--color-dark);
+            text-shadow: none;
+            margin-bottom: var(--space-6);
+        }
+
+        .deposit-info {
+            background: rgba(13, 13, 13, 0.9);
+            border: 2px solid var(--color-dark);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .deposit-info h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-3);
+            text-shadow: none;
+            text-transform: none;
+        }
+
+        .deposit-amount {
+            font-size: var(--text-3xl);
+            font-weight: bold;
+            color: var(--color-accent);
+            margin-bottom: var(--space-3);
+            font-family: 'Gasoek One', sans-serif;
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            text-stroke: 1px rgba(0, 0, 0, 0.8);
+        }
+
+        .stripe-btn {
+            background: var(--color-dark);
+            color: var(--color-light);
+            padding: var(--space-5) var(--space-10);
+            border: none;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            min-width: 250px;
+            min-height: 56px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stripe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stripe-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-neutral);
+            border-top: 4px solid var(--color-primary);
+            padding: var(--space-12) 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: var(--space-3);
+            color: var(--color-light);
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 48rem) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: var(--space-12) 0;
+            }
+            
+            .trust-points,
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card .price {
+                font-size: var(--text-2xl);
+            }
+        }
+
+        /* Additional Brutalist Elements */
+        .section-divider {
+            height: 4px;
+            background: var(--color-primary);
+            margin: var(--space-12) 0;
+        }
+
+        .cta-emphasis {
+            background: var(--color-accent);
+            color: var(--color-dark);
+            padding: var(--space-2) var(--space-4);
+            display: inline-block;
+            font-weight: bold;
+            margin: var(--space-2) 0;
+            transform: rotate(-1deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">MR. LAI'S</a>
+                <a href="index.html" class="back-btn">← Back Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Book Your Service</h1>
+            <p>Your car's about to get the royal treatment. Pick your poison below.</p>
+        </div>
+    </section>
+
+    <!-- Trust Builder Section -->
+    <section class="trust-builder">
+        <div class="container">
+            <h2>🔒 Why Your Money's Safe With Us</h2>
+            
+            <div class="trust-points">
+                <div class="trust-point">
+                    <span class="icon">✅</span>
+                    <div>
+                        <h3>Small Deposit, Not Highway Robbery</h3>
+                        <p>We ask for $25-$75 upfront to keep the tire-kickers away. You pay the rest after your car looks better than the day you bought it.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">🛡️</span>
+                    <div>
+                        <h3>Secure Payment (Not Sketchy Venmo)</h3>
+                        <p>We use Stripe - the same system Netflix and Amazon trust. Your card info never touches our hands or servers.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">📞</span>
+                    <div>
+                        <h3>Real Human, Real Business</h3>
+                        <p>Text Mason at (323) 558-2652. He'll actually answer. Licensed, insured, and won't disappear after taking your money.</p>
+                    </div>
+                </div>
+                
+                <div class="trust-point">
+                    <span class="icon">📅</span>
+                    <div>
+                        <h3>Cancel Without Drama</h3>
+                        <p>Life happens. 24-hour notice gets you a full refund. We're not monsters.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="red-flags">
+                <h3 style="text-align: center;">🛡️ Our Guarantees</h3>
+                <div class="guarantees-grid">
+                    <div class="dos-column">
+                        <h4>✅ What We Do</h4>
+                        <p>Small deposit, see results first</p>
+                        <p>Mason answers: (323) 558-2652</p>
+                        <p>Real prices for real work</p>
+                        <p>No pressure, we'll be here</p>
+                    </div>
+                    <div class="donts-column">
+                        <h4>❌ What Others Do</h4>
+                        <p>"Pay everything now, trust us"</p>
+                        <p>Burner phones and P.O. boxes</p>
+                        <p>"$20 for a full detail!"</p>
+                        <p>"Book now or lose this deal"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <h2>Pick Your Date</h2>
+            
+            <div class="services-overview">
+                <h3>All Services Available</h3>
+                <div class="services-compact">
+                    <div class="service-row" data-service="basic" data-price="50" data-deposit="25">
+                        <div class="service-info">
+                            <span class="service-name">Basic Wash</span>
+                            <span class="service-price">$50</span>
+                            <span class="service-duration">1hr</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row popular" data-service="premium" data-price="150" data-deposit="50">
+                        <div class="service-info">
+                            <span class="service-name">Premium Detail <span class="popular-badge">POPULAR</span></span>
+                            <span class="service-price">$150</span>
+                            <span class="service-duration">3hrs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row luxury" data-service="luxury" data-price="300" data-deposit="75">
+                        <div class="service-info">
+                            <span class="service-name">Luxury Treatment</span>
+                            <span class="service-price">$300</span>
+                            <span class="service-duration">5hrs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row addon" data-service="ceramic" data-price="500-1500" data-deposit="100">
+                        <div class="service-info">
+                            <span class="service-name">Ceramic Coating</span>
+                            <span class="service-price">$500-1500</span>
+                            <span class="service-duration">8hrs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row addon" data-service="ppf" data-price="800-3000" data-deposit="200">
+                        <div class="service-info">
+                            <span class="service-name">Paint Protection Film</span>
+                            <span class="service-price">$800-3000</span>
+                            <span class="service-duration">10hrs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row addon" data-service="tinting" data-price="200-600" data-deposit="50">
+                        <div class="service-info">
+                            <span class="service-name">Window Tinting</span>
+                            <span class="service-price">$200-600</span>
+                            <span class="service-duration">3hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-grid">
+                <!-- Calendar Integration -->
+                <div class="calendar-section" style="grid-column: 1 / -1;">
+                    <h3>When's Your Car's Spa Day?</h3>
+                    <div id="calendly-container">
+                        <div class="calendly-placeholder">
+                            <div>
+                                <h4>📅 Pick Your Service Above, Then Schedule</h4>
+                                <p>Click any service to see available times</p>
+                                <p style="font-size: var(--text-sm); margin-top: var(--space-4);">
+                                    <strong>When We Work:</strong><br>
+                                    Mon-Sat: 8am-6pm<br>
+                                    Sunday: Netflix day
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>3. Who's Getting the Good Stuff?</h3>
+                <form id="booking-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="customer-name">Full Name *</label>
+                            <input type="text" id="customer-name" name="customerName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customer-phone">Phone Number *</label>
+                            <input type="tel" id="customer-phone" name="customerPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customer-email">Email Address *</label>
+                            <input type="email" id="customer-email" name="customerEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="car-info">What Are We Pampering? *</label>
+                            <input type="text" id="car-info" name="carInfo" placeholder="2020 Honda Accord (or whatever you drive)" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-location">Where's This Happening? *</label>
+                        <input type="text" id="service-location" name="serviceLocation" placeholder="Your address or nearby area" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location-type">Location Type</label>
+                        <select id="location-type" name="locationType">
+                            <option value="driveway">Driveway</option>
+                            <option value="street">Street Parking</option>
+                            <option value="garage">Parking Garage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Anything Special About Your Ride?</label>
+                        <textarea id="special-requests" name="specialRequests" rows="3" placeholder="Sensitive areas, special products needed, or just say hi"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <h3>4. Lock It In</h3>
+                
+                <div class="deposit-info">
+                    <h4>You Picked: <span id="selected-service">Choose your service above</span></h4>
+                    <div class="deposit-amount" id="deposit-amount">$-- to start</div>
+                    <p>Remaining $<span id="balance-amount">--</span> after we blow your mind</p>
+                </div>
+                
+                <button id="stripe-payment-btn" class="stripe-btn" disabled>
+                    🔒 Book It (Stripe Keeps It Safe)
+                </button>
+                
+                <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-gray);">
+                    Stripe handles payment (they're the pros). We never see your card details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Mr. Lai's Mobile Car Wash & Detailing</strong></p>
+            <p>📞 (323) 558-2652 | ✉️ <a href="mailto:mrlai.mcds@gmail.com">mrlai.mcds@gmail.com</a></p>
+            <p>Licensed & Insured Mobile Detailing | Serving Los Angeles Area</p>
+        </div>
+    </footer>
+
+    <!-- Load booking services -->
+    <script src="./services/calendly-service.js"></script>
+    <script src="./services/booking-manager.js"></script>
+    
+    <script>
+        // Initialize professional booking system
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize booking manager
+            bookingManager = new BookingManager();
+            
+            // Validate configuration
+            const validation = bookingManager.validateConfiguration();
+            if (!validation.valid) {
+                console.warn('Booking system configuration issues:', validation.issues);
+            }
+            
+            console.log('✅ Professional booking system initialized');
+        });
+        
+        // All booking functionality now handled by professional BookingManager class
+        
+        // Dropdown toggle functionality
+        function toggleDropdown(button) {
+            const dropdown = button.closest('.service-row').querySelector('.service-dropdown');
+            const isOpen = dropdown.classList.contains('open');
+            
+            // Close all dropdowns
+            document.querySelectorAll('.service-dropdown').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.dropdown-toggle').forEach(b => b.classList.remove('active'));
+            
+            // Toggle current dropdown
+            if (!isOpen) {
+                dropdown.classList.add('open');
+                button.classList.add('active');
+            }
+        }
+
+        // Form validation helpers
+        document.getElementById('customer-phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 10) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            }
+            e.target.value = value;
+        });
+    </script>
+
+    <!-- React and Babel for component functionality -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Official Calendly Widget Script -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <!-- Enhanced Calendly Integration Notice -->
+    <script>
+        console.log('✅ Official Calendly script loaded');
+        console.log('📡 Event tracking via BookingManager.setupCalendlyEventHandlers()');
+        console.log('🎯 Advanced features: Auto-resize, Pre-fill, PostMessage API');
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

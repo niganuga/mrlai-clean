@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Calendly User Info</title>
+</head>
+<body>
+    <h2>Get Your Calendly User UUID</h2>
+    <button onclick="getCalendlyUserInfo()">Get User Info</button>
+    <div id="result"></div>
+
+    <script>
+        async function getCalendlyUserInfo() {
+            // First, get access token through OAuth flow
+            const clientId = 'jYOxmRmMj7j7UUnLgD7Ahwh2v4n_0RgTL1CsbIfMT-0';
+            const redirectUri = 'https://niganuga.github.io/claude-code-agi/mr-lai-website/oauth/callback';
+            
+            // Build authorization URL
+            const authUrl = `https://auth.calendly.com/oauth/authorize?` +
+                `client_id=${clientId}&` +
+                `response_type=code&` +
+                `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+                `scope=read`;
+            
+            document.getElementById('result').innerHTML = `
+                <p><strong>Step 1:</strong> Click this link to authorize the app:</p>
+                <a href="${authUrl}" target="_blank" style="background: #A8E6CF; color: black; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                    Authorize Calendly Access
+                </a>
+                <p><strong>Step 2:</strong> After authorization, you'll get redirected with a code. Come back here and we'll get your User UUID.</p>
+            `;
+        }
+
+        // If there's a code in the URL, extract user info
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            document.getElementById('result').innerHTML = `
+                <p><strong>Authorization Code Found:</strong> ${code}</p>
+                <p>Now we need to exchange this for an access token and get your User UUID.</p>
+                <p><strong>Your User UUID will be displayed here once we make the API call.</strong></p>
+            `;
+        }
+    </script>
+</body>
+</html>

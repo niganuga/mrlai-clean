@@ -1,0 +1,41 @@
+{
+  "name": "booking-automation-templates",
+  "version": "1.0.0",
+  "description": "Calendly + Stripe + n8n booking automation templates for service businesses",
+  "main": "index.js",
+  "scripts": {
+    "create-booking-plan": "node config/commands.js create-booking-plan",
+    "setup-client": "node config/commands.js setup-client",
+    "generate-n8n-workflows": "node config/commands.js generate-n8n-workflows",
+    "create-email-templates": "node config/commands.js create-email-templates",
+    "check-client-status": "node config/commands.js check-client-status",
+    "calculate-pricing": "node config/commands.js calculate-pricing",
+    "create-events": "node scripts/create-calendly-events.js",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-repo/booking-automation-templates.git"
+  },
+  "keywords": [
+    "calendly",
+    "stripe", 
+    "n8n",
+    "booking",
+    "automation",
+    "service-business",
+    "templates"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
